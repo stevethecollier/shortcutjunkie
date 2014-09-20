@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var api = require('./routes/api/index');
 
 var app = express();
 
@@ -30,6 +30,7 @@ var shortcut = db.model('shortcut', ShortcutSchema);
 
 
 app.use('/', routes);
+app.use('/api', api);
 app.use('/users', users);
 
 /// catch 404 and forward to error handler
