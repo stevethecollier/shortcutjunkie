@@ -28,10 +28,8 @@ var db = Mongoose.createConnection('localhost', 'mytestapp');
 var ShortcutSchema = require('./models/Shortcut.js').ShortcutSchema;
 var shortcut = db.model('shortcut', ShortcutSchema);
 
-
 app.use('/', routes);
 app.use('/api', api);
-app.use('/users', users);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
