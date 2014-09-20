@@ -1,4 +1,5 @@
 function ShortcutController($scope, $http, $timeout) {
+	console.log("Made it into the ShortcutController")
 	$scope.shortcuts = [];
 	$scope.newShortcut = {
 		application : "",
