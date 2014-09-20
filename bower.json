@@ -2,6 +2,7 @@
   "name": "apiliistit",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "~1.2.25"
+    "angular": "~1.2.25",
+    "angular-ui-router": "~0.2.11"
   }
 }
