@@ -28,6 +28,12 @@ var db = Mongoose.createConnection('localhost', 'mytestapp');
 var ShortcutSchema = require('./models/Shortcut.js').ShortcutSchema;
 var shortcut = db.model('shortcut', ShortcutSchema);
 
+var shortcuts = [
+    {
+        application : "OS X",
+        keyset : "ctrl + c",
+        description : "copy text"
+    }];
 
 app.use('/', routes);
 app.use('/users', users);
