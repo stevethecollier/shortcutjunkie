@@ -1,20 +1,19 @@
-angular.module("sj").controller("shortcutController", ['$scope', '$http', '$timeout',
+angular.module('sj').controller('shortcutController', ['$scope', '$http', '$timeout',
 	function ShortcutController($scope, $http, $timeout) {
-		console.log("Made it into the ShortcutController");
 		var shortcuts = [
 			{
-				application : "OS X",
-				operatingSystem : "OS X",
-				keyset : "ctrl + c",
-				description : "copy text"
+				application : 'OS X',
+				operatingSystem : 'OS X',
+				keyset : 'ctrl + c',
+				description : 'copy text'
 			}];
-		$scope.message = "This is what I wanted to see";
+		$scope.message = 'This is what I wanted to see';
 		$scope.shortcuts = shortcuts;
 		$scope.newShortcut = {
-			application : "",
-			operatingSystem : "",
-			keyset : "",
-			description : ""
+			application : '',
+			operatingSystem : '',
+			keyset : '',
+			description : ''
 		}; 
 
 		$scope.setShortcuts = function(shortcuts) {

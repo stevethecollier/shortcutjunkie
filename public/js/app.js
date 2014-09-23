@@ -1,13 +1,9 @@
-angular.module('sj', ["ngResource"]).
-    config(['$routeProvider', '$locationProvider',
-        function($routeProvider, $locationProvider){
-            $locationProvider.html5Mode(true);
-            $routeProvider
-                .when("/api/shortcuts", {
-                    templateUrl: "/api/partials/shortcutHome.html",
-                    controller: "ShortcutController"
+angular.module('sj', ['ui.router'])
+    .config(function($stateProvider, $urlRouterProvider){
+        $stateProvider
+            .state('shortcuts', {
+                url : "/shortcuts", 
+                templateUrl: "partials/shortcutHome.html"
             });
-        }
-    ]
+    }
 );
-console.log('angular app.js is getting called');
