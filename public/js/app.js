@@ -5,7 +5,8 @@ angular.module('sj', ['ui.router'])
 	        $stateProvider
 	            .state('shortcuts', {
 	                url : "/partials/shortcuts", 
-	                templateUrl: "/partials/shortcutHome.html"
+	                templateUrl: "/partials/shortcutHome.html",
+	                controller:"shortcutController"
 	            });
     }
 ]);

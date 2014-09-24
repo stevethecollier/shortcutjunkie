@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+.ui-view {
+	border-style: solid;
+	border-width: 1px;
+	padding : 5px;
+}

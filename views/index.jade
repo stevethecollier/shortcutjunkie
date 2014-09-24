@@ -3,10 +3,8 @@ extends layout
 block content
 	h1= title
 	p Welcome to #{title}
-
-	p(ng-controller="shortcutController") {{ message }}	
 	br
-	div(ui-view)
+	div.ui-view
 
 block extraScripts
 	script(type='text/javascript', src='/js/controllers/ShortcutController.js')

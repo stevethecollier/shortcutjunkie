@@ -1,9 +1,12 @@
+{{message}}
+<br></br>
 <div>
     <h3>These are all the shortcuts</h1>
-    {{message}}
-    <div ng-repeat='shortcut in {{shortcuts}}'>
-        application = {{shortcut.application}}
-        keyset = {{shortcut.keyset}}
-        description = {{shortcut.description}}
+    <div ng-repeat='shortcut in shortcuts'>
+    	<ul>
+	        <li>application = {{shortcut.application}}</li>
+	        <li>keyset = {{shortcut.keyset}}</li>
+	        <li>description = {{shortcut.description}}</li>
+	    </ul>
     </div>
 </div>

@@ -7,7 +7,7 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 				keyset : 'ctrl + c',
 				description : 'copy text'
 			}];
-		$scope.message = 'This is what I wanted to see';
+		$scope.message = 'Hello world! from angular';
 		$scope.shortcuts = shortcuts;
 		$scope.newShortcut = {
 			application : '',
