@@ -1,19 +1,18 @@
 angular.module('sj').controller('shortcutController', ['$scope', '$http', '$timeout',
 	function ShortcutController($scope, $http, $timeout) {
 		var shortcuts = [
-			{
-				application : 'OS X',
-				operatingSystem : 'OS X',
-				keyset : 'ctrl + c',
-				description : 'copy text'
-			},
-			{
-				application : 'Sublime',
-				operatingSystem : 'Windows',
-				keyset : 'ctrl + /',
-				description : 'Toggle comment'
-			}];
-		$scope.message = 'Hello world! from angular';
+		    {
+		        application : 'OS X',
+		        operatingSystem : 'OS X',
+		        keyset : 'ctrl + c',
+		        description : 'copy text'
+		    },
+		    {
+		        application : 'Sublime',
+		        operatingSystem : 'Windows',
+		        keyset : 'ctrl + /',
+		        description : 'Toggle comment'
+		    }];
 		$scope.shortcuts = shortcuts;
 		$scope.newShortcut = {
 			application : '',
