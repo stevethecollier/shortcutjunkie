@@ -1,19 +1,11 @@
 angular.module('sj').controller('shortcutController', ['$scope', '$http', '$timeout',
 	function ShortcutController($scope, $http, $timeout) {
-		var shortcuts = [
-		    {
-		        application : 'OS X',
-		        operatingSystem : 'OS X',
-		        keyset : 'ctrl + c',
-		        description : 'copy text'
-		    },
-		    {
-		        application : 'Sublime',
-		        operatingSystem : 'Windows',
-		        keyset : 'ctrl + /',
-		        description : 'Toggle comment'
-		    }];
-		$scope.shortcuts = shortcuts;
+
+		$http.get('/api/shortcuts').success(function(data, status, headers, config){
+			debugger;
+			$scope.shortcuts = data.shortcuts;
+		})
+
 		$scope.newShortcut = {
 			application : '',
 			operatingSystem : '',

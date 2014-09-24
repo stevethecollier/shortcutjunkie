@@ -42,9 +42,6 @@ var shortcuts = [
         description : 'Toggle comment'
     }];
 
-app.use('/partials', function(req, res){
-    res.render(req.path);
-});
 app.use('/', routes);
 app.use('/api', api);
 
