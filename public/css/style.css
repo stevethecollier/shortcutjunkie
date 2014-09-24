@@ -12,3 +12,9 @@ a {
 	border-width: 1px;
 	padding : 5px;
 }
+
+.shortcut{
+	border-style : dotted;
+	border-width: 1px;
+	padding : 5px;
+}
