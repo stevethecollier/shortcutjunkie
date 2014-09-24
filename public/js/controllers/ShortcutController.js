@@ -6,6 +6,12 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 				operatingSystem : 'OS X',
 				keyset : 'ctrl + c',
 				description : 'copy text'
+			},
+			{
+				application : 'Sublime',
+				operatingSystem : 'Windows',
+				keyset : 'ctrl + /',
+				description : 'Toggle comment'
 			}];
 		$scope.message = 'Hello world! from angular';
 		$scope.shortcuts = shortcuts;
