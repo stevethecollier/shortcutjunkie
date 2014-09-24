@@ -4,8 +4,9 @@ block content
 	h1= title
 	p Welcome to #{title}
 
-	//div(ui-view)
 	p(ng-controller="shortcutController") {{ message }}	
+	br
+	div(ui-view)
 
 block extraScripts
 	script(type='text/javascript', src='/js/controllers/ShortcutController.js')

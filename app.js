@@ -28,6 +28,9 @@ var db = Mongoose.createConnection('localhost', 'mytestapp');
 var ShortcutSchema = require('./models/Shortcut.js').ShortcutSchema;
 var shortcut = db.model('shortcut', ShortcutSchema);
 
+app.use('/partials', function(req, res){
+    res.render(req.path);
+});
 app.use('/', routes);
 app.use('/api', api);
 
