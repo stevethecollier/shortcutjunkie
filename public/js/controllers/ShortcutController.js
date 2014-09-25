@@ -6,10 +6,10 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 		})
 
 		$scope.newShortcut = {
-			application : 'Sublime',
-			operatingSystem : 'OS X',
-			keyset : 'ctrl + alt + cmd + up',
-			description : "mute Juan's mic?"
+			application : '',
+			operatingSystem : '',
+			keyset : '',
+			description : ''
 		}; 
 
 		$scope.setShortcuts = function(shortcuts) {
