@@ -3,7 +3,6 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 
 		$http.get('/api/shortcuts').success(function(data, status, headers, config){
 			$scope.shortcuts = data.shortcuts;
-			$scope.addNewShortcut();
 		})
 
 		$scope.newShortcut = {
@@ -18,9 +17,9 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 		};
 
 		$scope.addNewShortcut = function() {
-			$http.post('/api/shortcut', $scope.newShortcut).success(function(data) {
-				if (data.shortcut) {
-					$scope.shortcuts.push(data.shortcut);
+			$http.post('/api/shortcuts', $scope.newShortcut).success(function(data) {
+				if (data) {
+					$scope.shortcuts.push(data);
 					//$scope.newTodo.description = '';
 				} else {
 					alert(JSON.stringify(data));
