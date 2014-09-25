@@ -11,12 +11,20 @@
 	    </ul>
     </div>
 </div>
-<form ng-submit= addNewShortcut()>
+<form ng-submit= addNewShortcut() >
 	<ul>
-        <li>application =  <input type="text" ng-model="newShortcut.application" placeholder="Sublime"/> </li>
-        <li>operatingSystem =  <input type="text"  ng-model="newShortcut.operatingSystem" placeholder="OS X"/> </li>
-        <li>keyset =  <input type="text"  ng-model="newShortcut.keyset" placeholder="ctrl + alt + cmd + up"/> </li>
-        <li>description =  <input type="text" ng-model="newShortcut.description" placeholder="mute Juan's mic?"/> </li>
+        <li>application =  
+        	<input type="text" required ng-model="newShortcut.application" placeholder="Sublime"/> 
+        </li>
+        <li>operatingSystem =  
+        	<input type="text" required ng-model="newShortcut.operatingSystem" placeholder="OS X"/> 
+        </li>
+        <li>keyset =  
+        	<input type="text" required ng-model="newShortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
+        </li>
+        <li>description =  
+        	<input type="text" required ng-model="newShortcut.description" placeholder="mute Juan's mic?"/> 
+        </li>
     </ul>
 	<button type='submit'>Add a new shortcut</button>
 </form>
