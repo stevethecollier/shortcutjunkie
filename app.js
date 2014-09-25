@@ -28,19 +28,7 @@ var db = Mongoose.createConnection('localhost', 'mytestapp');
 var ShortcutSchema = require('./models/Shortcut.js').ShortcutSchema;
 var shortcut = db.model('shortcut', ShortcutSchema);
 
-var shortcuts = [
-    {
-        application : 'OS X',
-        operatingSystem : 'OS X',
-        keyset : 'ctrl + c',
-        description : 'copy text'
-    },
-    {
-        application : 'Sublime',
-        operatingSystem : 'Windows',
-        keyset : 'ctrl + /',
-        description : 'Toggle comment'
-    }];
+
 
 app.use('/', routes);
 app.use('/api', api);

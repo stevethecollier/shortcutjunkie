@@ -11,6 +11,6 @@ var shortcuts = require('./shortcuts');
 // });
 
 /* GET users listing. */
-router.use('/shortcuts', shortcuts.page);
+router.use('/shortcuts', shortcuts);
 
 module.exports = router;

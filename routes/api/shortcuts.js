@@ -1,19 +1,29 @@
-/* GET users listing. */
-exports.page = function(req, res) {
-    var shortcuts = [{
-        application: 'OS X',
-        operatingSystem: 'OS X',
-        keyset: 'ctrl + c',
-        description: 'copy text'
-    }, {
-        application: 'Sublime',
-        operatingSystem: 'Windows',
-        keyset: 'ctrl + /',
-        description: 'Toggle comment'
-    }];
+var express = require('express');
+var router = express.Router();
 
-    res.send({
-        title: 'shortcut page',
-        shortcuts: shortcuts
-    });
-};
+var shortcuts = [{
+    application: 'OS X',
+    operatingSystem: 'OS X',
+    keyset: 'ctrl + c',
+    description: 'copy text'
+}, {
+    application: 'Sublime',
+    operatingSystem: 'Windows',
+    keyset: 'ctrl + /',
+    description: 'Toggle comment'
+}];
+
+
+/* GET users listing. */
+router.get('/', function(req, res) {
+	res.send({
+	    title: 'shortcut page',
+	    shortcuts: shortcuts
+	});
+});
+
+router.post('/', function(req, res){
+	res.send(req.body);
+});
+
+module.exports = router;

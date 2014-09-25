@@ -2,15 +2,15 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 	function ShortcutController($scope, $http, $timeout) {
 
 		$http.get('/api/shortcuts').success(function(data, status, headers, config){
-			debugger;
 			$scope.shortcuts = data.shortcuts;
+			$scope.addNewShortcut();
 		})
 
 		$scope.newShortcut = {
-			application : '',
-			operatingSystem : '',
-			keyset : '',
-			description : ''
+			application : 'Sublime',
+			operatingSystem : 'OS X',
+			keyset : 'ctrl + alt + cmd + up',
+			description : "mute Juan's mic?"
 		}; 
 
 		$scope.setShortcuts = function(shortcuts) {
@@ -18,7 +18,7 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 		};
 
 		$scope.addNewShortcut = function() {
-			$http.post('/shortcut.json', $scope.newShortcut).success(function(data) {
+			$http.post('/api/shortcut', $scope.newShortcut).success(function(data) {
 				if (data.shortcut) {
 					$scope.shortcuts.push(data.shortcut);
 					//$scope.newTodo.description = '';
