@@ -1,0 +1,16 @@
+{{message}}
+<br></br>
+<div>
+    <h3>These are all the shortcuts</h1>
+    <div class='shortcut' ng-repeat='shortcut in shortcuts'>
+    	<ul>
+	        <li>application = {{shortcut.application}}</li>
+	        <li>operatingSystem = {{shortcut.operatingSystem}}</li>
+	        <li>keyset = {{shortcut.keyset}}</li>
+	        <li>description = {{shortcut.description}}</li>
+	    </ul>
+    </div>
+</div>
+<form ng-submit= addNewShortcut()>
+	<button type='submit'>Add a new shortcut</button>
+</form>

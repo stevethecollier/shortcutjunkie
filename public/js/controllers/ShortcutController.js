@@ -1,21 +1,25 @@
-angular.module("sj").controller("shortcutController", ['$scope', '$http', '$timeout',
+angular.module('sj').controller('shortcutController', ['$scope', '$http', '$timeout',
 	function ShortcutController($scope, $http, $timeout) {
-		console.log("Made it into the ShortcutController");
-		$scope.shortcuts = [];
+
+		$http.get('/api/shortcuts').success(function(data, status, headers, config){
+			$scope.shortcuts = data.shortcuts;
+		})
+
 		$scope.newShortcut = {
-			application : "",
-			keyset : "",
-			description : ""
-		};
+			application : 'Sublime',
+			operatingSystem : 'OS X',
+			keyset : 'ctrl + alt + cmd + up',
+			description : "mute Juan's mic?"
+		}; 
 
 		$scope.setShortcuts = function(shortcuts) {
 			$scope.shortcuts = shortcuts;
 		};
 
 		$scope.addNewShortcut = function() {
-			$http.post('/shortcut.json', $scope.newShortcut).success(function(data) {
-				if (data.shortcut) {
-					$scope.shortcuts.push(data.shortcut);
+			$http.post('/api/shortcuts', $scope.newShortcut).success(function(data) {
+				if (data) {
+					$scope.shortcuts.push(data);
 					//$scope.newTodo.description = '';
 				} else {
 					alert(JSON.stringify(data));
