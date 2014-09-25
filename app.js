@@ -21,15 +21,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Set up Mongo
-var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('localhost', 'mytestapp');
-
-var ShortcutSchema = require('./models/Shortcut.js').ShortcutSchema;
-var shortcut = db.model('shortcut', ShortcutSchema);
-
-
-
+// Express routing
 app.use('/', routes);
 app.use('/api', api);
 

@@ -1,5 +1,3 @@
-{{message}}
-<br></br>
 <div>
     <h3>These are all the shortcuts</h1>
     <div class='shortcut' ng-repeat='shortcut in shortcuts'>
@@ -7,24 +5,29 @@
 	        <li>application = {{shortcut.application}}</li>
 	        <li>operatingSystem = {{shortcut.operatingSystem}}</li>
 	        <li>keyset = {{shortcut.keyset}}</li>
-	        <li>description = {{shortcut.description}}</li>
+            <li>description = {{shortcut.description}}</li>
+	        <li>id = {{shortcut._id}}</li>
 	    </ul>
     </div>
 </div>
-<form ng-submit= addNewShortcut() >
-	<ul>
-        <li>application =  
-        	<input type="text" required ng-model="newShortcut.application" placeholder="Sublime"/> 
-        </li>
-        <li>operatingSystem =  
-        	<input type="text" required ng-model="newShortcut.operatingSystem" placeholder="OS X"/> 
-        </li>
-        <li>keyset =  
-        	<input type="text" required ng-model="newShortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
-        </li>
-        <li>description =  
-        	<input type="text" required ng-model="newShortcut.description" placeholder="mute Juan's mic?"/> 
-        </li>
-    </ul>
-	<button type='submit'>Add a new shortcut</button>
+
+<div>
+    <h3>Add a new shortcut</h3>
+    <form ng-submit= addNewShortcut() >
+    	<ul>
+            <li>application =  
+            	<input type="text" required ng-model="newShortcut.application" placeholder="Sublime"/> 
+            </li>
+            <li>operatingSystem =  
+            	<input type="text" required ng-model="newShortcut.operatingSystem" placeholder="OS X"/> 
+            </li>
+            <li>keyset =  
+            	<input type="text" required ng-model="newShortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
+            </li>
+            <li>description =  
+            	<input type="text" required ng-model="newShortcut.description" placeholder="mute Juan's mic?"/> 
+            </li>
+        </ul>
+    	<button type='submit'>Add a new shortcut</button>
 </form>
+</div>
