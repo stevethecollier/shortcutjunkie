@@ -8,5 +8,11 @@ angular.module('sj', ['ui.router'])
 	                templateUrl: "/partials/shortcutHome.html",
 	                controller:"shortcutController"
 	            });
+	        $stateProvider
+	        	.state('search', {
+	        		url : "/partials/search",
+	        		templateUrl : "/partials/search.html",
+	        		controller:"searchController"
+	        	});
     }
 ]);
