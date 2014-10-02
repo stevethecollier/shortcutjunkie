@@ -31,7 +31,7 @@ router.get('/', function(req,res) {
 	criteria[criteriaKey] = criteriaValue;
 
 	Shortcut.find(criteria, function(error, foundShortcuts){
-		if(error || !foundShortcuts){
+		if(error){
 			res.json({
 				error : error
 			});

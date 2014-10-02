@@ -21,7 +21,13 @@ sjModule.controller('searchController', ['$scope', '$http', '$timeout',
 			}
 
 			$http.get('api/search', config).success(function(data, status, headers, config) {
-				$scope.foundShortcuts = data.foundShortcuts;
+				var foundShortcuts = data.foundShortcuts;
+				if (foundShortcuts.length > 0){
+					$scope.noneFound = false;
+					$scope.foundShortcuts = data.foundShortcuts;
+				} else {
+					$scope.noneFound = true;
+				}
 			});
 		};
 	}
