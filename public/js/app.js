@@ -1,4 +1,4 @@
-angular.module('sj', ['ui.router'])
+angular.module('sj', ['ui.router', 'ngSanitize'])
     .config(['$stateProvider', '$urlRouterProvider',
     	function($stateProvider, $urlRouterProvider){
 	    	$urlRouterProvider.otherwise('/');

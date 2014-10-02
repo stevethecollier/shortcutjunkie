@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "~1.2.25",
-    "angular-ui-router": "~0.2.11"
+    "angular-ui-router": "~0.2.11",
+    "angular-sanitize": "~1.2.26"
   }
 }

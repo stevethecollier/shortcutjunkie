@@ -21,7 +21,6 @@ router.get('/', function(req, res) {
 
 /* POST new shortcut. listing */
 router.post('/', function(req, res) {
-    console.log(req);
     var newShortcut = new Shortcut(req.body);
     newShortcut.save(function(error, newShortcut) {
         if (error || !newShortcut) {
