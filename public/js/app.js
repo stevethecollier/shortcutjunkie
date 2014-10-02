@@ -2,6 +2,11 @@ angular.module('sj', ['ui.router', 'ngSanitize'])
     .config(['$stateProvider', '$urlRouterProvider',
     	function($stateProvider, $urlRouterProvider){
 	    	$urlRouterProvider.otherwise('/');
+	    	$stateProvider.
+	    		state('home', {
+		    		url : "/",
+		    		templateUrl : "/partials/home.html"
+		    	});
 	        $stateProvider
 	            .state('shortcuts', {
 	                url : "/partials/shortcuts", 
