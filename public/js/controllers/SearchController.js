@@ -27,6 +27,7 @@ sjModule.controller('searchController', ['$scope', '$http', '$timeout',
 					$scope.foundShortcuts = data.foundShortcuts;
 				} else {
 					$scope.noneFound = true;
+					$scope.foundShortcuts = false;
 				}
 			});
 		};
@@ -35,16 +36,6 @@ sjModule.controller('searchController', ['$scope', '$http', '$timeout',
 
 sjModule.directive('results', function(){
 	return {
-		template:
-			'\
-			<h3 ng-if="foundShortcuts">Results</h3>\
-			<ul ng-repeat="shortcut in foundShortcuts">\
-				<li>application = {{shortcut.application}}</li>\
-		        <li>operatingSystem = {{shortcut.operatingSystem}}</li>\
-		        <li>keyset = {{shortcut.keyset}}</li>\
-	            <li>description = {{shortcut.description}}</li>\
-		        <li>id = {{shortcut._id}}</li>\
-			</ul>\
-			'
+		templateUrl: '/partials/foundShortcuts.html'
 	}
 });
