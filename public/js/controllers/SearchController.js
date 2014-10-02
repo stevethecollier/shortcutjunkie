@@ -1,10 +1,13 @@
-angular.module('sj').controller('searchController', ['$scope', '$http', '$timeout',
+var sjModule = angular.module('sj');
+
+sjModule.controller('searchController', ['$scope', '$http', '$timeout',
     function ShortcutController($scope, $http, $timeout) {
 
-    	$http.get('/api/search/initial').success(function(data, status, headers, config){
-    		$scope.searchChoices = data.searchChoices;
-    	})
+        $http.get('/api/search/initial').success(function(data, status, headers, config) {
+            $scope.searchChoices = data.searchChoices;
+        })
 
-    	$scope.searchType = 'no choice selected';
+        $scope.searchType = '';
+        $scope.searchCriteria = '';
     }
 ]);

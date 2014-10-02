@@ -1,13 +1,14 @@
 <div>
 	<h3>Search all available shortcuts</h3>
-	<ul>
-		<li ng-repeat="choice in searchChoices">
-			choice : {{choice}}
-		</li>
-	</ul>
-	{{searchType}}
-	<br> 
-	<select ng-model= "searchType" ng-options = "choice.name for choice in searchChoices">
-		<option value="">select a search type</option>
-	</select>
+	
+	<form ng-submit="search()">
+		<select ng-model= "searchType" ng-options = "choice.name for choice in searchChoices
+			| filter: { name : '!_v' }
+			| filter: { name : '!_id' }">
+			<option value="">Select a search type</option>
+		</select>
+		<input type="text" ng-model = "searchCriteria">
+	
+		<input type="submit"/>
+	</form>
 </div>
