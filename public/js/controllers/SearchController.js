@@ -31,7 +31,7 @@ sjModule.directive('results', function(){
 	return {
 		template:
 			'\
-			<h3>Results</h3>\
+			<h3 ng-if="foundShortcuts">Results</h3>\
 			<ul ng-repeat="shortcut in foundShortcuts">\
 				<li>application = {{shortcut.application}}</li>\
 		        <li>operatingSystem = {{shortcut.operatingSystem}}</li>\
