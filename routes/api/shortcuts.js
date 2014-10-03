@@ -63,7 +63,6 @@ router.put('/', function(req, res) {
 
 /* DELETE shortcut listing. */
 router.delete('/', function(req, res) {
-    console.log('At the right place');
     var requestShortcut = req.body;
     Shortcut.findOne({
         _id: req.param('id')
