@@ -12,3 +12,7 @@ a {
 	border-width: 1px;
 	padding : 5px;
 }
+
+.modifyButton{
+	width : 100px;
+}

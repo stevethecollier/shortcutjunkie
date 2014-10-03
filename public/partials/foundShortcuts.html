@@ -1,8 +1,21 @@
-<h3 ng-if="foundShortcuts">Results</h3>
-<ul ng-repeat="shortcut in foundShortcuts">
-	<li>application = {{shortcut.application}}</li>
-	<li>operatingSystem = {{shortcut.operatingSystem}}</li>
-	<li>keyset = {{shortcut.keyset}}</li>
-	<li>description = {{shortcut.description}}</li>
-	<li>id = {{shortcut._id}}</li>
-</ul>
+<div class = "shortcut" ng-repeat="shortcut in foundShortcuts">
+	<table class="pull-right">
+		<tr>
+			<td>
+				<button ng-click="edit(shortcut._id)"class="pull-right modifyButton btn btn-primary"> Edit </button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button ng-click="delete(shortcut)"class="pull-right modifyButton btn btn-danger"> Delete </button>
+			</td>
+		</tr>
+	</table>
+	<ul>
+		<li>application = {{shortcut.application}}</li>
+		<li>operatingSystem = {{shortcut.operatingSystem}}</li>
+		<li>keyset = {{shortcut.keyset}}</li>
+		<li>description = {{shortcut.description}}</li>
+		<li>id = {{shortcut._id}}</li>
+	</ul>
+</div>

@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h3>These are all the shortcuts</h1>
     <div class='shortcut' ng-repeat='shortcut in shortcuts'>
     	<ul>
@@ -9,8 +9,9 @@
 	        <li>id = {{shortcut._id}}</li>
 	    </ul>
     </div>
-</div>
-
+</div> -->
+<h3 ng-if="foundShortcuts">These are all the shortcuts</h3>
+<div results></div>
 <div>
     <h3>Add a new shortcut</h3>
     <form ng-submit= addNewShortcut() >

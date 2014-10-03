@@ -2,7 +2,7 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
     function ShortcutController($scope, $http, $timeout) {
 
         $http.get('/api/shortcuts').success(function(data, status, headers, config) {
-            $scope.shortcuts = data.shortcuts;
+            $scope.foundShortcuts = data.shortcuts;
         })
 
         $scope.newShortcut = {
@@ -12,15 +12,29 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             description: ''
         };
 
+        $scope.delete = function(shortcut) {
+            $http({
+                method: 'DELETE',
+                url: '/api/shortcuts',
+                params: {
+                    'id': shortcut._id
+                }
+            }).success(function(data) {
+                var index = $scope.foundShortcuts.indexOf(shortcut);
+                if (index > -1) {
+                    $scope.foundShortcuts.splice(index, 1);
+                }
+            })
+        }
+
         $scope.setShortcuts = function(shortcuts) {
-            $scope.shortcuts = shortcuts;
+            $scope.foundShortcuts = shortcuts;
         };
 
         $scope.addNewShortcut = function() {
             $http.post('/api/shortcuts', $scope.newShortcut).success(function(data) {
                 if (data) {
-                    $scope.shortcuts.push(data);
-                    //$scope.newTodo.description = '';
+                    $scope.foundShortcuts.push(data);
                 } else {
                     alert(JSON.stringify(data));
                 }
