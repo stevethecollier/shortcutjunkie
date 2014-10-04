@@ -33,9 +33,3 @@ sjModule.controller('searchController', ['$scope', '$http', '$timeout',
 		};
 	}
 ]);
-
-sjModule.directive('results', function(){
-	return {
-		templateUrl: '/partials/foundShortcuts.html'
-	}
-});

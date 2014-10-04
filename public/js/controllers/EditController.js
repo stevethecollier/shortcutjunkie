@@ -28,7 +28,7 @@ sjModule.controller('editController', ['$scope', '$http', '$timeout', '$statePar
 
         $scope.editShortcut = function() {
         	$http.put('api/shortcuts', $scope.shortcut).success(function(data){
-        		console.log('success!');
+        		$scope.succeeded = true;
         	})
         }
     }
