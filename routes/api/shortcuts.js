@@ -37,7 +37,7 @@ router.post('/', function(req, res) {
 router.put('/', function(req, res) {
     var requestShortcut = req.body;
     Shortcut.findOne({
-        _id: req.param('id')
+        _id: requestShortcut._id
     }, function(error, shortcut) {
         if (error || !shortcut) {
             res.json({
