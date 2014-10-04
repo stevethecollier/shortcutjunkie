@@ -1,0 +1,19 @@
+<h3>Edit Shortcut</h3>
+<div ng-init="getShortcut()">
+    <form ng-submit= addNewShortcut() >
+    	<ul>
+            <li>application =  
+            	<input type="text" required ng-model="shortcut.application" placeholder="Sublime"/> 
+            </li>
+            <li>operatingSystem =  
+            	<input type="text" required ng-model="shortcut.operatingSystem" placeholder="OS X"/> 
+            </li>
+            <li>keyset =  
+            	<input type="text" required ng-model="shortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
+            </li>
+            <li>description =  
+            	<input type="text" required ng-model="shortcut.description" placeholder="mute Juan's mic?"/> 
+            </li>
+        </ul>
+    	<button type='submit'>Add a new shortcut</button>
+</form>
