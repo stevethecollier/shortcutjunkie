@@ -1,5 +1,6 @@
 shortcutjunkie
 ==============
 
-Collaborators:
-Steven Collier
+#Collaborators:
+- Steven Collier
+- Juan Caicedo (retiredcanadianpoet@gmail.com)
