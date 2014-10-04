@@ -2,12 +2,14 @@
 	<table class="pull-right">
 		<tr>
 			<td>
-				<button ng-click="edit(shortcut._id)"class="pull-right modifyButton btn btn-primary"> Edit </button>
+				<!-- <button class="pull-right modifyButton btn btn-primary"> Edit  -->
+				<a class="pull-right modifyButton btn btn-primary" ng-href = "/#/partials/edit?id={{shortcut._id}}">Edit </a>
+				<!-- </button> -->
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<button ng-click="delete(shortcut)"class="pull-right modifyButton btn btn-danger"> Delete </button>
+				<button ng-click="delete(shortcut)" class="pull-right modifyButton btn btn-danger"> Delete </button>
 			</td>
 		</tr>
 	</table>

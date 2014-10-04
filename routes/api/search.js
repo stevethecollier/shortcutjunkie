@@ -22,26 +22,26 @@ router.get('/initial', function(req, res) {
 });
 
 /* GET search values based on the passed in criteria */
-router.get('/', function(req,res) {
-	var criteriaKey = req.param('criteriaKey');
-	var criteriaValue = req.param('criteriaValue');
-	console.log('searching for ' + criteriaKey + ' = ' + criteriaValue);
+router.get('/', function(req, res) {
+    var criteriaKey = req.param('criteriaKey');
+    var criteriaValue = req.param('criteriaValue');
+    console.log('searching for ' + criteriaKey + ' = ' + criteriaValue);
 
-	var criteria = {};
-	criteria[criteriaKey] = criteriaValue;
+    var criteria = {};
+    criteria[criteriaKey] = criteriaValue;
 
-	Shortcut.find(criteria, function(error, foundShortcuts){
-		if(error){
-			res.json({
-				error : error
-			});
-		} else {
-			res.send({
-				foundShortcuts : foundShortcuts
-			})
-		}
+    Shortcut.find(criteria, function(error, foundShortcuts) {
+        if (error) {
+            res.json({
+                error: error
+            });
+        } else {
+            res.send({
+                foundShortcuts: foundShortcuts
+            })
+        }
 
-	})
+    })
 })
 
 module.exports = router;

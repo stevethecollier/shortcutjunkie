@@ -1,4 +1,4 @@
-angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap'])
+angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
 	.config(['$stateProvider', '$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider){
 			$urlRouterProvider.otherwise('/');
@@ -31,7 +31,7 @@ angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap'])
 			$stateProvider
 				.state('edit', {
 					url : '/partials/edit',
-					templateUrl : '/partials/edit.html',
+					templateUrl : '/partials/editShortcut.html',
 					controller:'editController',
 				});
 	}
