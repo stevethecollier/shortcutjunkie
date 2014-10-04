@@ -30,7 +30,7 @@ angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
 				});
 			$stateProvider
 				.state('edit', {
-					url : '/partials/edit',
+					url : '/partials/edit/{id}',
 					templateUrl : '/partials/editShortcut.html',
 					controller:'editController',
 				});

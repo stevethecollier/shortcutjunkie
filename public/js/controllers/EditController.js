@@ -1,10 +1,10 @@
 var sjModule = angular.module('sj');
 
-sjModule.controller('editController', ['$scope', '$http', '$timeout', '$routeParams',
-    function ShortcutController($scope, $http, $timeout, $routeParams) {
+sjModule.controller('editController', ['$scope', '$http', '$timeout', '$stateParams',
+    function ShortcutController($scope, $http, $timeout, $stateParams) {
         $scope.getShortcut = function() {
-        	var id = $routeParams.id;
-        	console.log(id);
+        	var id = $stateParams.id;
+        	console.log($stateParams);
             var criteria = {
                 criteriaKey: '_id',
                 criteriaValue: id
