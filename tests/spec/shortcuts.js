@@ -24,10 +24,15 @@ describe('shortcuts', function() {
             var shortcut = elements[elements.length - 1];
             shortcut.element(by.css('.idInfo')).getText().then(function(text) {
                 //go to edit page
-                var idIndex = text.indexOf('=') + 2;
-                browser.get('http://localhost:3000/#/partials/edit/' + text.substr(idIndex));
+                var id = text.substr(text.indexOf('=') + 2);
+                browser.get('http://localhost:3000/#/partials/edit/' + id);
                 expect(browser.getTitle()).toEqual('Edit Shortcut');
-                //edit 
+                //edit the shortcut
+                element(by.id('applicationField')).sendKeys('testApplication');
+                element(by.id('operatingSystemField')).sendKeys('testOperatingSystem');
+                element(by.id('keysetField')).sendKeys('testKeyset');
+                element(by.id('descriptionField')).sendKeys('testDescription');
+                element(by.id('submitEdit')).click();
             });
         });
     });

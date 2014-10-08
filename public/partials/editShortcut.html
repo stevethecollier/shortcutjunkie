@@ -8,18 +8,18 @@
         <form ng-submit= editShortcut() >
         	<ul>
                 <li>application =  
-                	<input type="text" required ng-model="shortcut.application" placeholder="Sublime"/> 
+                	<input id="applicationField" type="text" required ng-model="shortcut.application" placeholder="Sublime"/> 
                 </li>
                 <li>operatingSystem =  
-                	<input type="text" required ng-model="shortcut.operatingSystem" placeholder="OS X"/> 
+                	<input id="operatingSystemField" type="text" required ng-model="shortcut.operatingSystem" placeholder="OS X"/> 
                 </li>
                 <li>keyset =  
-                	<input type="text" required ng-model="shortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
+                	<input id="keysetField" type="text" required ng-model="shortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
                 </li>
                 <li>description =  
-                	<input type="text" required ng-model="shortcut.description" placeholder="mute Juan's mic?"/> 
+                	<input id="descriptionField" type="text" required ng-model="shortcut.description" placeholder="mute Juan's mic?"/> 
                 </li>
             </ul>
-        	<button type='submit'>Submit Changes</button>
+        	<button id="submitEdit" type='submit'>Submit Changes</button>
     </form>
 </div>
