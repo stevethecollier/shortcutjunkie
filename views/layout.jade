@@ -10,13 +10,14 @@ html.container
 						span(class="icon-bar")
 						span(class="icon-bar")
 						span(class="icon-bar")
-					a.navbar-brand(href="#") #{title}
+					a.navbar-brand#homeLink(data-toggle="collapse" data-target="#navbarCollapse" href="#") 
+						| #{title}
 				div.collapse.navbar-collapse#navbarCollapse
 					ul.nav.navbar-nav(role="menu")
 						li
-							a(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/shortcuts") Shortcuts Home
+							a#shortcutsLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/shortcuts") Shortcuts Home
 						li
-							a(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/search") Search
+							a#searchLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/search") Search
 				
 				//- 	div(collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse")
 				//- 		ul(class="nav")

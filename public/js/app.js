@@ -7,7 +7,7 @@ angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
 					url : '/',
 					templateUrl : '/partials/home.html',
 					data:{
-						title : 'Home'
+						pageTitle : 'Shortcut Junkie'
 					}
 				});
 			$stateProvider
@@ -16,7 +16,7 @@ angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
 					templateUrl: '/partials/shortcutHome.html',
 					controller:'shortcutController',
 					data:{
-						title : 'Shortcuts Home'
+						pageTitle : 'Shortcuts Home'
 					}
 				});
 			$stateProvider
@@ -25,7 +25,7 @@ angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
 					templateUrl : '/partials/search.html',
 					controller:'searchController',
 					data:{
-						title : 'Search'
+						pageTitle : 'Search Shortcuts'
 					}
 				});
 			$stateProvider
@@ -33,6 +33,9 @@ angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
 					url : '/partials/edit/{id}',
 					templateUrl : '/partials/editShortcut.html',
 					controller:'editController',
+					data:{
+						pageTitle : 'Edit Shortcut'
+					}
 				});
 	}
 ]);
