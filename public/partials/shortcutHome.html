@@ -17,18 +17,18 @@
     <form ng-submit= addNewShortcut() >
     	<ul>
             <li>application =  
-            	<input type="text" required ng-model="newShortcut.application" placeholder="Sublime"/> 
+            	<input id="applicationField" type="text" required ng-model="newShortcut.application" placeholder="Sublime"/> 
             </li>
             <li>operatingSystem =  
-            	<input type="text" required ng-model="newShortcut.operatingSystem" placeholder="OS X"/> 
+            	<input id="operatingSystemField" type="text" required ng-model="newShortcut.operatingSystem" placeholder="OS X"/> 
             </li>
             <li>keyset =  
-            	<input type="text" required ng-model="newShortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
+            	<input id="keysetField" type="text" required ng-model="newShortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
             </li>
             <li>description =  
-            	<input type="text" required ng-model="newShortcut.description" placeholder="mute Juan's mic?"/> 
+            	<input id="descriptionField" type="text" required ng-model="newShortcut.description" placeholder="mute Juan's mic?"/> 
             </li>
         </ul>
-    	<button type='submit'>Add a new shortcut</button>
+    	<button id="submitNew" type='submit'>Add a new shortcut</button>
 </form>
 </div>
