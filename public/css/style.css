@@ -16,3 +16,13 @@ a {
 .modifyButton{
 	width : 100px;
 }
+
+input.error{
+	color: white;
+	background: red;
+}
+
+.ng-hide{
+	display: block!important;
+	visibility: hidden;
+}

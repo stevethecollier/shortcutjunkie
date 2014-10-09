@@ -55,11 +55,19 @@ describe('shortcuts', function() {
     });
 
     it('should have proper validation on new shortcuts', function() {
-        element(by.id('applicationField')).sendKeys('testApplication');
-        element(by.id('operatingSystemField')).sendKeys('testOperatingSystem');
-        element(by.id('keysetField')).sendKeys('testKeyset');
-        element(by.id('descriptionField')).sendKeys('testDescription');
-        element(by.id('submitNew')).click();
+        element.all(by.css('.shortcut')).then(function(elements) {
+            var originalCount = elements.length;
+
+            // element(by.id('applicationField')).sendKeys('');
+            // element(by.id('operatingSystemField')).sendKeys('');
+            // element(by.id('keysetField')).sendKeys('');
+            // element(by.id('descriptionField')).sendKeys('');
+            element(by.id('submitNew')).click();
+
+            var newCount = element.all(by.css('.shortcut')).count();
+            expect(newCount).toEqual(originalCount);
+        });
+
         deleteLastShortcut();
     });
 });

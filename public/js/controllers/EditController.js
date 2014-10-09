@@ -33,10 +33,3 @@ sjModule.controller('editController', ['$scope', '$http', '$timeout', '$statePar
         }
     }
 ]);
-
-// TODO figure out directives
-// sjModule.directive('results', function() {
-//     return {
-//         templateUrl: '/partials/foundShortcuts.html'
-//     }
-// });
