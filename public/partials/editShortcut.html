@@ -1,25 +1,27 @@
 <div ng-if="succeeded">
     <h3>Changes submitted</h3>
 </div>
-
 <div ng-if="!succeeded">
     <h3>Edit Shortcut</h3>
     <div ng-init="getShortcut()">
         <form ng-submit= editShortcut() >
-        	<ul>
-                <li>application =  
-                	<input id="applicationField" type="text" required ng-model="shortcut.application" placeholder="Sublime"/> 
-                </li>
-                <li>operatingSystem =  
-                	<input id="operatingSystemField" type="text" required ng-model="shortcut.operatingSystem" placeholder="OS X"/> 
-                </li>
-                <li>keyset =  
-                	<input id="keysetField" type="text" required ng-model="shortcut.keyset" placeholder="ctrl + alt + cmd + up"/> 
-                </li>
-                <li>description =  
-                	<input id="descriptionField" type="text" required ng-model="shortcut.description" placeholder="mute Juan's mic?"/> 
-                </li>
-            </ul>
-        	<button id="submitEdit" type='submit'>Submit Changes</button>
-    </form>
+            <div class="form-group">
+                <label>application</label>
+                <input id="applicationField" class="form-control" type="text" required ng-model="shortcut.application" placeholder="Sublime"/>
+            </div>
+            <div class="form-group">
+                <label>operatingSystem</label>
+                <input id="operatingSystemField" class="form-control" type="text" required ng-model="shortcut.operatingSystem" placeholder="OS X"/>
+            </div>
+            <div class="form-group">
+                <label>keyset</label>
+                <input id="keysetField" class="form-control" type="text" required ng-model="shortcut.keyset" placeholder="ctrl + alt + cmd + up"/>
+            </div>
+            <div class="form-group">
+                <label>description</label>
+                <input id="descriptionField" class="form-control" type="text" required ng-model="shortcut.description" placeholder="mute Juan's mic?"/>
+            </div>
+            <button id="submitEdit" type='submit'>Submit Changes</button>
+        </form>
+    </div>
 </div>

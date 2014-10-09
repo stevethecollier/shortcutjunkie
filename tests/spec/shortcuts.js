@@ -1,6 +1,3 @@
-function trimEqualsSign(text) {
-    return text.substr(text.indexOf('=') + 2);
-}
 describe('shortcuts', function() {
     browser.get('http://localhost:3000/#/partials/shortcuts');
 
@@ -22,9 +19,8 @@ describe('shortcuts', function() {
     it('should edit a shortcut', function() {
         element.all(by.css('.shortcut')).then(function(elements) {
             var shortcut = elements[elements.length - 1];
-            shortcut.element(by.css('.idInfo')).getText().then(function(text) {
+            shortcut.element(by.css('.idInfo')).getText().then(function(id) {
                 //go to edit page
-                var id = trimEqualsSign(text);
                 browser.get('http://localhost:3000/#/partials/edit/' + id);
                 expect(browser.getTitle()).toEqual('Edit Shortcut');
                 //edit the shortcut
@@ -37,16 +33,16 @@ describe('shortcuts', function() {
                 browser.get('http://localhost:3000/#/partials/shortcuts');
                 shortcut = element.all(by.css('.shortcut')).last();
                 shortcut.element(by.css('.applicationInfo')).getText().then(function(applicationField) {
-                    expect(trimEqualsSign(applicationField)).toEqual('editApplication');
+                    expect(applicationField).toEqual('editApplication');
                 });
                 shortcut.element(by.css('.operatingSystemInfo')).getText().then(function(operatingSystemField) {
-                    expect(trimEqualsSign(operatingSystemField)).toEqual('editOperatingSystem');
+                    expect(operatingSystemField).toEqual('editOperatingSystem');
                 });
                 shortcut.element(by.css('.keysetInfo')).getText().then(function(keysetField) {
-                    expect(trimEqualsSign(keysetField)).toEqual('editKeyset');
+                    expect(keysetField).toEqual('editKeyset');
                 });
                 shortcut.element(by.css('.descriptionInfo')).getText().then(function(descriptionField) {
-                    expect(trimEqualsSign(descriptionField)).toEqual('editDescription');
+                    expect(descriptionField).toEqual('editDescription');
                 });
             });
         });
@@ -64,3 +60,7 @@ describe('shortcuts', function() {
         });
     });
 });
+
+String.prototype.removeEqualsSign = function trimEqualsSign() {
+    return this.substr(this.indexOf('=') + 2);
+};
