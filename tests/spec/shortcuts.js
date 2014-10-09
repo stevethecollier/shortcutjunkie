@@ -1,6 +1,8 @@
 describe('shortcuts', function() {
-    browser.get('http://localhost:3000/#/partials/shortcuts');
-
+    beforeEach(function() {
+        browser.get('http://localhost:3000/#/partials/shortcuts');
+    });
+    
     it('should add a shortcut', function() {
         element.all(by.css('.shortcut')).then(function(elements) {
             var originalCount = elements.length;
@@ -59,6 +61,8 @@ describe('shortcuts', function() {
             expect(newCount).toEqual(originalCount - 1);
         });
     });
+
+    it('should have proper validation on new shortcuts')
 });
 
 String.prototype.removeEqualsSign = function trimEqualsSign() {
