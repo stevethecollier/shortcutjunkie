@@ -2,7 +2,7 @@ describe('shortcuts', function() {
     beforeEach(function() {
         browser.get('http://localhost:3000/#/partials/shortcuts');
     });
-    
+
     it('should add a shortcut', function() {
         element.all(by.css('.shortcut')).then(function(elements) {
             var originalCount = elements.length;
@@ -51,7 +51,6 @@ describe('shortcuts', function() {
     });
 
     it('should delete a shortcut', function() {
-        browser.get('http://localhost:3000/#/partials/shortcuts');
         element.all(by.css('.shortcut')).then(function(elements) {
             var originalCount = elements.length;
 
@@ -62,9 +61,5 @@ describe('shortcuts', function() {
         });
     });
 
-    it('should have proper validation on new shortcuts')
+    // it('should have proper validation on new shortcuts')
 });
-
-String.prototype.removeEqualsSign = function trimEqualsSign() {
-    return this.substr(this.indexOf('=') + 2);
-};
