@@ -51,15 +51,26 @@ describe('shortcuts', function() {
     });
 
     it('should delete a shortcut', function() {
-        element.all(by.css('.shortcut')).then(function(elements) {
-            var originalCount = elements.length;
-
-            element.all(by.css('.deleteLink')).last().click();
-
-            var newCount = element.all(by.css('.shortcut')).count();
-            expect(newCount).toEqual(originalCount - 1);
-        });
+        deleteLastShortcut();
     });
 
-    // it('should have proper validation on new shortcuts')
+    it('should have proper validation on new shortcuts', function() {
+        element(by.id('applicationField')).sendKeys('testApplication');
+        element(by.id('operatingSystemField')).sendKeys('testOperatingSystem');
+        element(by.id('keysetField')).sendKeys('testKeyset');
+        element(by.id('descriptionField')).sendKeys('testDescription');
+        element(by.id('submitNew')).click();
+        deleteLastShortcut();
+    });
 });
+
+function deleteLastShortcut() {
+    element.all(by.css('.shortcut')).then(function(elements) {
+        var originalCount = elements.length;
+
+        element.all(by.css('.deleteLink')).last().click();
+
+        var newCount = element.all(by.css('.shortcut')).count();
+        expect(newCount).toEqual(originalCount - 1);
+    });
+}
