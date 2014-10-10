@@ -26,3 +26,7 @@ input.error{
 	display: block!important;
 	visibility: hidden;
 }
+
+input:disabled{
+    background : gray;
+}

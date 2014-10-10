@@ -1,18 +1,40 @@
 <div>
     <h3>Search all available shortcuts</h3>
     
-    <form ng-submit="search()">
-        <select id="searchType" ng-model= "searchType" ng-options = "choice.name for choice in searchChoices
+    <form
+        name="searchForm"
+        ng-submit="search(searchForm)"
+        novalidate>
+        <select
+            id="searchType" 
+            ng-model= "searchType" 
+            ng-options = "choice.name for choice in searchChoices
             | filter: { name : '!_v' }
             | filter: { name : '!_id' }">
             <option value="">Select a search type</option>
         </select>
-        <input type="text" id= "searchCriteria" ng-model = "searchCriteria">
-        <input type="submit" id= "search"/>
+        <input
+            type="text" 
+            id="searchCriteria" 
+            name="searchCriteria"
+            ng-model= "searchCriteria"
+            ng-class="{'error': (searchForm.searchCriteria.$invalid && submitted)}"
+            ng-change="submitted = false"
+            required/>
+        <input
+            type="submit" 
+            id="search"
+            value="Search"
+            ng-disabled="searchType == null"
+            ng-click="submitted = true;
+                noneFound = false;"/>
+        <div
+            ng-show="searchForm.searchCriteria.$invalid && submitted">Search criteria is required</div>
     </form>
-    <div ng-if="noneFound">
+    <div
+        ng-show="noneFound">
         <p>No shortcuts were found matching that criteria</p>
     </div>
-    <h3 ng-if="foundShortcuts">Results</h3>
+    <h3 id="resultsTitle" ng-show="foundShortcuts">Results</h3>
     <div results></div>
 </div>

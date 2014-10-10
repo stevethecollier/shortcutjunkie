@@ -7,20 +7,40 @@ var testShortcut = {
 
 describe('search page', function() {
     var indexes = [];
+    browser.get('http://localhost:3000/#/partials/search');
+    indexes = establishIndexes();
+
     beforeEach(function() {
         addTestShortcut();
         browser.get('http://localhost:3000/#/partials/search');
-        indexes = establishIndexes();
     });
 
     it('should find a shortcut by all fields', function() {
         for (var property in testShortcut) {
-            element(by.id('searchCriteria')).clear().sendKeys(testShortcut[property]);
             selectDropdownByNum(element(by.id('searchType')), property, indexes);
+            element(by.id('searchCriteria')).clear().sendKeys(testShortcut[property]);
             element(by.id('search')).click();
             var results = element.all(by.css('.shortcut')).count();
             expect(results).toBeGreaterThan(0);
         }
+    });
+
+    it('has proper validation', function() {
+        //no search type selected
+        element(by.id('search')).getWebElement().getAttribute('disabled').then(function(value) {
+            expect(value).toBeTruthy();
+        });
+        element(by.id('search')).click();
+        element(by.id('resultsTitle')).getWebElement().getAttribute('class').then(function(classes) {
+            expect(classes.indexOf('ng-hide') > -1).toBeTruthy();
+        });
+
+        //no search value provided
+        selectDropdownByNum(element(by.id('searchType')), 'application', indexes);
+        element(by.id('search')).click();
+        element(by.id('searchCriteria')).getWebElement().getAttribute('class').then(function(classes) {
+            expect(classes.indexOf('error') > -1).toBeTruthy();
+        });
     });
 
     afterEach(function() {
