@@ -3,8 +3,7 @@ var sjModule = angular.module('sj');
 sjModule.controller('editController', ['$scope', '$http', '$timeout', '$stateParams',
     function ShortcutController($scope, $http, $timeout, $stateParams) {
         $scope.getShortcut = function() {
-        	var id = $stateParams.id;
-        	console.log($stateParams);
+            var id = $stateParams.id;
             var criteria = {
                 criteriaKey: '_id',
                 criteriaValue: id
@@ -19,6 +18,7 @@ sjModule.controller('editController', ['$scope', '$http', '$timeout', '$statePar
                 if (shortcuts.length > 0) {
                     $scope.noneFound = false;
                     $scope.shortcut = data.foundShortcuts[0];
+                    $scope.fieldsChanged = false;
                 } else {
                     $scope.noneFound = true;
                     $scope.shortcut = false;
@@ -26,10 +26,12 @@ sjModule.controller('editController', ['$scope', '$http', '$timeout', '$statePar
             });
         }
 
-        $scope.editShortcut = function() {
-        	$http.put('api/shortcuts', $scope.shortcut).success(function(data){
-        		$scope.succeeded = true;
-        	})
-        }
+        $scope.editShortcut = function(shortcutForm) {
+            if (shortcutForm.$valid) {
+                $http.put('api/shortcuts', $scope.shortcut).success(function(data) {
+                    $scope.succeeded = true;
+                });
+            }
+        };
     }
 ]);

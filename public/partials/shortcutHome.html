@@ -1,30 +1,74 @@
-<h3 ng-if="foundShortcuts">These are all the shortcuts</h3>
+<h3 
+    ng-if="foundShortcuts">These are all the shortcuts</h3>
 <div results></div>
 <h3>Add a new shortcut</h3>
 <div>
-    <form name="shortcutForm" class="css-form" ng-submit= "addNewShortcut(shortcutForm)" novalidate>
-        <div class="form-group">
+    <form 
+        name="shortcutForm" 
+        class="css-form" ng-submit= "addNewShortcut(shortcutForm)" novalidate>
+        <div 
+            class="form-group">
             <label>application</label>
-            <input id="applicationField" name="applicationField" class="form-control" ng-class="{'error': (shortcutForm.operatingSystemField.$invalid && submitted)}" type="text" required ng-model="newShortcut.application" placeholder="Sublime"/>
-            <span ng-show="shortcutForm.applicationField.$invalid && submitted">What application is your shortcut for?</span>
+            <input 
+                id="applicationField" 
+                name="applicationField" 
+                class="form-control" 
+                ng-class="{'error': (shortcutForm.applicationField.$invalid && submitted)}" 
+                type="text" 
+                required 
+                ng-model="newShortcut.application" 
+                placeholder="Sublime"/>
+            <span 
+                ng-show="shortcutForm.applicationField.$invalid && submitted">What application is your shortcut for?</span>
         </div>
-        <div class="form-group">
+        <div 
+            class="form-group">
             <label>operatingSystem</label>
-            <input id="operatingSystemField" name="operatingSystemField" class="form-control" ng-class="{'error': (shortcutForm.operatingSystemField.$invalid && submitted)}" type="text" required ng-model="newShortcut.operatingSystem" placeholder="OS X"/>
-            <span ng-show="shortcutForm.operatingSystemField.$invalid && submitted">What OS is your shortcut for?</span>
+            <input 
+                id="operatingSystemField" 
+                name="operatingSystemField" 
+                class="form-control" 
+                ng-class="{'error': (shortcutForm.operatingSystemField.$invalid && submitted)}" 
+                type="text" 
+                required 
+                ng-model="newShortcut.operatingSystem" 
+                placeholder="OS X"/>
+            <span 
+                ng-show="shortcutForm.operatingSystemField.$invalid && submitted">What OS is your shortcut for?</span>
         </div>
-        <div class="form-group">
+        <div 
+            class="form-group">
             <label>keyset</label>
-            <input id="keysetField" name="keysetField" class="form-control" ng-class="{'error': (shortcutForm.operatingSystemField.$invalid && submitted)}" type="text" required ng-model="newShortcut.keyset" placeholder="ctrl + alt + cmd + up"/>
-            <span ng-show="shortcutForm.keysetField.$invalid && submitted" >What application is the key combination for your shortcut?</span>
+            <input 
+                id="keysetField" 
+                name="keysetField" 
+                class="form-control" 
+                ng-class="{'error': (shortcutForm.keysetField.$invalid && submitted)}" 
+                type="text" 
+                required 
+                ng-model="newShortcut.keyset" 
+                placeholder="ctrl + alt + cmd + up"/>
+            <span 
+                ng-show="shortcutForm.keysetField.$invalid && submitted" >What application is the key combination for your shortcut?</span>
         </div>
-        <div class="form-group">
+        <div 
+            class="form-group">
             <label>description</label>
-            <input id="descriptionField" name="descriptionField" class="form-control" ng-class="{'error': (shortcutForm.operatingSystemField.$invalid && submitted)}" type="text" required ng-model="newShortcut.description" placeholder="mute Juan's mic?"/>
-            <span ng-show="shortcutForm.descriptionField.$invalid && submitted">Please describe what your shortcut does</span>
+            <input 
+                id="descriptionField" 
+                name="descriptionField" 
+                class="form-control" 
+                ng-class="{'error': (shortcutForm.descriptionField.$invalid && submitted)}" 
+                type="text" 
+                required 
+                ng-model="newShortcut.description" 
+                placeholder="mute Juan's mic?"/>
+            <span 
+                ng-show="shortcutForm.descriptionField.$invalid && submitted">Please describe what your shortcut does</span>
         </div>
-        <button id="submitNew" type="submit" ng-click="submitted = true">Add a new shortcut</button>
-
-
+        <button 
+            id="submitNew" 
+            type="submit" 
+            ng-click="submitted = true">Add a new shortcut</button>
     </form>
 </div>
