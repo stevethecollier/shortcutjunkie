@@ -1,35 +1,46 @@
-<div>
-    <h3>Search all available shortcuts</h3>
-    
+<div class="row">
+    <h3 class="row">Search all available shortcuts</h3>
     <form
+        class="form-inline css-form"
         name="searchForm"
         ng-submit="search(searchForm)"
         novalidate>
-        <select
-            id="searchType" 
-            ng-model= "searchType" 
-            ng-options = "choice.name for choice in searchChoices
-            | filter: { name : '!_v' }
-            | filter: { name : '!_id' }">
-            <option value="">Select a search type</option>
-        </select>
+        <div class="form-group">
+            <label class="sr-only" for="searchType">Search Type</label>
+            <select
+                id="searchType"
+                class-"col-xs-12 form-control" 
+                ng-model= "searchType" 
+                ng-options= "choice.name for choice in searchChoices
+                | filter: { name : '!_v' }
+                | filter: { name : '!_id' }">
+                <option value="">Select a search type</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="searchCriteria">Search Criteria</label>
+            <input
+                id="searchCriteria" 
+                type="text" 
+                class-"col-xs-12 form-control"
+                name="searchCriteria"
+                ng-model= "searchCriteria"
+                ng-class="{'error': (searchForm.searchCriteria.$invalid && submitted)}"
+                ng-change="submitted = false"
+                required
+                placeholder="Seach criteria"/>
+        </div>
         <input
-            type="text" 
-            id="searchCriteria" 
-            name="searchCriteria"
-            ng-model= "searchCriteria"
-            ng-class="{'error': (searchForm.searchCriteria.$invalid && submitted)}"
-            ng-change="submitted = false"
-            required/>
-        <input
-            type="submit" 
             id="search"
+            type="submit" 
+            class-"col-xs-12 form-control"
             value="Search"
             ng-disabled="searchType == null"
             ng-click="submitted = true;
                 noneFound = false;"/>
         <div
-            ng-show="searchForm.searchCriteria.$invalid && submitted">Search criteria is required</div>
+            ng-show="searchForm.searchCriteria.$invalid && submitted">Search criteria is required
+        </div>
     </form>
     <div
         ng-show="noneFound">

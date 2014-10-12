@@ -2,6 +2,8 @@ doctype html
 html.container
 	head
 		meta(name="viewport" content="width=device-width, initial-scale=1")
+		include includes/head
+	body
 		nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role="navigation")
 			div.container
 				div.navbar-header
@@ -18,17 +20,6 @@ html.container
 							a#shortcutsLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/shortcuts") Shortcuts Home
 						li
 							a#searchLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/search") Search
-				
-				//- 	div(collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse")
-				//- 		ul(class="nav")
-				//- 			li
-				//- 				a(ng-href= "/#/partials/shortcuts")
-				//- 					| Shortcuts Home
-				//- 			li
-				//- 				a(ng-href= "/#/partials/search")
-				//- 					| Search
-		include includes/head
-	body
 		block content
 		include includes/foot
 		block extraScripts
