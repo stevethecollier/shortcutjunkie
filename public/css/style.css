@@ -16,7 +16,7 @@ a {
 .shortcut{
 }
 
-input.error{
+input.ng-invalid.submitted{
     color: white;
     background: red;
 }

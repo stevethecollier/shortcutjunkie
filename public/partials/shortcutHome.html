@@ -1,11 +1,12 @@
-<h3 
-    ng-if="foundShortcuts">These are all the shortcuts</h3>
+<h3 ng-if="foundShortcuts">These are all the shortcuts</h3>
 <div results></div>
 <h3>Add a new shortcut</h3>
 <div>
     <form 
         name="shortcutForm" 
-        class="css-form" ng-submit= "addNewShortcut(shortcutForm)" novalidate>
+        class="css-form" 
+        ng-submit= "addNewShortcut(shortcutForm)" 
+        novalidate>
         <div 
             class="form-group">
             <label>application</label>
@@ -13,7 +14,7 @@
                 id="applicationField" 
                 name="applicationField" 
                 class="form-control" 
-                ng-class="{'error': (shortcutForm.applicationField.$invalid && submitted)}" 
+                ng-class="{'submitted': submitted}" 
                 type="text" 
                 required 
                 ng-model="newShortcut.application" 
@@ -28,7 +29,7 @@
                 id="operatingSystemField" 
                 name="operatingSystemField" 
                 class="form-control" 
-                ng-class="{'error': (shortcutForm.operatingSystemField.$invalid && submitted)}" 
+                ng-class="{'submitted': submitted}" 
                 type="text" 
                 required 
                 ng-model="newShortcut.operatingSystem" 
@@ -43,7 +44,7 @@
                 id="keysetField" 
                 name="keysetField" 
                 class="form-control" 
-                ng-class="{'error': (shortcutForm.keysetField.$invalid && submitted)}" 
+                ng-class="{'submitted': submitted}" 
                 type="text" 
                 required 
                 ng-model="newShortcut.keyset" 
@@ -58,7 +59,7 @@
                 id="descriptionField" 
                 name="descriptionField" 
                 class="form-control" 
-                ng-class="{'error': (shortcutForm.descriptionField.$invalid && submitted)}" 
+                ng-class="{'submitted': submitted}" 
                 type="text" 
                 required 
                 ng-model="newShortcut.description" 

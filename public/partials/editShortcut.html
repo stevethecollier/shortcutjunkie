@@ -9,16 +9,17 @@
         ng-init="getShortcut()">
         <form 
             name="shortcutForm" 
-            class="css-form" ng-submit= "editShortcut(shortcutForm)" novalidate >
+            class="css-form" 
+            ng-submit= "editShortcut(shortcutForm)" novalidate >
             <div 
                 class="form-group">
                 <label>application</label>
                 <input 
                     id="applicationField" 
                     name="applicationField" 
-                    class="form-control" 
+                    class="form-control"
+                    ng-class="{'submitted': submitted}" 
                     type="text" 
-                    ng-class="{'error': (shortcutForm.applicationField.$invalid && submitted)}" 
                     ng-change="fieldsChanged = true"  
                     required 
                     ng-model="shortcut.application" 
@@ -33,8 +34,8 @@
                     id="operatingSystemField" 
                     name="operatingSystemField" 
                     class="form-control" 
+                    ng-class="{'submitted': submitted}" 
                     type="text" 
-                    ng-class="{'error': (shortcutForm.operatingSystemField.$invalid && submitted)}" 
                     ng-change="fieldsChanged = true"  
                     required 
                     ng-model="shortcut.operatingSystem" 
@@ -49,8 +50,8 @@
                     id="keysetField" 
                     name="keysetField" 
                     class="form-control" 
-                    type="text" 
-                    ng-class="{'error': (shortcutForm.keysetField.$invalid && submitted)}" 
+                    ng-class="{'submitted': submitted}" 
+                    type="text"  
                     ng-change="fieldsChanged = true"  
                     required 
                     ng-model="shortcut.keyset" 
@@ -65,8 +66,8 @@
                     id="descriptionField" 
                     name="descriptionField" 
                     class="form-control" 
+                    ng-class="{'submitted': submitted}" 
                     type="text" 
-                    ng-class="{'error': (shortcutForm.descriptionField.$invalid && submitted)}" 
                     ng-change="fieldsChanged = true"  
                     required 
                     ng-model="shortcut.description" 
