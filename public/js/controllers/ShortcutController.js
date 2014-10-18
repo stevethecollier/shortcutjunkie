@@ -1,5 +1,5 @@
-angular.module('sj').controller('shortcutController', ['$scope', '$http', '$timeout',
-    function ShortcutController($scope, $http, $timeout) {
+angular.module('sj').controller('shortcutController', ['$scope', '$http', '$timeout', 'ShortcutFormService',
+    function ShortcutController($scope, $http, $timeout, ShortcutFormService) {
 
         $http.get('/api/shortcuts').success(function(data, status, headers, config) {
             $scope.foundShortcuts = data.shortcuts;
@@ -37,23 +37,16 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             $scope.foundShortcuts = shortcuts;
         };
 
-        $scope.newShortcut = {};
-        
-        $scope.addNewShortcut = function(shortcutForm) {
-            $scope.submitted = true;
-            if (shortcutForm.$valid) {
-                $http.post('/api/shortcuts', $scope.newShortcut).success(function(data) {
-                    if (data) {
-                        $scope.foundShortcuts.push(data);
-                        //reset form
-                        $scope.newShortcut = {};
-                        $scope.shortcutForm.$setPristine;
-                        $scope.submitted = false;
-                    } else {
-                        alert(JSON.stringify(data));
-                    }
-                });
-            }
-        };
+        $scope.$on('shortcutSubmitted', function() {
+            console.log(ShortcutFormService.getShortcut());
+            $http.post('/api/shortcuts', ShortcutFormService.getShortcut()).success(function(data) {
+                if (data) {
+                    console.log(data);
+                    $scope.foundShortcuts.push(data);
+                } else {
+                    alert(JSON.stringify(data));
+                }
+            });
+        });
     }
 ]);
