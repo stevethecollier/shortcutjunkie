@@ -40,6 +40,8 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             $scope.foundShortcuts = shortcuts;
         };
 
-
+        $scope.$on('shortcutSubmitted', function(event, shortcut){
+            $scope.foundShortcuts.push(shortcut);
+        });
     }
 ]);
