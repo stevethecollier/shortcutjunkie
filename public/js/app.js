@@ -34,7 +34,7 @@ angular.module('sj', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
                     url: '/partials/edit/',
                     onEnter: function($state) {
                         $state.go('home');
-                    },
+                    }
                 });
             $stateProvider
                 .state('edit', {

@@ -25,7 +25,7 @@ sjModule.controller('editController', ['$scope', '$http', '$timeout', '$statePar
                     $scope.newShortcut = false;
                 }
             });
-        }
+        };
 
         $scope.$on('shortcutSubmitted', function() {
             var submittedShortcut = ShortcutFormService.getShortcut();
