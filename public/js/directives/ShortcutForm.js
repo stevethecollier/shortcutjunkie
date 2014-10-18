@@ -8,7 +8,7 @@ sjModule.directive('shortcutForm', function() {
     return {
         restrict: "E",
         templateUrl: '/partials/shortcutForm.html',
-        link : linkFunction,
-        scope : {}
+        link: linkFunction,
+        scope: {}
     };
 });

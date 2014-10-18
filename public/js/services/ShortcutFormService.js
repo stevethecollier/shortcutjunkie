@@ -1,16 +1,22 @@
 var sjModule = angular.module('sj');
-sjModule.factory('ShortcutFormService', function($rootScope){
+sjModule.factory('ShortcutFormService', function($rootScope) {
 
     var submittedShortcut = {};
 
     return {
-        getShortcut: function(){
+        getShortcut: function() {
             return submittedShortcut;
         },
-        setShortcut : function(shortcut){
+        setShortcut: function(shortcut) {
             submittedShortcut = shortcut;
             $rootScope.$broadcast('shortcutSubmitted');
+        },
+        preloadShortcut: function(shortcut) {
+            if (shortcut) {
+                submittedShortcut = shortcut;
+            } else {
+                submittedShortcut = {};
+            }
         }
-
     }
 });

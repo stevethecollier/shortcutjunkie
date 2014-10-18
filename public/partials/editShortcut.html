@@ -7,79 +7,8 @@
     <h3>Edit Shortcut</h3>
     <div 
         ng-init="getShortcut()">
-        <form 
-            name="shortcutForm" 
-            class="css-form" 
-            ng-submit= "editShortcut(shortcutForm)" novalidate >
-            <div 
-                class="form-group">
-                <label>application</label>
-                <input 
-                    id="applicationField" 
-                    name="applicationField" 
-                    class="form-control"
-                    ng-class="{'submitted': submitted}" 
-                    type="text" 
-                    ng-change="fieldsChanged = true"  
-                    required 
-                    ng-model="shortcut.application" 
-                    placeholder="Sublime"/>
-                <span 
-                    ng-show="shortcutForm.applicationField.$invalid && submitted">What application is your shortcut for?</span>
-            </div>
-            <div 
-                class="form-group">
-                <label>operatingSystem</label>
-                <input 
-                    id="operatingSystemField" 
-                    name="operatingSystemField" 
-                    class="form-control" 
-                    ng-class="{'submitted': submitted}" 
-                    type="text" 
-                    ng-change="fieldsChanged = true"  
-                    required 
-                    ng-model="shortcut.operatingSystem" 
-                    placeholder="OS X"/>
-                <span 
-                    ng-show="shortcutForm.operatingSystemField.$invalid && submitted">What OS is your shortcut for?</span>
-            </div>
-            <div 
-                class="form-group">
-                <label>keyset</label>
-                <input 
-                    id="keysetField" 
-                    name="keysetField" 
-                    class="form-control" 
-                    ng-class="{'submitted': submitted}" 
-                    type="text"  
-                    ng-change="fieldsChanged = true"  
-                    required 
-                    ng-model="shortcut.keyset" 
-                    placeholder="ctrl + alt + cmd + up"/>
-                <span 
-                    ng-show="shortcutForm.keysetField.$invalid && submitted" >What application is the key combination for your shortcut?</span>
-            </div>
-            <div 
-                class="form-group">
-                <label>description</label>
-                <input 
-                    id="descriptionField" 
-                    name="descriptionField" 
-                    class="form-control" 
-                    ng-class="{'submitted': submitted}" 
-                    type="text" 
-                    ng-change="fieldsChanged = true"  
-                    required 
-                    ng-model="shortcut.description" 
-                    placeholder="mute Juan's mic?"/>
-                <span 
-                    ng-show="shortcutForm.descriptionField.$invalid && submitted">Please describe what your shortcut does</span>
-            </div>
-            <button 
-                ng-disabled="!fieldsChanged"
-                id="submitEdit" 
-                type='submit' 
-                ng-click="submitted = true">Submit Changes</button>
-        </form>
+        <shortcut-form 
+            submit-text="Submit Changes" 
+            require-edit = "true"></shortcut-form>
     </div>
 </div>

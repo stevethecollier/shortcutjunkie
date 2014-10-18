@@ -5,6 +5,9 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             $scope.foundShortcuts = data.shortcuts;
         })
 
+        //clear form
+        ShortcutFormService.preloadShortcut();
+
         $scope.delete = function(shortcut) {
             $http({
                 method: 'DELETE',
@@ -38,10 +41,8 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
         };
 
         $scope.$on('shortcutSubmitted', function() {
-            console.log(ShortcutFormService.getShortcut());
             $http.post('/api/shortcuts', ShortcutFormService.getShortcut()).success(function(data) {
                 if (data) {
-                    console.log(data);
                     $scope.foundShortcuts.push(data);
                 } else {
                     alert(JSON.stringify(data));
