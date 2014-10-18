@@ -27,16 +27,6 @@ sjModule.controller('editController', ['$scope', '$http', '$timeout', '$statePar
             });
         };
 
-        $scope.$on('shortcutSubmitted', function() {
-            var submittedShortcut = ShortcutFormService.getShortcut();
-            submittedShortcut._id = $scope.newShortcut._id;
-            $http.put('api/shortcuts', submittedShortcut).success(function(data) {
-                if (data) {
-                    $scope.succeeded = true;
-                } else {
-                    alert(JSON.stringify(data));
-                }
-            });
-        });
+
     }
 ]);

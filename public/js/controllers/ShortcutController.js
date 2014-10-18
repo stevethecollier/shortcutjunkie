@@ -21,7 +21,7 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
                     $scope.foundShortcuts.splice(index, 1);
                 }
             })
-        }
+        };
 
         $scope.edit = function(shortcut) {
             var criteria = {
@@ -31,7 +31,7 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
 
             var config = {
                 params: criteria
-            }
+            };
 
             $http.get('/api/search/#/partials/edit', config);
         };
@@ -40,14 +40,6 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             $scope.foundShortcuts = shortcuts;
         };
 
-        $scope.$on('shortcutSubmitted', function() {
-            $http.post('/api/shortcuts', ShortcutFormService.getShortcut()).success(function(data) {
-                if (data) {
-                    $scope.foundShortcuts.push(data);
-                } else {
-                    alert(JSON.stringify(data));
-                }
-            });
-        });
+
     }
 ]);
