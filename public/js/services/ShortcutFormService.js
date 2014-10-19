@@ -9,15 +9,19 @@ sjModule.factory('ShortcutFormService', ['$q', '$http', '$rootScope',
                 return submittedShortcut;
             },
             updateShortcut: function(shortcut) {
-                var submittedShortcut = ShortcutFormService.getShortcut();
-                submittedShortcut._id = $scope.newShortcut._id;
-                $http.put('api/shortcuts', submittedShortcut).success(function(data) {
-                    if (data) {
-
-                    } else {
-                        alert(JSON.stringify(data));
-                    }
-                });
+                var deffered = $q.defer();
+                $http.put('api/shortcuts', submittedShortcut)
+                    .success(function(data, status, headers, config) {
+                        if (data) {
+                            //do something when put successful
+                        } else {
+                            alert(JSON.stringify(data));
+                        }
+                        deffered.resolve(data, status, headers, config);
+                    }).error(function(data, status, headers, config) {
+                        deffered.reject(data, status, headers, config);
+                    });
+                return deffered.promise;
             },
             createShortcut: function(shortcut) {
                 var deffered = $q.defer();
