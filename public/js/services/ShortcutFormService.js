@@ -1,6 +1,6 @@
 var sjModule = angular.module('sj');
-sjModule.factory('ShortcutFormService', ['$q', '$http',
-    function($q, $http) {
+sjModule.factory('ShortcutFormService', ['$q', '$http', '$rootScope',
+    function($q, $http, $rootScope) {
 
         var submittedShortcut = {};
 
@@ -35,6 +35,7 @@ sjModule.factory('ShortcutFormService', ['$q', '$http',
             preloadShortcut: function(shortcut) {
                 if (shortcut) {
                     submittedShortcut = shortcut;
+                    $rootScope.$broadcast('shortcutChanged');
                 } else {
                     submittedShortcut = {};
                 }

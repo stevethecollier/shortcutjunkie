@@ -1,12 +1,14 @@
 angular.module('sj').controller('shortcutFormController', ['$scope', '$rootScope', '$http', '$timeout', 'ShortcutFormService',
-    function ($scope, $rootScope, $http, $timeout, ShortcutFormService) {
+    function($scope, $rootScope, $http, $timeout, ShortcutFormService) {
 
-        $scope.newShortcut = ShortcutFormService.getShortcut();
-
+        $rootScope.$on('shortcutChanged', function() {
+            $scope.newShortcut = ShortcutFormService.getShortcut();
+        });
+        
         var apiFunctions = {
-            post: function (newShortcut) {
+            post: function(newShortcut) {
                 ShortcutFormService.createShortcut(newShortcut)
-                    .then(function (data) {
+                    .then(function(data) {
                         //reset form
                         $scope.newShortcut = {};
                         $scope.shortcutForm.$setPristine;
@@ -15,22 +17,22 @@ angular.module('sj').controller('shortcutFormController', ['$scope', '$rootScope
                         //todo: add broadcast
                         $rootScope.$broadcast('shortcutSubmitted', data);
 
-                    },function () {
+                    }, function() {
 
                     });
             },
-            put: function (newShortcut) {
+            put: function(newShortcut) {
 
             },
-            get: function (newShortcut) {
+            get: function(newShortcut) {
 
             },
-            delete: function (newShortcut) {
+            delete: function(newShortcut) {
 
             }
         };
 
-        $scope.submitShortcut = function (shortcutForm) {
+        $scope.submitShortcut = function(shortcutForm) {
             $scope.submitted = true;
             if (shortcutForm.$valid) {
                 apiFunctions[$scope.method]($scope.newShortcut);

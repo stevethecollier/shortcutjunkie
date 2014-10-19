@@ -17,16 +17,11 @@ sjModule.controller('editController', ['$scope', '$http', '$timeout', '$statePar
                 var shortcuts = data.foundShortcuts;
                 if (shortcuts.length > 0) {
                     $scope.noneFound = false;
-                    $scope.newShortcut = data.foundShortcuts[0];
-                    ShortcutFormService.preloadShortcut($scope.newShortcut);
-                    console.log(ShortcutFormService.getShortcut());
+                    ShortcutFormService.preloadShortcut(data.foundShortcuts[0]);
                 } else {
                     $scope.noneFound = true;
-                    $scope.newShortcut = false;
                 }
             });
         };
-
-
     }
 ]);
