@@ -1,0 +1,39 @@
+<div class = "shortcut-row row"
+	ng-repeat="shortcut in foundShortcuts">
+	<div
+		class="pull-right col-xs-3 col-md-2">
+		<div class="row">
+			<a
+				class="editLink col-xs-12 pull-right btn btn-primary"
+				ng-href = "/#/partials/edit/{{shortcut._id}}">
+				Edit
+			</a>
+		</div>
+		<div class="row">
+			<button
+				ng-click="delete(shortcut)"
+				class="deleteLink col-xs-12 pull-right btn btn-danger">
+				Delete
+			</button>
+		</div>
+	</div>
+	<div class="shortcut col-xs-9"/>
+		<div>
+			<div>
+				<span>application = </span><span class= "applicationInfo">{{shortcut.application}}</span>
+			</div>
+			<div>
+				<span>operatingSystem = </span><span class="operatingSystemInfo">{{shortcut.operatingSystem}}</span>
+			</div>
+			<div>
+				<span>keyset = </span><span class="keysetInfo">{{shortcut.keyset}}</span>
+			</div>
+			<div>
+				<span>description = </span><span class="descriptionInfo">{{shortcut.description}}</span>
+			</div>
+			<div hidden="true">
+				<span>id = </span><span class="idInfo">{{shortcut._id}}</span>
+			</div>
+		</div>
+	</div>
+</div>
