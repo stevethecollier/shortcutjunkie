@@ -1,7 +1,10 @@
 //Mixins
-mixin signInButton(extraClasses)
-	button.btn.btn-primary.navbar-btn.pull-right(class=extraClasses ng-controller="loginController" ng-click="login()")
-		| Sign in
+mixin signInButton(type, extraClasses)
+	- var condition 
+	- if (type == "Sign in") { condition = "!loggedIn" } else { condition = "loggedIn" }
+	div(ng-if=condition)
+		button.btn.btn-primary.navbar-btn.pull-right(class=extraClasses  ng-click="execute()")
+			| #{type}
 //Layout
 doctype html
 html.container
@@ -19,14 +22,18 @@ html.container
 						span(class="icon-bar")
 					a.navbar-brand#homeLink(data-toggle="collapse" data-target="#navbarCollapse" href="#") 
 						| #{title}
-					+signInButton(" hidden-sm hidden-md hidden-lg")
+					div(ng-controller="loginController")
+						+signInButton("Sign in", "!loggedIn", "hidden-sm hidden-md hidden-lg")
+						+signInButton("Sign out", "loggedIn", "hidden-sm hidden-md hidden-lg")
 				div.collapse.navbar-collapse#navbarCollapse
 					ul.nav.navbar-nav(role="menu")
 						li
 							a#shortcutsLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href="/#/partials/shortcuts") Shortcuts Home
 						li
 							a#searchLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href="/#/partials/search") Search
-					+signInButton("hidden-xs")
+					div(ng-controller="loginController")
+						+signInButton("Sign in", "hidden-xs")
+						+signInButton("Sign out", "hidden-xs")
 		block content
 		include includes/foot
 		block extraScripts
