@@ -1,4 +1,7 @@
 doctype html
+mixin signInButton(extraClasses)
+	button.btn.btn-primary.navbar-btn.pull-right(class=extraClasses)
+		| Sign in
 html.container
 	head
 		meta(name="viewport" content="width=device-width, initial-scale=1")
@@ -14,12 +17,14 @@ html.container
 						span(class="icon-bar")
 					a.navbar-brand#homeLink(data-toggle="collapse" data-target="#navbarCollapse" href="#") 
 						| #{title}
+					+signInButton(" hidden-sm hidden-md hidden-lg")
 				div.collapse.navbar-collapse#navbarCollapse
 					ul.nav.navbar-nav(role="menu")
 						li
 							a#shortcutsLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/shortcuts") Shortcuts Home
 						li
 							a#searchLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href = "/#/partials/search") Search
+					+signInButton("hidden-xs")
 		block content
 		include includes/foot
 		block extraScripts
