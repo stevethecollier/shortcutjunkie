@@ -7,15 +7,27 @@ angular.module('sj', [
     'angular-storage',
     'angular-jwt'
 ])
-    .config(
+    .config([
+        '$routeProvider',
+        'authProvider',
+        '$httpProvider',
+        '$locationProvider',
+        'jwtInterceptorProvider',
         //Set up Auth0
-        function(authProvider) {
+        function($routeProvider, authProvider, $httpProvider, $locationProvider, jwtInterceptorProvider) {
             authProvider.init({
                 domain: 'shortcutjunkie.auth0.com',
                 clientID: 'ko7shLb1fQmFoYzMBGXUpSaNKGeeQ9HK'
             });
-        })
-    .config(['$stateProvider', '$urlRouterProvider',
+            jwtInterceptorProvider.tokenGetter = function(store) {
+                return store.get('token');
+            }
+            $httpProvider.interceptors.push('jwtInterceptor');
+        }
+    ])
+    .config([
+        '$stateProvider',
+        '$urlRouterProvider',
         //Set up state provider
         function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/');
@@ -64,7 +76,24 @@ angular.module('sj', [
                 });
         }
     ])
-    .run(function(auth) {
-        // This hooks all auth events to check everything as soon as the app starts
-        auth.hookEvents();
-    });
+    .run([
+        '$rootScope',
+        'auth',
+        'store',
+        'jwtHelper',
+        '$location',
+        function($rootScope, auth, store, jwtHelper, $location) {
+            $rootScope.$on('$locationChangeStart', function() {
+                if (!auth.isAuthenticated) {
+                    var token = store.get('token');
+                    if (token) {
+                        if (!jwtHelper.isTokenExpired(token)) {
+                            auth.authenticate(store.get('profile'), token);
+                        } else {
+                            $location.path('/login');
+                        }
+                    }
+                }
+            });
+        }
+    ]);
