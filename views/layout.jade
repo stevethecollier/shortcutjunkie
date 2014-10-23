@@ -5,6 +5,10 @@ mixin signInButton(type, extraClasses)
 	div(ng-if=condition)
 		button.btn.btn-primary.navbar-btn.pull-right(class=extraClasses  ng-click="execute()")
 			| #{type}
+
+mixin usernameDisplay(extraClasses)
+	div.pull-right.navbar-brand.small(class=extraClasses)
+		| Signed in as {{profile.first_name}} ({{profile.email}})			
 //Layout
 doctype html
 html.container
@@ -12,7 +16,7 @@ html.container
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		include includes/head
 	body
-		nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role="navigation")
+		nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role="navigation" ng-controller="loginController")
 			div.container
 				div.navbar-header
 					button.navbar-toggle(type="button" data-toggle="collapse" data-target="#navbarCollapse")
@@ -22,18 +26,20 @@ html.container
 						span(class="icon-bar")
 					a.navbar-brand#homeLink(data-toggle="collapse" data-target="#navbarCollapse" href="#") 
 						| #{title}
-					div(ng-controller="loginController")
-						+signInButton("Sign in", "hidden-sm hidden-md hidden-lg")
-						+signInButton("Sign out", "hidden-sm hidden-md hidden-lg")
+					div(class="hidden-sm hidden-md hidden-lg")
+						+signInButton("Sign in")
+						+signInButton("Sign out")
+					+usernameDisplay("hidden-sm hidden-md hidden-lg")
 				div.collapse.navbar-collapse#navbarCollapse
 					ul.nav.navbar-nav(role="menu")
 						li
 							a#shortcutsLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href="/#/partials/shortcuts") Shortcuts Home
 						li
 							a#searchLink(data-toggle="collapse" data-target="#navbarCollapse" ng-href="/#/partials/search") Search
-					div(ng-controller="loginController")
-						+signInButton("Sign in", "hidden-xs")
-						+signInButton("Sign out", "hidden-xs")
+					div(class="hidden-xs")
+						+signInButton("Sign in")
+						+signInButton("Sign out")
+						+usernameDisplay
 		block content
 		include includes/foot
 		block extraScripts
