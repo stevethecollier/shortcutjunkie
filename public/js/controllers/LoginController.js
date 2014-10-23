@@ -5,7 +5,7 @@ sjModule.controller('loginController', ['$scope', 'auth', '$location', 'store',
         $scope.loggedIn = false;
 
         $scope.execute = function() {
-            if ($scope.loggedIn){
+            if ($scope.loggedIn) {
                 $scope.logout();
             } else {
                 $scope.login();
@@ -15,17 +15,20 @@ sjModule.controller('loginController', ['$scope', 'auth', '$location', 'store',
         $scope.login = function() {
             auth.signin({}, function(profile, token) {
                 // Success callback
-                $scope.loggedIn = true;
+                debugger;
                 store.set('profile', profile);
                 store.set('token', token);
-                $location.path('/');
+                $location.path("/");
+                $scope.loggedIn = auth.isAuthenticated;
+                console.log("end of authentication");
             }, function() {
                 // Error callback
+                debugger;
+                console.log("error with sign on");
             });
         }
 
         $scope.logout = function() {
-            $scope.loggedIn= false;
             auth.signout();
             store.remove('profile');
             store.remove('token');

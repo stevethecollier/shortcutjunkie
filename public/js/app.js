@@ -8,28 +8,24 @@ angular.module('sj', [
     'angular-jwt'
 ])
     .config([
-        '$routeProvider',
+        '$stateProvider',
+        '$urlRouterProvider',
         'authProvider',
         '$httpProvider',
         '$locationProvider',
         'jwtInterceptorProvider',
-        //Set up Auth0
-        function($routeProvider, authProvider, $httpProvider, $locationProvider, jwtInterceptorProvider) {
+        //Set up state provider
+        function($stateProvider, $urlRouterProvider, authProvider, $httpProvider, $locationProvider, jwtInterceptorProvider) {
+            //Set up Auth0
             authProvider.init({
                 domain: 'shortcutjunkie.auth0.com',
-                clientID: 'ko7shLb1fQmFoYzMBGXUpSaNKGeeQ9HK'
+                clientID: 'ko7shLb1fQmFoYzMBGXUpSaNKGeeQ9HK',
             });
             jwtInterceptorProvider.tokenGetter = function(store) {
                 return store.get('token');
             }
             $httpProvider.interceptors.push('jwtInterceptor');
-        }
-    ])
-    .config([
-        '$stateProvider',
-        '$urlRouterProvider',
-        //Set up state provider
-        function($stateProvider, $urlRouterProvider) {
+
             $urlRouterProvider.otherwise('/');
             $stateProvider.
             state('home', {
@@ -76,24 +72,18 @@ angular.module('sj', [
                 });
         }
     ])
-    .run([
-        '$rootScope',
-        'auth',
-        'store',
-        'jwtHelper',
-        '$location',
-        function($rootScope, auth, store, jwtHelper, $location) {
-            $rootScope.$on('$locationChangeStart', function() {
-                if (!auth.isAuthenticated) {
-                    var token = store.get('token');
-                    if (token) {
-                        if (!jwtHelper.isTokenExpired(token)) {
-                            auth.authenticate(store.get('profile'), token);
-                        } else {
-                            $location.path('/login');
-                        }
+    .run(function($rootScope, auth, store, jwtHelper, $location) {
+        $rootScope.$on('$locationChangeStart', function() {
+            if (!auth.isAuthenticated) {
+                var token = store.get('token');
+                if (token) {
+                    if (!jwtHelper.isTokenExpired(token)) {
+                        auth.authenticate(store.get('profile'), token);
+                    } else {
+                        $location.path('/login');
                     }
                 }
-            });
-        }
-    ]);
+            }
+
+        });
+    })

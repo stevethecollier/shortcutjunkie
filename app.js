@@ -9,6 +9,14 @@ var routes = require('./routes/index');
 var api = require('./routes/api/index');
 
 var app = express();
+var jwt = require('express-jwt');
+
+//Auth0 JWT
+var jwtCheck = jwt({
+    secret: new Buffer('ATIHQozqBgmJcy0OnxXEXiS8ZD2if0QSIBSqLRNEyLqv-FG0O5tNsqsBvx9du1n-', 'base64'),
+    audience: 'ko7shLb1fQmFoYzMBGXUpSaNKGeeQ9HK'
+});
+app.use('/api/secure', jwtCheck);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
