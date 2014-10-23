@@ -23,8 +23,8 @@ html.container
 					a.navbar-brand#homeLink(data-toggle="collapse" data-target="#navbarCollapse" href="#") 
 						| #{title}
 					div(ng-controller="loginController")
-						+signInButton("Sign in", "!loggedIn", "hidden-sm hidden-md hidden-lg")
-						+signInButton("Sign out", "loggedIn", "hidden-sm hidden-md hidden-lg")
+						+signInButton("Sign in", "hidden-sm hidden-md hidden-lg")
+						+signInButton("Sign out", "hidden-sm hidden-md hidden-lg")
 				div.collapse.navbar-collapse#navbarCollapse
 					ul.nav.navbar-nav(role="menu")
 						li
