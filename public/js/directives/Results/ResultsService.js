@@ -6,6 +6,7 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
 
         return {
             getResults: function() {
+                results = results.sort(sortingByVotes());
                 return results;
             },
             loadAll: function() {
@@ -51,7 +52,7 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
                     }
                 });
             },
-            addShortcut: function(shortcut){
+            addShortcut: function(shortcut) {
                 results.push(shortcut);
             },
             vote: function(shortcut, direction) {
@@ -69,6 +70,7 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
                         if (shortcut._id == data._id) {
                             results[index].upvotes = data.upvotes;
                             results[index].downvotes = data.downvotes;
+                            $rootScope.$broadcast('resultsChanged');
                         }
                     }
                 });
@@ -76,3 +78,21 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
         }
     }
 ]);
+
+function sortingByVotes() {
+    return function(firstShortcut, secondShortcut) {
+        var firstScore = score(firstShortcut);
+        var secondScore = score(secondShortcut);
+        if (firstScore < secondScore) {
+            return 1;
+        } else if (firstScore > secondScore) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+}
+
+function score(shortcut) {
+    return shortcut.upvotes - shortcut.downvotes;
+}
