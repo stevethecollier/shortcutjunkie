@@ -19,22 +19,7 @@ angular.module('sj').controller('ResultsController', [
 
         $scope.vote = function(shortcut, direction) {
             if (auth.isAuthenticated) {
-                $http({
-                    method: 'POST',
-                    url: '/api/shortcuts/vote',
-                    params: {
-                        'id': shortcut._id,
-                        'direction': direction
-                    }
-                }).success(function(data) {
-                    //can't use indexof, better way to optimize?
-                    for (var index in $scope.foundShortcuts) {
-                        if (shortcut._id == data._id) {
-                            $scope.foundShortcuts[index].upvotes = data.upvotes;
-                            $scope.foundShortcuts[index].downvotes = data.downvotes;
-                        }
-                    }
-                });
+                ResultsService.vote(shortcut, direction);
             } else {
                 console.log("not logged in");
             }

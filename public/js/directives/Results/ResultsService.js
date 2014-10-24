@@ -32,6 +32,25 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
                         $rootScope.$broadcast('resultsChanged');
                     }
                 });
+            },
+            vote: function(shortcut, direction) {
+                $http({
+                    method: 'POST',
+                    url: '/api/shortcuts/vote',
+                    params: {
+                        'id': shortcut._id,
+                        'direction': direction
+                    }
+                }).success(function(data) {
+                    //can't use indexof, better way to optimize?
+                    for (var index in results) {
+                        var shortcut = results[index];
+                        if (shortcut._id == data._id) {
+                            results[index].upvotes = data.upvotes;
+                            results[index].downvotes = data.downvotes;
+                        }
+                    }
+                });
             }
         }
     }
