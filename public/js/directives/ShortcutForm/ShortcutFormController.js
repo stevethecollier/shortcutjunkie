@@ -29,12 +29,6 @@ angular.module('sj').controller('shortcutFormController', ['$scope', '$rootScope
 
                     });
             },
-            get: function(newShortcut) {
-
-            },
-            delete: function(newShortcut) {
-
-            }
         };
 
         $scope.submitShortcut = function(shortcutForm) {
