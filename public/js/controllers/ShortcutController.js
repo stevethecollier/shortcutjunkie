@@ -1,9 +1,14 @@
-angular.module('sj').controller('shortcutController', ['$scope', '$http', '$timeout', 'ShortcutFormService',
-    function ShortcutController($scope, $http, $timeout, ShortcutFormService) {
+angular.module('sj').controller('shortcutController', [
+    '$scope',
+    '$http',
+    '$timeout',
+    'ShortcutFormService',
+    'auth',
+    function ShortcutController($scope, $http, $timeout, ShortcutFormService, auth) {
 
         $http.get('/api/shortcuts').success(function(data, status, headers, config) {
             $scope.foundShortcuts = data.shortcuts;
-        })
+        });
 
         //clear form
         ShortcutFormService.preloadShortcut();
@@ -24,29 +29,27 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
         };
 
         $scope.vote = function(shortcut, direction) {
-            $http({
-                method: 'POST',
-                url: '/api/shortcuts/vote',
-                params: {
-                    'id': shortcut._id,
-                    'direction': direction
-                }
-            }).success(function(data) {
-                //can't use indexof, better way to optimize?
-                for (var index in $scope.foundShortcuts) {
-                    if (shortcut._id == data._id) {
-                        $scope.foundShortcuts[index].upvotes = data.upvotes;
-                        $scope.foundShortcuts[index].downvotes = data.downvotes;
+            if (auth.isAuthenticated) {
+                $http({
+                    method: 'POST',
+                    url: '/api/shortcuts/vote',
+                    params: {
+                        'id': shortcut._id,
+                        'direction': direction
                     }
-                }
-            })
+                }).success(function(data) {
+                    //can't use indexof, better way to optimize?
+                    for (var index in $scope.foundShortcuts) {
+                        if (shortcut._id == data._id) {
+                            $scope.foundShortcuts[index].upvotes = data.upvotes;
+                            $scope.foundShortcuts[index].downvotes = data.downvotes;
+                        }
+                    }
+                });
+            } else {
+                console.log("not logged in");
+            }
         }
-
-        // $scope.voteDown = function(shortcut) {
-        //     var index = $scope.foundShortcuts.indexOf(shortcut);
-        //     $scope.foundShortcuts[index].downvotes -= 1;
-        // }
-
 
         $scope.edit = function(shortcut) {
             var criteria = {
