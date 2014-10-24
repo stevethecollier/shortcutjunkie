@@ -100,7 +100,11 @@ router.post('/vote', function(req, res) {
                 error: error
             });
         } else {
-            shortcut.upvotes += 1;
+            if (req.param('direction') == 'up') {
+                shortcut.upvotes += 1;
+            } else if (req.param('direction') == 'down') {
+                shortcut.downvotes -= 1;
+            } 
             shortcut.save(function(error, shortcut) {
                 if (error || !shortcut) {
                     res.json({

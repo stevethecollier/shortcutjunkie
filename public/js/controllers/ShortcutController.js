@@ -23,27 +23,29 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             })
         };
 
-        $scope.voteUp = function(shortcut) {
+        $scope.vote = function(shortcut, direction) {
             $http({
                 method: 'POST',
                 url: '/api/shortcuts/vote',
                 params: {
-                    'id': shortcut._id
+                    'id': shortcut._id,
+                    'direction': direction
                 }
             }).success(function(data) {
                 //can't use indexof, better way to optimize?
                 for (var index in $scope.foundShortcuts) {
                     if (shortcut._id == data._id) {
-                        $scope.foundShortcuts[index].upvotes += 1;
+                        $scope.foundShortcuts[index].upvotes = data.upvotes;
+                        $scope.foundShortcuts[index].downvotes = data.downvotes;
                     }
                 }
             })
         }
 
-        $scope.voteDown = function(shortcut) {
-            var index = $scope.foundShortcuts.indexOf(shortcut);
-            $scope.foundShortcuts[index].downvotes -= 1;
-        }
+        // $scope.voteDown = function(shortcut) {
+        //     var index = $scope.foundShortcuts.indexOf(shortcut);
+        //     $scope.foundShortcuts[index].downvotes -= 1;
+        // }
 
 
         $scope.edit = function(shortcut) {

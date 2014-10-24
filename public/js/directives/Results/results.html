@@ -31,11 +31,11 @@
 			<div>
 				<span>description = </span><span class="descriptionInfo">{{shortcut.description}}</span>
 			</div>
-			<button type="button" class="btn btn-default btn-primary" ng-click="voteUp(shortcut)">
+			<button type="button" class="btn btn-default btn-primary" ng-click="vote(shortcut, 'up')">
 				<span> upvote</span>
 				<span class="upvotesInfo">{{shortcut.upvotes}}</span>
 			</button>
-			<button type="button" class="btn btn-default btn-danger" ng-click="voteDown(shortcut)">
+			<button type="button" class="btn btn-default btn-danger" ng-click="vote(shortcut, 'down')">
 				<span> downvote</span>
 				<span class="downvotesInfo">{{shortcut.downvotes}}</span>
 			</div>

@@ -80,7 +80,7 @@ angular.module('sj', [
                     if (!jwtHelper.isTokenExpired(token)) {
                         auth.authenticate(store.get('profile'), token);
                     } else {
-                        $location.path('/login');
+                        //$location.path('/');
                     }
                 }
             }
