@@ -8,7 +8,7 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
             getResults: function() {
                 return results;
             },
-            loadResults: function() {
+            loadAll: function() {
                 $http.get('/api/shortcuts').success(function(data, status, headers, config) {
                     if (data.shortcuts) {
                         results = data.shortcuts;
@@ -17,6 +17,9 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
                         results = {};
                     }
                 });
+            },
+            clear: function(){
+                results = {};
             },
             deleteShortcut: function(shortcut) {
                 $http({

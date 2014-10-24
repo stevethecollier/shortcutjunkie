@@ -7,8 +7,6 @@ angular.module('sj').controller('ResultsController', [
     'ResultsService',
     function ResultsController($scope, $rootScope, $http, $timeout, auth, ResultsService) {
 
-        ResultsService.loadResults();
-
         $rootScope.$on('resultsChanged', function() {
             $scope.foundShortcuts = ResultsService.getResults();
         });

@@ -3,7 +3,10 @@ angular.module('sj').controller('shortcutController', [
     '$http',
     '$timeout',
     'ShortcutFormService',
-    function ShortcutController($scope, $http, $timeout, ShortcutFormService) {
+    'ResultsService',
+    function ShortcutController($scope, $http, $timeout, ShortcutFormService, ResultsService) {
+
+        ResultsService.loadAll();
 
         //clear form
         ShortcutFormService.preloadShortcut();
