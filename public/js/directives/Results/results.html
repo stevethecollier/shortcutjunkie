@@ -11,9 +11,9 @@
 		</div>
 		<div class="row">
 			<button
-				ng-click="delete(shortcut)"
-				class="deleteLink col-xs-12 pull-right btn btn-danger">
-				Delete
+			ng-click="delete(shortcut)"
+			class="deleteLink col-xs-12 pull-right btn btn-danger">
+			Delete
 			</button>
 		</div>
 	</div>
@@ -30,6 +30,14 @@
 			</div>
 			<div>
 				<span>description = </span><span class="descriptionInfo">{{shortcut.description}}</span>
+			</div>
+			<button type="button" class="btn btn-default btn-primary" ng-click="voteUp(shortcut)">
+				<span> upvote</span>
+				<span class="upvotesInfo">{{shortcut.upvotes}}</span>
+			</button>
+			<button type="button" class="btn btn-default btn-danger" ng-click="voteDown(shortcut)">
+				<span> downvote</span>
+				<span class="downvotesInfo">{{shortcut.downvotes}}</span>
 			</div>
 			<div hidden="true">
 				<span>id = </span><span class="idInfo">{{shortcut._id}}</span>

@@ -22,6 +22,9 @@ router.get('/', function(req, res) {
 /* POST new shortcut. listing */
 router.post('/', function(req, res) {
     var newShortcut = new Shortcut(req.body);
+    //default 0 upvotes and downvotes
+    newShortcut.upvotes = 0;
+    newShortcut.downvotes = 0;
     newShortcut.save(function(error, newShortcut) {
         if (error || !newShortcut) {
             res.json({
@@ -36,8 +39,6 @@ router.post('/', function(req, res) {
 /* PUT update shortcut listing. */
 router.put('/', function(req, res) {
     var requestShortcut = req.body;
-    console.log('newShortcut');
-    console.log(requestShortcut);
     Shortcut.findOne({
         _id: requestShortcut._id
     }, function(error, shortcut) {
@@ -80,7 +81,7 @@ router.delete('/', function(req, res) {
                         error: error
                     });
                 } else {
-                	//TODO add a message for successfully deleting the shortcut 
+                    //TODO add a message for successfully deleting the shortcut 
                     res.send('successfully deleted shortcut');
                 }
             })

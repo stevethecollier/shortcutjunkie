@@ -23,6 +23,17 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             })
         };
 
+        $scope.voteUp = function(shortcut) {
+            var index = $scope.foundShortcuts.indexOf(shortcut);
+            $scope.foundShortcuts[index].upvotes += 1;
+        }
+
+        $scope.voteDown = function(shortcut) {
+            var index = $scope.foundShortcuts.indexOf(shortcut);
+            $scope.foundShortcuts[index].downvotes -= 1;
+        }
+
+
         $scope.edit = function(shortcut) {
             var criteria = {
                 criteriaKey: '_id',
@@ -40,7 +51,7 @@ angular.module('sj').controller('shortcutController', ['$scope', '$http', '$time
             $scope.foundShortcuts = shortcuts;
         };
 
-        $scope.$on('shortcutSubmitted', function(event, shortcut){
+        $scope.$on('shortcutSubmitted', function(event, shortcut) {
             $scope.foundShortcuts.push(shortcut);
         });
     }
