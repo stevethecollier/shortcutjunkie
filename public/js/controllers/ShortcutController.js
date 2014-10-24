@@ -12,7 +12,7 @@ angular.module('sj').controller('shortcutController', [
         ShortcutFormService.preloadShortcut();
 
         $scope.$on('shortcutSubmitted', function(event, shortcut) {
-            $scope.foundShortcuts.push(shortcut);
+            ResultsService.addShortcut(shortcut);
         });
     }
 ]);

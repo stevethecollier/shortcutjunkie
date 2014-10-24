@@ -31,9 +31,7 @@ describe('search page', function() {
             expect(value).toBeTruthy();
         });
         element(by.id('search')).click();
-        element(by.id('resultsTitle')).getWebElement().getAttribute('class').then(function(classes) {
-            expect(classes.indexOf('ng-hide') > -1).toBeTruthy();
-        });
+        expect(element(by.id('resultsTitle')).isPresent()).toBeFalsy();
 
         //no search value provided
         selectDropdownByNum(element(by.id('searchType')), 'application', indexes);

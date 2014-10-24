@@ -18,8 +18,23 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
                     }
                 });
             },
-            clear: function(){
+            clear: function() {
                 results = {};
+            },
+            search: function(searchType, searchValue) {
+                var criteria = {
+                    criteriaKey: searchType,
+                    criteriaValue: searchValue
+                };
+
+                var config = {
+                    params: criteria
+                }
+
+                $http.get('api/search', config).success(function(data, status, headers, config) {
+                    results = data.foundShortcuts;
+                    $rootScope.$broadcast('resultsChanged');
+                });
             },
             deleteShortcut: function(shortcut) {
                 $http({
@@ -35,6 +50,9 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
                         $rootScope.$broadcast('resultsChanged');
                     }
                 });
+            },
+            addShortcut: function(shortcut){
+                results.push(shortcut);
             },
             vote: function(shortcut, direction) {
                 $http({

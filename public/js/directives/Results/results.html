@@ -1,5 +1,5 @@
 <div ng-controller="ResultsController">
-	<ng-transclude ng-if="foundShortcuts"></ng-transclude>
+	<ng-transclude id="resultsTitle" ng-if="foundShortcuts"></ng-transclude>
 	<div class = "shortcut-row row"
 		ng-repeat="shortcut in foundShortcuts">
 		<div
