@@ -59,7 +59,7 @@ router.put('/', function(req, res) {
                 } else {
                     res.send(shortcut);
                 }
-            })
+            });
         }
     })
 });
@@ -89,5 +89,29 @@ router.delete('/', function(req, res) {
     })
 });
 
+/* POST vote up or down*/
+router.post('/vote', function(req, res) {
+    var requestShortcut = req.body;
+    Shortcut.findOne({
+        _id: req.param('id')
+    }, function(error, shortcut) {
+        if (error || !shortcut) {
+            res.json({
+                error: error
+            });
+        } else {
+            shortcut.upvotes += 1;
+            shortcut.save(function(error, shortcut) {
+                if (error || !shortcut) {
+                    res.json({
+                        error: error
+                    });
+                } else {
+                    res.send(shortcut);
+                }
+            });
+        }
+    })
+});
 
 module.exports = router;
