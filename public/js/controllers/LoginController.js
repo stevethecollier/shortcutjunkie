@@ -19,7 +19,6 @@ sjModule.controller('loginController', ['$scope', 'auth', '$location', 'store',
                 // Success callback
                 store.set('profile', profile);
                 store.set('token', token);
-                $location.path("/");
                 $scope.loggedIn = auth.isAuthenticated;
                 // Or using the object
                 $scope.message = 'message changed';
