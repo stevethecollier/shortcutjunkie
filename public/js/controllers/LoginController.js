@@ -1,8 +1,15 @@
 var sjModule = angular.module('sj');
 
-sjModule.controller('loginController', ['$scope', 'auth', '$location', 'store',
-    function LoginCtrl($scope, auth, $location, store) {
-        $scope.loggedIn = false;
+sjModule.controller('loginController', ['$scope', '$rootScope', 'auth', '$location', 'store',
+    function LoginCtrl($scope, $rootScope, auth, $location, store) {
+        
+        $scope.$on('logout', function(){
+            $scope.loggedIn = false;
+        });
+
+        $scope.$on('login', function(){
+            $scope.loggedIn = true;
+        });
 
         $scope.message = 'message';
 
@@ -19,9 +26,7 @@ sjModule.controller('loginController', ['$scope', 'auth', '$location', 'store',
                 // Success callback
                 store.set('profile', profile);
                 store.set('token', token);
-                $scope.loggedIn = auth.isAuthenticated;
-                // Or using the object
-                $scope.message = 'message changed';
+                $rootScope.$broadcast('login');
                 $scope.profile = auth.profile;
             }, function() {
                 // Error callback
@@ -33,7 +38,7 @@ sjModule.controller('loginController', ['$scope', 'auth', '$location', 'store',
             auth.signout();
             store.remove('profile');
             store.remove('token');
-            $scope.loggedIn = auth.isAuthenticated;
+            $rootScope.$broadcast('logout');
         }
     }
 ]);

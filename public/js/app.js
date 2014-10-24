@@ -73,17 +73,26 @@ angular.module('sj', [
         }
     ])
     .run(function($rootScope, auth, store, jwtHelper, $location) {
+        $rootScope.$on('login', function() {
+            $rootScope.signedIn = true;
+        });
+
+        $rootScope.$on('logout', function() {
+            $rootScope.signedIn = false;
+        });
+
         $rootScope.$on('$locationChangeStart', function() {
-            if (!auth.isAuthenticated) {
-                var token = store.get('token');
-                if (token) {
-                    if (!jwtHelper.isTokenExpired(token)) {
-                        auth.authenticate(store.get('profile'), token);
-                    } else {
-                        //$location.path('/');
+            if ($rootScope.signedIn) {
+                if (!auth.isAuthenticated) {
+                    var token = store.get('token');
+                    if (token) {
+                        if (!jwtHelper.isTokenExpired(token)) {
+                            auth.authenticate(store.get('profile'), token);
+                        } else {
+                            //$location.path('/');
+                        }
                     }
                 }
             }
-
         });
     })
