@@ -11,9 +11,7 @@
                 id="searchType"
                 class-"col-xs-12 form-control" 
                 ng-model= "searchType" 
-                ng-options= "choice.name for choice in searchChoices
-                | filter: { name : '!_v' }
-                | filter: { name : '!_id' }">
+                ng-options= "choice.name for choice in searchChoices">
                 <option value="">Select a search type</option>
             </select>
         </div>

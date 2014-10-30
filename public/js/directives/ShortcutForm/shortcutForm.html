@@ -18,6 +18,7 @@
             ng-model="newShortcut.application" 
             placeholder="Sublime"/>
         <span 
+            class="error-message"
             ng-show="shortcutForm.applicationField.$invalid && submitted">What application is your shortcut for?</span>
     </div>
     <div 
@@ -34,6 +35,7 @@
             ng-model="newShortcut.operatingSystem" 
             placeholder="OS X"/>
         <span 
+            class="error-message"
             ng-show="shortcutForm.operatingSystemField.$invalid && submitted">What OS is your shortcut for?</span>
     </div>
     <div 
@@ -50,7 +52,8 @@
             ng-model="newShortcut.keyset" 
             placeholder="ctrl + alt + cmd + up"/>
         <span 
-            ng-show="shortcutForm.keysetField.$invalid && submitted" >What application is the key combination for your shortcut?</span>
+            class="error-message"
+            ng-show="shortcutForm.keysetField.$invalid && submitted">What application is the key combination for your shortcut?</span>
     </div>
     <div 
         class="form-group">
@@ -66,6 +69,7 @@
             ng-model="newShortcut.description" 
             placeholder="mute Juan's mic?"/>
         <span 
+            class="error-message"
             ng-show="shortcutForm.descriptionField.$invalid && submitted">Please describe what your shortcut does</span>
     </div>
     <button 

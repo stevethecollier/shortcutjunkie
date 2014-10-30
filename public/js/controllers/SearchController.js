@@ -6,7 +6,11 @@ sjModule.controller('searchController', ['$scope', '$http', '$timeout', 'Results
         ResultsService.clear();
 
         $http.get('/api/search/initial').success(function(data, status, headers, config) {
-            $scope.searchChoices = data.searchChoices;
+            $scope.searchChoices = data.searchChoices.filter(function(choice){
+                var excluded = ['__v','_id','upvotes', 'downvotes'];
+                var value = excluded.indexOf(choice.name) == -1;
+                return value;
+            });
         })
 
         $scope.searchCriteria = '';

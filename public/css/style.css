@@ -17,8 +17,12 @@ a {
 }
 
 input.ng-invalid.submitted{
-    color: white;
-    background: red;
+    border-width: 2px;
+    border-color: red;
+}
+
+.error-message{
+    color:red;
 }
 
 .ng-hide{
