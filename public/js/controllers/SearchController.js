@@ -1,6 +1,5 @@
 var sjModule = angular.module('sj');
 
-//testing git bash function
 sjModule.controller('searchController', ['$scope', '$http', '$timeout', 'ResultsService',
     function SearchController($scope, $http, $timeout, ResultsService) {
 
