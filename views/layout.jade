@@ -7,8 +7,7 @@ mixin signInButton(type, extraClasses)
 			| #{type}
 
 mixin usernameDisplay(extraClasses)
-	div.pull-right.navbar-brand.small(class=extraClasses)
-		| Signed in as {{profile.first_name}} ({{profile.email}})			
+	img.pull-right.navbar-btn(class=extraClasses style="height:34px; padding-right:5px" ng-src="{{ profile.picture }}")
 //Layout
 doctype html
 html.container
@@ -29,7 +28,7 @@ html.container
 					div(class="hidden-sm hidden-md hidden-lg")
 						+signInButton("Sign in")
 						+signInButton("Sign out")
-					+usernameDisplay("hidden-sm hidden-md hidden-lg")
+					+usernameDisplay("hidden-sm hidden-md hidden-lg profile-img")
 				div.collapse.navbar-collapse#navbarCollapse
 					ul.nav.navbar-nav(role="menu")
 						li
@@ -39,7 +38,7 @@ html.container
 					div(class="hidden-xs")
 						+signInButton("Sign in")
 						+signInButton("Sign out")
-						+usernameDisplay
+						+usernameDisplay("profile-img")
 		block content
 		include includes/foot
 		block extraScripts
