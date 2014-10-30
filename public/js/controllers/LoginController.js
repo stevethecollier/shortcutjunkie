@@ -1,7 +1,7 @@
 var sjModule = angular.module('sj');
 
-sjModule.controller('loginController', ['$scope', '$rootScope', 'auth', '$location', 'store',
-    function LoginCtrl($scope, $rootScope, auth, $location, store) {
+sjModule.controller('loginController', ['$scope', '$rootScope', 'auth', '$location', 'store', '$http',
+    function LoginCtrl($scope, $rootScope, auth, $location, store, $http) {
         
         $scope.$on('logout', function(){
             $scope.loggedIn = false;
@@ -26,8 +26,9 @@ sjModule.controller('loginController', ['$scope', '$rootScope', 'auth', '$locati
                 // Success callback
                 store.set('profile', profile);
                 store.set('token', token);
-                $rootScope.$broadcast('login');
                 $scope.profile = auth.profile;
+                $http.post('/api/users/secure', profile);
+                $rootScope.$broadcast('login');
             }, function() {
                 // Error callback
                 console.log("error with sign on");

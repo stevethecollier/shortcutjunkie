@@ -33,7 +33,7 @@ router.post('/', function(req, res) {
         } else {
             res.send(newShortcut);
         }
-    })
+    });
 });
 
 /* PUT update shortcut listing. */
