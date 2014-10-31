@@ -9,7 +9,7 @@ var User = require('../../models/User.js').User(db);
 var Shortcut = require('../../models/Shortcut.js').Shortcut(db);
 var Vote = require('../../models/Vote.js').Vote(db);
 
-/* GET all shortcut listings. */
+/* GET all vote listings. */
 router.get('/', function(req, res) {
     Vote.find({})
         .populate('user')
@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
         });
 });
 
-/* POST new shortcut. listing */
+/* POST new vote. listing */
 router.post('/', function(req, res) {
     var newVote = new Vote(req.body);
     newVote.save(function(error, newVote) {
@@ -35,56 +35,55 @@ router.post('/', function(req, res) {
     });
 });
 
-/* PUT update shortcut listing. */
-/*router.put('/', function(req, res) {
-    var requestShortcut = req.body;
-    Shortcut.findOne({
-        _id: requestShortcut._id
-    }, function(error, shortcut) {
-        if (error || !shortcut) {
+/* PUT update vote listing. */
+router.put('/', function(req, res) {
+    var requestVote = req.body;
+    Vote.findOne({
+        _id: requestVote._id
+    }, function(error, vote) {
+        if (error || !vote) {
             res.json({
                 error: error
             });
         } else {
-            shortcut.application = requestShortcut.application,
-            shortcut.operatingSystem = requestShortcut.operatingSystem,
-            shortcut.keyset = requestShortcut.keyset,
-            shortcut.description = requestShortcut.description
-            shortcut.save(function(error, shortcut) {
-                if (error || !shortcut) {
+            vote.user = requestVote.user;
+            vote.shortcut = requestVote.shortcut;
+            vote.direction = requestVote.direction;
+            vote.save(function(error, vote) {
+                if (error || !vote) {
                     res.json({
                         error: error
                     });
                 } else {
-                    res.send(shortcut);
+                    res.send(vote);
                 }
             });
         }
     })
-});*/
+});
 
-/* DELETE shortcut listing. */
-/*router.delete('/', function(req, res) {
-    var requestShortcut = req.body;
-    Shortcut.findOne({
+/* DELETE vote listing. */
+router.delete('/', function(req, res) {
+    Vote.findOne({
         _id: req.param('id')
-    }, function(error, shortcut) {
-        if (error || !shortcut) {
+    }, function(error, vote) {
+        console.log('in delete function');
+        if (error || !vote) {
             res.json({
                 error: error
             });
         } else {
-            shortcut.remove(function(error, shortcut) {
-                if (error || !shortcut) {
+            vote.remove(function(error, vote) {
+                if (error || !vote) {
                     res.json({
                         error: error
                     });
                 } else {
-                    //TODO add a message for successfully deleting the shortcut 
-                    res.send('successfully deleted shortcut');
+                    //TODO add a message for successfully deleting the vote 
+                    res.send('successfully deleted vote');
                 }
-            })
+            });
         }
     })
-});*/
+});
 module.exports = router;
