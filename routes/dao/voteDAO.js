@@ -24,7 +24,7 @@ exports.save = function(vote) {
     return deffered.promise;
 }
 
-exports.find = function() {
+exports.findAll = function() {
     var deffered = q.defer();
     Vote.find({})
         .populate('user')
@@ -41,8 +41,29 @@ exports.find = function() {
     return deffered.promise;
 }
 
-exports.set = function() {
-
+exports.update = function(inputVote) {
+    var deffered = q.defer();
+    Vote.findOne({
+        _id: inputVote._id
+    }, function(error, vote) {
+        if (error || !vote) {
+            console.log('did not find a vote');
+            console.log(vote);
+            deffered.reject(error);
+        } else {
+            vote.user = inputVote.user;
+            vote.shortcut = inputVote.shortcut;
+            vote.direction = inputVote.direction;
+            vote.save(function(error, vote) {
+                if (error || !vote) {
+                    deffered.reject(error);
+                } else {
+                    deffered.resolve(vote);
+                }
+            });
+        }
+    });
+    return deffered.promise;
 }
 
 exports.delete = function() {

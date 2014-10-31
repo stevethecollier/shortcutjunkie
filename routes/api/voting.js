@@ -5,7 +5,7 @@ var voteDAO = require('../dao/voteDAO.js');
 
 /* GET all vote listings. */
 router.get('/', function(req, res) {
-    voteDAO.find().then(function(votes) {
+    voteDAO.findAll().then(function(votes) {
         console.log(votes);
         res.send({
             votes: votes
@@ -23,28 +23,12 @@ router.post('/', function(req, res) {
 /* PUT update vote listing. */
 router.put('/', function(req, res) {
     var requestVote = req.body;
-    Vote.findOne({
-        _id: requestVote._id
-    }, function(error, vote) {
-        if (error || !vote) {
-            res.json({
-                error: error
-            });
-        } else {
-            vote.user = requestVote.user;
-            vote.shortcut = requestVote.shortcut;
-            vote.direction = requestVote.direction;
-            vote.save(function(error, vote) {
-                if (error || !vote) {
-                    res.json({
-                        error: error
-                    });
-                } else {
-                    res.send(vote);
-                }
-            });
-        }
-    })
+    voteDAO.update(req.body).then(function(updatedVote){
+        res.send(updatedVote);
+    }, function(error){
+        console.log('did not update vote');
+        res.send(error);
+    });
 });
 
 /* DELETE vote listing. */
