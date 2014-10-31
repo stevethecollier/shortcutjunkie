@@ -70,19 +70,19 @@ exports.update = function(inputUser) {
 
 exports.delete = function(id) {
     var deffered = q.defer();
-    Vote.findOne({
+    User.findOne({
         _id: id
-    }, function(error, vote) {
-        if (error || !vote) {
+    }, function(error, user) {
+        if (error || !user) {
             res.json({
                 error: error
             });
         } else {
-            vote.remove(function(error, vote) {
-                if (error || !vote) {
+            user.remove(function(error, user) {
+                if (error || !user) {
                     deffered.reject(error);
                 } else {
-                    deffered.resolve(vote);
+                    deffered.resolve(user);
                 }
             });
         }
