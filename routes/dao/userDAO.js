@@ -45,23 +45,22 @@ exports.findAll = function() {
     return deffered.promise;
 }
 
-exports.update = function(inputVote) {
+exports.update = function(inputUser) {
     var deffered = q.defer();
-    Vote.findOne({
-        _id: inputVote._id
-    }, function(error, vote) {
-        if (error || !vote) {
-            console.log('did not find a vote');
+    User.findOne({
+        _id: inputUser._id
+    }, function(error, user) {
+        if (error || !user) {
+            console.log('did not find a user');
             deffered.reject(error);
         } else {
-            vote.user = inputVote.user;
-            vote.shortcut = inputVote.shortcut;
-            vote.direction = inputVote.direction;
-            vote.save(function(error, vote) {
-                if (error || !vote) {
+            user.user_id = inputUser.user_id;
+            user.votes = inputUser.votes;
+            user.save(function(error, user) {
+                if (error || !user) {
                     deffered.reject(error);
                 } else {
-                    deffered.resolve(vote);
+                    deffered.resolve(user);
                 }
             });
         }

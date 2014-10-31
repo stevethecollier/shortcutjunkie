@@ -11,14 +11,14 @@ var authentication = require('../authentication.js');
 
 //router.use('/secure', authentication);
 
-/* POST new shortcut. listing */
+/* POST new user. listing */
 router.post('/', function(req, res) {
     userDAO.save(req.body).then(function(newVote) {
         res.send(newVote)
     });
 });
 
-/* GET all vote listings. */
+/* GET all user listings. */
 router.get('/', function(req, res) {
     userDAO.findAll().then(function(users) {
         res.send({
@@ -29,9 +29,27 @@ router.get('/', function(req, res) {
     });
 });
 
-router.delete('/', function(req, res){
-    User.remove({}, function(error){
-        res.send();
+/* PUT update user listing. */
+router.put('/', function(req, res) {
+    userDAO.update(req.body).then(function(updatedUser) {
+        res.send(updatedUser);
+    }, function(error) {
+        console.log('did not update vote');
+        res.json({
+            error: error
+        });
     });
-})
+});
+
+/* DELETE user listing. */
+router.delete('/', function(req, res) {
+    userDAO.delete(req.param('id')).then(function() {
+        res.send('successfully deleted vote');
+    }, function(error) {
+        console.log('did not delete vote');
+        res.json({
+            error: error
+        });
+    });
+});
 module.exports = router;

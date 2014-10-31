@@ -21,7 +21,6 @@ router.post('/', function(req, res) {
 
 /* PUT update vote listing. */
 router.put('/', function(req, res) {
-    var requestVote = req.body;
     voteDAO.update(req.body).then(function(updatedVote) {
         res.send(updatedVote);
     }, function(error) {
