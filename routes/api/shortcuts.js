@@ -6,10 +6,7 @@ var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
 
 var Shortcut = require('../../models/Shortcut.js').Shortcut(db);
-
-var UserSchema = require('../../models/User.js').UserSchema;
-var User = db.model('user', UserSchema);
-
+var User = require('../../models/User.js').User(db);
 
 /* GET all shortcut listings. */
 router.get('/', function(req, res) {

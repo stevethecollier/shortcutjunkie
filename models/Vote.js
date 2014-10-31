@@ -1,8 +1,24 @@
 var Mongoose = require('mongoose');
-var UserSchema = require('User.js').UserSchema;
-var ShortcutSchema = require('Shortcut.js').ShortcutSchema;
+var User = require('./User.js').User;
+var Shortcut = require('./Shortcut.js').Shortcut;
 
 exports.VoteSchema = new Mongoose.Schema({
-    user_id : { type : String, required : true },
-    votes : { type : Array, required : false }
+    user: {
+        type: Mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+        required: true
+    },
+    shortcut: {
+        type: Mongoose.Schema.Types.ObjectId,
+        ref: 'shortcut',
+        required: true
+    },
+    direction: {
+        type: String,
+        required: true
+    }
 });
+
+exports.Vote = function(db) {
+    return db.model('vote', exports.VoteSchema);
+}

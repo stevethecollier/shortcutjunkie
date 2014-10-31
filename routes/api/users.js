@@ -5,8 +5,7 @@ var router = express.Router();
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
 
-var UserSchema = require('../../models/User.js').UserSchema;
-var User = db.model('user', UserSchema);
+var User = require('../../models/User.js').User(db);
 
 var authentication = require('../authentication.js');
 
