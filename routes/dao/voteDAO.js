@@ -32,7 +32,6 @@ exports.findAll = function() {
         .exec(function(error, votes) {
             if (error) {
                 console.log('error inside voteDAO when trying to find');
-                console.log(error);
                 deffered.reject(error);
             } else {
                 deffered.resolve(votes);
@@ -48,7 +47,6 @@ exports.update = function(inputVote) {
     }, function(error, vote) {
         if (error || !vote) {
             console.log('did not find a vote');
-            console.log(vote);
             deffered.reject(error);
         } else {
             vote.user = inputVote.user;
@@ -66,6 +64,24 @@ exports.update = function(inputVote) {
     return deffered.promise;
 }
 
-exports.delete = function() {
-
+exports.delete = function(id) {
+    var deffered = q.defer();
+    Vote.findOne({
+        _id: id
+    }, function(error, vote) {
+        if (error || !vote) {
+            res.json({
+                error: error
+            });
+        } else {
+            vote.remove(function(error, vote) {
+                if (error || !vote) {
+                    deffered.reject(error);
+                } else {
+                    deffered.resolve(vote);
+                }
+            });
+        }
+    });
+    return deffered.promise;
 }
