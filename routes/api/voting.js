@@ -1,38 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-//Set up Mongo
-var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('localhost', 'mytestapp');
-
-var User = require('../../models/User.js').User(db);
-var Shortcut = require('../../models/Shortcut.js').Shortcut(db);
-var Vote = require('../../models/Vote.js').Vote(db);
+var voteDAO = require('../dao/voteDAO.js');
 
 /* GET all vote listings. */
 router.get('/', function(req, res) {
-    Vote.find({})
-        .populate('user')
-        .populate('shortcut')
-        .exec(function(error, votes) {
-            res.send({
-                votes: votes
-            });
+    voteDAO.find().then(function(votes) {
+        console.log(votes);
+        res.send({
+            votes: votes
         });
+    });
 });
 
 /* POST new vote. listing */
 router.post('/', function(req, res) {
-    var newVote = new Vote(req.body);
-    newVote.save(function(error, newVote) {
-        if (error || !newVote) {
-            res.json({
-                error: error
-            });
-        } else {
-            res.send(newVote);
-        }
-    });
+    voteDAO.save(req.body).then(function(newVote) {
+        res.send(newVote)
+    })
 });
 
 /* PUT update vote listing. */
