@@ -14,7 +14,6 @@ exports.save = function(vote) {
     newVote.save(function(error, newVote) {
         if (error || !newVote) {
             console.log('error inside voteDAO when trying to save');
-            console.log(error);
             deffered.reject(error);
         } else {
             console.log('saved new vote');
