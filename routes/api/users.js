@@ -5,42 +5,27 @@ var router = express.Router();
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
 
-var User = require('../../models/User.js').User(db);
+var userDAO = require('../dao/userDAO.js');
 
 var authentication = require('../authentication.js');
 
-router.use('/secure', authentication);
+//router.use('/secure', authentication);
 
 /* POST new shortcut. listing */
-router.post('/secure', function(req, res) {
-    User.find({
-        user_id: req.body.user_id
-    }, function(error, usersFound) {
-        if (usersFound.length == 0) {
-            var newUser = new User({});
-            newUser.user_id = req.body.user_id;
-            newUser.votes = [];
-            newUser.save(function(error, newUser) {
-                if (error || !newUser) {
-                    res.json({
-                        error: error
-                    });
-                } else {
-                    res.send(newUser);
-                }
-            });
-        } else {
-            res.send();
-        }
+router.post('/', function(req, res) {
+    userDAO.save(req.body).then(function(newVote) {
+        res.send(newVote)
     });
 });
 
-/* GET all shortcut listings. */
+/* GET all vote listings. */
 router.get('/', function(req, res) {
-    User.find({}, function(error, users) {
+    userDAO.findAll().then(function(users) {
         res.send({
             users: users
         });
+    }, function(error){
+        console.log('error');
     });
 });
 
