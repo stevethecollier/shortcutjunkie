@@ -1,6 +1,6 @@
 var sjModule = angular.module('sj');
-sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
-    function($q, $http, $rootScope) {
+sjModule.factory('ResultsService', ['$q', '$http', '$rootScope', 'auth',
+    function($q, $http, $rootScope, auth) {
 
         var results = {};
 
@@ -56,24 +56,21 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope',
                 results.push(shortcut);
             },
             vote: function(shortcut, direction) {
-                $http({
-                    method: 'POST',
-                    url: '/api/shortcuts/vote',
-                    params: {
-                        'id': shortcut._id,
-                        'direction': direction
-                    }
-                }).success(function(data) {
-                    //can't use indexof, better way to optimize?
-                    for (var index in results) {
-                        var shortcut = results[index];
-                        if (shortcut._id == data._id) {
-                            results[index].upvotes = data.upvotes;
-                            results[index].downvotes = data.downvotes;
-                            $rootScope.$broadcast('resultsChanged');
+                var body = shortcut;
+                body.direction = direction;
+                body.user_id = auth.profile.user_id;
+                $http.post('/api/shortcuts/vote', body)
+                    .success(function(data) {
+                        //can't use indexof, better way to optimize?
+                        for (var index in results) {
+                            var shortcut = results[index];
+                            if (shortcut._id == data._id) {
+                                results[index].upvotes = data.upvotes;
+                                results[index].downvotes = data.downvotes;
+                                $rootScope.$broadcast('resultsChanged');
+                            }
                         }
-                    }
-                });
+                    });
             }
         }
     }

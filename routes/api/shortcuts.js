@@ -8,6 +8,9 @@ var db = Mongoose.createConnection('localhost', 'mytestapp');
 var ShortcutSchema = require('../../models/Shortcut.js').ShortcutSchema;
 var Shortcut = db.model('shortcut', ShortcutSchema);
 
+var UserSchema = require('../../models/User.js').UserSchema;
+var User = db.model('user', UserSchema);
+
 
 /* GET all shortcut listings. */
 router.get('/', function(req, res) {
@@ -89,22 +92,28 @@ router.delete('/', function(req, res) {
     })
 });
 
+
+var authentication = require('../authentication.js');
+router.use('/vote', authentication);
+
 /* POST vote up or down*/
 router.post('/vote', function(req, res) {
-    var requestShortcut = req.body;
     Shortcut.findOne({
-        _id: req.param('id')
+        _id: req.body._id
     }, function(error, shortcut) {
         if (error || !shortcut) {
             res.json({
                 error: error
             });
         } else {
-            if (req.param('direction') == 'up') {
+            if (req.body.direction == 'up') {
+                //shortcut.votes.push(req.body.user_id);
                 shortcut.upvotes += 1;
-            } else if (req.param('direction') == 'down') {
+                recordUserVote(req.body.user_id, req.body.direction);
+                //shortcut.upvotes += 1;
+            } else if (req.body.direction == 'down') {
                 shortcut.downvotes += 1;
-            } 
+            }
             shortcut.save(function(error, shortcut) {
                 if (error || !shortcut) {
                     res.json({
@@ -117,5 +126,26 @@ router.post('/vote', function(req, res) {
         }
     })
 });
+
+function recordUserVote(id, direction){
+    User.findOne({
+        user_id : id
+    }, function(error, user){
+        if(error || !user){
+            console.log('unable to record vote in user');
+            console.log(error);
+        } else {
+            user.votes.push(id);
+            user.save(function(error, user){
+                if(error || !user){
+                    console.log('unable to record vote in user');
+                    console.log(error);
+                } else {
+                    console.log('vote recorded');
+                }
+            });
+        }
+    });
+}
 
 module.exports = router;
