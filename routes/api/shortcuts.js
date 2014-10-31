@@ -5,8 +5,7 @@ var router = express.Router();
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
 
-var ShortcutSchema = require('../../models/Shortcut.js').ShortcutSchema;
-var Shortcut = db.model('shortcut', ShortcutSchema);
+var Shortcut = require('../../models/Shortcut.js').Shortcut(db);
 
 var UserSchema = require('../../models/User.js').UserSchema;
 var User = db.model('user', UserSchema);
