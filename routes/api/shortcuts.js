@@ -8,8 +8,15 @@ var db = Mongoose.createConnection('localhost', 'mytestapp');
 var Shortcut = require('../../models/Shortcut.js').Shortcut(db);
 var User = require('../../models/User.js').User(db);
 
+var shortcutDAO = require('../dao/shortcutDAO.js');
+
 /* GET all shortcut listings. */
 router.get('/', function(req, res) {
+    shortcutDAO.findAll().then(function(shortcuts) {
+        res.send({
+            shortcuts: shortcuts
+        })
+    });
     Shortcut.find({}, function(error, shortcuts) {
         res.send({
             title: 'shortcut page',
@@ -122,17 +129,17 @@ router.post('/vote', function(req, res) {
     })
 });
 
-function recordUserVote(id, direction){
+function recordUserVote(id, direction) {
     User.findOne({
-        user_id : id
-    }, function(error, user){
-        if(error || !user){
+        user_id: id
+    }, function(error, user) {
+        if (error || !user) {
             console.log('unable to record vote in user');
             console.log(error);
         } else {
             user.votes.push(id);
-            user.save(function(error, user){
-                if(error || !user){
+            user.save(function(error, user) {
+                if (error || !user) {
                     console.log('unable to record vote in user');
                     console.log(error);
                 } else {
