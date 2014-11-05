@@ -21,18 +21,12 @@ router.get('/', function(req, res) {
 
 /* POST new shortcut. listing */
 router.post('/', function(req, res) {
-    var newShortcut = new Shortcut(req.body);
-    //default 0 upvotes and downvotes
-    newShortcut.upvotes = 0;
-    newShortcut.downvotes = 0;
-    newShortcut.save(function(error, newShortcut) {
-        if (error || !newShortcut) {
-            res.json({
-                error: error
-            });
-        } else {
-            res.send(newShortcut);
-        }
+    shortcutDAO.save(req.body).then(function(newShortcut) {
+        res.send(newShortcut);
+    }, function(error) {
+        res.json({
+            error: error
+        });
     });
 });
 
