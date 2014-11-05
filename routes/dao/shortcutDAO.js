@@ -69,19 +69,19 @@ exports.update = function(inputShortcut) {
 
 exports.delete = function(id) {
     var deffered = q.defer();
-    User.findOne({
+    Shortcut.findOne({
         _id: id
-    }, function(error, user) {
-        if (error || !user) {
+    }, function(error, shortcut) {
+        if (error || !shortcut) {
             res.json({
                 error: error
             });
         } else {
-            user.remove(function(error, user) {
-                if (error || !user) {
+            shortcut.remove(function(error, shortcut) {
+                if (error || !shortcut) {
                     deffered.reject(error);
                 } else {
-                    deffered.resolve(user);
+                    deffered.resolve(shortcut);
                 }
             });
         }

@@ -44,26 +44,15 @@ router.put('/', function(req, res) {
 
 /* DELETE shortcut listing. */
 router.delete('/', function(req, res) {
-    Shortcut.findOne({
-        _id: req.param('id')
-    }, function(error, shortcut) {
-        if (error || !shortcut) {
-            res.json({
-                error: error
-            });
-        } else {
-            shortcut.remove(function(error, shortcut) {
-                if (error || !shortcut) {
-                    res.json({
-                        error: error
-                    });
-                } else {
-                    //TODO add a message for successfully deleting the shortcut 
-                    res.send('successfully deleted shortcut');
-                }
-            })
-        }
-    })
+    console.log('in delete');
+    shortcutDAO.delete(req.param('id')).then(function() {
+        res.send('successfully deleted shortcut');
+    }, function(error) {
+        console.log('did not delete shortcut');
+        res.json({
+            error: error
+        });
+    });
 });
 
 
