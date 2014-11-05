@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-//Set up Mongo
-var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('localhost', 'mytestapp');
-
 var ShortcutSchema = require('../../models/Shortcut.js').ShortcutSchema;
-var Shortcut = db.model('shortcut', ShortcutSchema);
+
+var shortcutDAO = require('../dao/shortcutDAO.js');
 
 /* GET initial values for all search possibilities */
 router.get('/initial', function(req, res) {
@@ -30,18 +27,11 @@ router.get('/', function(req, res) {
     var criteria = {};
     criteria[criteriaKey] = criteriaValue;
 
-    Shortcut.find(criteria, function(error, foundShortcuts) {
-        if (error) {
-            res.json({
-                error: error
-            });
-        } else {
-            res.send({
-                foundShortcuts: foundShortcuts
-            })
-        }
-
-    })
-})
+    shortcutDAO.find(criteria).then(function(shortcuts) {
+        res.send({
+            foundShortcuts: shortcuts
+        });
+    });
+});
 
 module.exports = router;

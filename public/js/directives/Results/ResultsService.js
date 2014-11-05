@@ -2,7 +2,7 @@ var sjModule = angular.module('sj');
 sjModule.factory('ResultsService', ['$q', '$http', '$rootScope', 'auth',
     function($q, $http, $rootScope, auth) {
 
-        var results = {};
+        var results = [];
 
         return {
             getResults: function() {
@@ -15,12 +15,12 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope', 'auth',
                         results = data.shortcuts;
                         $rootScope.$broadcast('resultsChanged');
                     } else {
-                        results = {};
+                        results = [];
                     }
                 });
             },
             clear: function() {
-                results = {};
+                results = [];
             },
             search: function(searchType, searchValue) {
                 var criteria = {
@@ -32,10 +32,11 @@ sjModule.factory('ResultsService', ['$q', '$http', '$rootScope', 'auth',
                     params: criteria
                 }
 
-                $http.get('api/search', config).success(function(data, status, headers, config) {
-                    results = data.foundShortcuts;
-                    $rootScope.$broadcast('resultsChanged');
-                });
+                $http.get('/api/search', config)
+                    .success(function(data, status, headers, config) {
+                        results = data.foundShortcuts;
+                        $rootScope.$broadcast('resultsChanged');
+                    });
             },
             deleteShortcut: function(shortcut) {
                 $http({
