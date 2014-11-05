@@ -24,9 +24,9 @@ exports.save = function(inputShortcut) {
 };
 
 
-exports.findAll = function() {
+exports.find = function(criteria) {
     var deffered = q.defer();
-    Shortcut.find({})
+    Shortcut.find(criteria)
         .exec(function(error, shortcuts) {
             if (error) {
                 console.log('error inside voteDAO when trying to find');

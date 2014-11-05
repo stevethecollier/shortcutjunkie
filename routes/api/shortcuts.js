@@ -12,7 +12,13 @@ var shortcutDAO = require('../dao/shortcutDAO.js');
 
 /* GET all shortcut listings. */
 router.get('/', function(req, res) {
-    shortcutDAO.findAll().then(function(shortcuts) {
+    var criteria = {};
+    var key = req.param('criteriaKey');
+    var value = req.param('criteriaValue');
+    if(key && value){
+        criteria[key] = value;
+    }
+    shortcutDAO.find(criteria).then(function(shortcuts) {
         res.send({
             shortcuts: shortcuts
         })
