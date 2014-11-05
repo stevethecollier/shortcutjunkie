@@ -32,30 +32,14 @@ router.post('/', function(req, res) {
 
 /* PUT update shortcut listing. */
 router.put('/', function(req, res) {
-    var requestShortcut = req.body;
-    Shortcut.findOne({
-        _id: requestShortcut._id
-    }, function(error, shortcut) {
-        if (error || !shortcut) {
-            res.json({
-                error: error
-            });
-        } else {
-            shortcut.application = requestShortcut.application,
-            shortcut.operatingSystem = requestShortcut.operatingSystem,
-            shortcut.keyset = requestShortcut.keyset,
-            shortcut.description = requestShortcut.description
-            shortcut.save(function(error, shortcut) {
-                if (error || !shortcut) {
-                    res.json({
-                        error: error
-                    });
-                } else {
-                    res.send(shortcut);
-                }
-            });
-        }
-    })
+    shortcutDAO.update(req.body).then(function(shortcut) {
+        res.send(shortcut);
+    }, function(error) {
+        res.json({
+            error: error
+        });
+
+    });
 });
 
 /* DELETE shortcut listing. */

@@ -38,22 +38,28 @@ exports.findAll = function() {
     return deffered.promise;
 }
 
-exports.update = function(inputUser) {
+exports.update = function(inputShortcut) {
     var deffered = q.defer();
-    User.findOne({
-        _id: inputUser._id
-    }, function(error, user) {
-        if (error || !user) {
-            console.log('did not find a user');
+    Shortcut.findOne({
+        _id: inputShortcut._id
+    }, function(error, shortcut) {
+        if (error || !shortcut) {
+            console.log('did not find a shortcut');
             deffered.reject(error);
         } else {
-            user.user_id = inputUser.user_id;
-            user.votes = inputUser.votes;
-            user.save(function(error, user) {
-                if (error || !user) {
+            shortcut.application = inputShortcut.application;
+            shortcut.operatingSystem = inputShortcut.operatingSystem;
+            shortcut.keyset = inputShortcut.keyset;
+            shortcut.description = inputShortcut.description;
+            shortcut.upvotes = inputShortcut.upvotes;
+            shortcut.downvotes = inputShortcut.downvotes;
+            shortcut.save(function(error, shortcut) {
+                if (error || !shortcut) {
+                    console.log('error saving shortcut');
                     deffered.reject(error);
                 } else {
-                    deffered.resolve(user);
+                    console.log('saved shortcut');
+                    deffered.resolve(shortcut);
                 }
             });
         }
