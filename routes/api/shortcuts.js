@@ -44,7 +44,6 @@ router.put('/', function(req, res) {
 
 /* DELETE shortcut listing. */
 router.delete('/', function(req, res) {
-    console.log('in delete');
     shortcutDAO.delete(req.param('id')).then(function() {
         res.send('successfully deleted shortcut');
     }, function(error) {
