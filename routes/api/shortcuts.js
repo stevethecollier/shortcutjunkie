@@ -17,12 +17,6 @@ router.get('/', function(req, res) {
             shortcuts: shortcuts
         })
     });
-    Shortcut.find({}, function(error, shortcuts) {
-        res.send({
-            title: 'shortcut page',
-            shortcuts: shortcuts
-        });
-    });
 });
 
 /* POST new shortcut. listing */
