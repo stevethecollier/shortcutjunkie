@@ -28,9 +28,10 @@ exports.save = function(inputShortcut) {
 exports.find = function(criteria) {
     var deffered = q.defer();
     Shortcut.find(criteria)
+        .populate('votes')
         .exec(function(error, shortcuts) {
             if (error) {
-                console.log('error inside voteDAO when trying to find');
+                console.log('error inside shortcutDAO when trying to find');
                 deffered.reject(error);
             } else {
                 deffered.resolve(shortcuts);

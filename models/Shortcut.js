@@ -1,5 +1,4 @@
 var Mongoose = require('mongoose');
-var Vote = require('./Vote.js').Vote;
 
 exports.ShortcutSchema = new Mongoose.Schema({
     application: {

@@ -5,10 +5,11 @@ exports.UserSchema = new Mongoose.Schema({
         type: String,
         required: true
     },
-    votes: {
-        type: Array,
+    votes: [{
+        type: Mongoose.Schema.Types.ObjectId,
+        ref: 'vote',
         required: false
-    }
+    }]
 });
 
 exports.User = function(db) {
