@@ -1,4 +1,5 @@
 var Mongoose = require('mongoose');
+var Vote = require('./Vote.js').Vote;
 
 exports.ShortcutSchema = new Mongoose.Schema({
     application: {
@@ -17,14 +18,11 @@ exports.ShortcutSchema = new Mongoose.Schema({
         type: String,
         required: true
     },
-    upvotes: {
-        type: Number,
+    votes: [{
+        type: Mongoose.Schema.Types.ObjectId,
+        ref: 'vote',
         required: false
-    },
-    downvotes: {
-        type: Number,
-        required: false
-    }
+    }]
 });
 
 exports.Shortcut = function(db) {

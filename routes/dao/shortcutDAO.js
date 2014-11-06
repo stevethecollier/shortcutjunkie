@@ -2,7 +2,9 @@
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
 
+var User = require('../../models/User.js').User(db);
 var Shortcut = require('../../models/Shortcut.js').Shortcut(db);
+var Vote = require('../../models/Vote.js').Vote(db);
 
 var q = require('q');
 
@@ -10,8 +12,7 @@ exports.save = function(inputShortcut) {
     var deffered = q.defer();
 
     //default 0 upvotes and downvotes
-    inputShortcut.upvotes = 0;
-    inputShortcut.downvotes = 0;
+    inputShortcut.votes = [];
     newShortcut = new Shortcut(inputShortcut);
     newShortcut.save(function(error, newShortcut) {
         if (error || !newShortcut) {
@@ -73,9 +74,9 @@ exports.delete = function(id) {
         _id: id
     }, function(error, shortcut) {
         if (error || !shortcut) {
-            res.json({
-                error: error
-            });
+            console.log('could not delete shortcut');
+            console.log(error);
+            deffered.reject(error);
         } else {
             shortcut.remove(function(error, shortcut) {
                 if (error || !shortcut) {
