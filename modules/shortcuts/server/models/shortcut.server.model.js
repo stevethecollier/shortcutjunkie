@@ -10,10 +10,28 @@ var mongoose = require('mongoose'),
  * Shortcut Schema
  */
 var ShortcutSchema = new Schema({
-	name: {
+	keyCombination: {
 		type: String,
 		default: '',
-		required: 'Please fill Shortcut name',
+		required: 'Please fill Shortcut key combination',
+		trim: true
+	},
+	application: {
+		type: String,
+		default: '',
+		required: 'Please fill Shortcut application',
+		trim: true
+	},
+	description: {
+		type: String,
+		default: '',
+		required: 'Please fill Shortcut description',
+		trim: true
+	},
+	operatingSystem: {
+		type: String,
+		default: '',
+		required: 'Please fill Shortcut operating system',
 		trim: true
 	},
 	created: {

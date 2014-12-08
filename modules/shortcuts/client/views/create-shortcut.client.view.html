@@ -6,17 +6,35 @@
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="keyCombination">Key Combination</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="keyCombination" id="keyCombination" class="form-control" placeholder="i.e. ctrl + c" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="application">Application</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="application" id="application" class="form-control" placeholder="Sublime" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="description" id="description" class="form-control" placeholder="Copy" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="operatingSystem">Operating System</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="operatingSystem" id="operatingSystem" class="form-control" placeholder="OS X" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
             </fieldset>
         </form>
     </div>

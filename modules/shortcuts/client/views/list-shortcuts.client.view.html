@@ -3,7 +3,7 @@
         <h1>Shortcuts</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="shortcut in shortcuts" data-ng-href="#!/shortcuts/{{shortcut._id}}" class="list-group-item">
+        <a data-ng-repeat="shortcut in shortcuts" data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="shortcut.created | date:'medium'"></span>
