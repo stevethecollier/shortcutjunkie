@@ -173,7 +173,7 @@ angular.module('core').service('Menus', [
 
         //Adding the topbar menu
         this.addMenu('topbar', {
-            isPublic: false
+            isPublic: true
         });
     }
 ]);

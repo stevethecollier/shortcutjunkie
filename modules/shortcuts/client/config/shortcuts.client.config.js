@@ -7,13 +7,15 @@ angular.module('shortcuts').run(['Menus',
 		Menus.addMenuItem('topbar', {
 			title: 'Shortcuts',
 			state: 'shortcuts',
-			type: 'dropdown'
+			type: 'dropdown',
+			isPublic: true
 		});
 
 		// Add the dropdown list item
 		Menus.addSubMenuItem('topbar', 'shortcuts', {
 			title: 'List Shortcuts',
-			state: 'shortcuts.list'
+			state: 'shortcuts.list',
+			isPublic: true
 		});
 
 		// Add the dropdown create item
