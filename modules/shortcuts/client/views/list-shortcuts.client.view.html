@@ -3,11 +3,13 @@
         <h1>Shortcuts</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="shortcut in shortcuts" data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item shortcut">
-            <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
-            <div data-ng-bind="shortcut.application" class="application"></div>
-            <div data-ng-bind="shortcut.description" class="description"></div>
-            <div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
+        <a data-ng-repeat="shortcut in shortcuts" data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item col-xs-12 col-md-4">
+            <div class="shortcut">
+                <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
+                <div data-ng-bind="shortcut.application" class="application"></div>
+                <div data-ng-bind="shortcut.description" class="description"></div>
+                <div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
+            </div>
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="shortcut.created | date:'medium'"></span>
