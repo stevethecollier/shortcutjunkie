@@ -21,7 +21,8 @@ angular.module('shortcuts').run(['Menus',
 		// Add the dropdown create item
 		Menus.addSubMenuItem('topbar', 'shortcuts', {
 			title: 'Create Shortcut',
-			state: 'shortcuts.create'
+			state: 'shortcuts.create',
+			isPublic: false
 		});
 	}
 ]);
