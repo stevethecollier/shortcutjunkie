@@ -101,6 +101,37 @@
 			expect(scope.applications).toEqual(['firstTest', 'secondTest']);
 		}));
 
+		describe('the shortcuts filter', function() {
+			var sampleShortcuts = [{
+				keyCombination: 'firstTest',
+				application: 'firstTest',
+				description: 'firstTest',
+				operatingSystem: 'firstTest'
+			}, {
+				keyCombination: 'secondTest',
+				application: 'secondTest',
+				description: 'secondTest',
+				operatingSystem: 'secondTest'
+			}, {
+				keyCombination: 'thirdTest',
+				application: 'firstTest',
+				description: 'thirdTest',
+				operatingSystem: 'thirdTest'
+			}];
+
+			var $filter;
+			beforeEach(function() {
+				inject(function(_$filter_) {
+					$filter = _$filter_;
+				});
+			});
+
+			it('should restrict by application', function() {
+				var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
+				expect(result).toEqual([sampleShortcuts[1]]);
+			});
+		});
+
 		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function(Shortcuts) {
 			// Define a sample Shortcut object
 			var sampleShortcut = new Shortcuts({
