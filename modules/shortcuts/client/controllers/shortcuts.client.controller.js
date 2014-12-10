@@ -57,6 +57,14 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		// Find a list of Shortcuts
 		$scope.find = function() {
 			$scope.shortcuts = Shortcuts.query();
+			$scope.shortcuts.$promise.then(function() {
+				$scope.applications = $scope.shortcuts.reduce(function(previousValue, currentValue) {
+					if (previousValue.indexOf(currentValue.application) === -1) {
+						previousValue.push(currentValue.application);
+					}
+					return previousValue;
+				}, []);;
+			});
 		};
 
 		// Find existing Shortcut

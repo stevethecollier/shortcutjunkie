@@ -5,10 +5,10 @@
 	describe('Shortcuts Controller Tests', function() {
 		// Initialize global variables
 		var ShortcutsController,
-		scope,
-		$httpBackend,
-		$stateParams,
-		$location;
+			scope,
+			$httpBackend,
+			$stateParams,
+			$location;
 
 		// The $resource service augments the response object with methods for updating and deleting the resource.
 		// If we were to use the standard toEqual matcher, our tests would fail because the test values would not match
@@ -53,7 +53,10 @@
 		it('$scope.find() should create an array with at least one Shortcut object fetched from XHR', inject(function(Shortcuts) {
 			// Create sample Shortcut using the Shortcuts service
 			var sampleShortcut = new Shortcuts({
-				name: 'New Shortcut'
+				keyCombination: 'test key combination',
+				application: 'test application',
+				description: 'test description',
+				operatingSystem: 'test operating system'
 			});
 
 			// Create a sample Shortcuts array that includes the new Shortcut
@@ -68,6 +71,34 @@
 
 			// Test scope value
 			expect(scope.shortcuts).toEqualData(sampleShortcuts);
+		}));
+
+		it('$scope.findApplications() should create an array with at at least one application name', inject(function(Shortcuts) {
+			var sampleShortcuts = [new Shortcuts({
+				keyCombination: 'firstTest',
+				application: 'firstTest',
+				description: 'firstTest',
+				operatingSystem: 'firstTest'
+			}), new Shortcuts({
+				keyCombination: 'secondTest',
+				application: 'secondTest',
+				description: 'secondTest',
+				operatingSystem: 'secondTest'
+			}), new Shortcuts({
+				keyCombination: 'thirdTest',
+				application: 'firstTest',
+				description: 'thirdTest',
+				operatingSystem: 'thirdTest'
+			})];
+
+			// Set GET response
+			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
+
+			// Run controller functionality
+			scope.find();
+			$httpBackend.flush();
+
+			expect(scope.applications).toEqual(['firstTest', 'secondTest']);
 		}));
 
 		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function(Shortcuts) {
