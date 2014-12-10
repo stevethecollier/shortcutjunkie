@@ -119,17 +119,11 @@
 				operatingSystem: 'thirdTest'
 			}];
 
-			var $filter;
-			beforeEach(function() {
-				inject(function(_$filter_) {
-					$filter = _$filter_;
-				});
-			});
-
-			it('should restrict by application', function() {
+			it('should restrict by application', inject(function(_$filter_) {
+				var $filter = _$filter_;
 				var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
 				expect(result).toEqual([sampleShortcuts[1]]);
-			});
+			}));
 		});
 
 		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function(Shortcuts) {
