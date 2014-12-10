@@ -63,7 +63,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 						previousValue.push(currentValue.application);
 					}
 					return previousValue;
-				}, []);;
+				}, []);
 			});
 		};
 

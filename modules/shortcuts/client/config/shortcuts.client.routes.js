@@ -5,6 +5,13 @@ angular.module('shortcuts').config(['$stateProvider',
 	function($stateProvider) {
 		// Shortcuts state routing
 		$stateProvider.
+		state('home.shortcuts', {
+			views: {
+				shortcuts: {
+					templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html'
+				}
+			}
+		}).
 		state('shortcuts', {
 			abstract: true,
 			url: '/shortcuts',
