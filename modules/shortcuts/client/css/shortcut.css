@@ -26,6 +26,10 @@
     vertical-align: middle;
     height: 20%; }
 
+.list-group {
+  border: 0 !important;
+  box-shadow: 0 0px 0px !important; }
+
 .sidebar button {
   text-align: left !important;
   background-position: 0px !important; }

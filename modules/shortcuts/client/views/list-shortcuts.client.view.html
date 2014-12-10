@@ -5,7 +5,7 @@
 
     <!-- Sidebar -->
         <div class="sidebar list-group btn-group-vertical col-xs-2" role="group">
-            <div class="list-group-item panel-heading">Applications</div>
+            <div class="list-group-item">Applications</div>
             <button data-ng-repeat="application in applications" type="button" class="list-group-item btn btn-default pull-left" ng-class="{active: application === selectedApplication}" ng-click="selectApplication(application)">{{application}}</button>
         </div>
     
