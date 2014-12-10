@@ -123,6 +123,8 @@
 				var $filter = _$filter_;
 				var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
 				expect(result).toEqual([sampleShortcuts[1]]);
+				result = $filter('applicationFilter')(sampleShortcuts, '');
+				expect(result).toEqual(sampleShortcuts);
 			}));
 		});
 
