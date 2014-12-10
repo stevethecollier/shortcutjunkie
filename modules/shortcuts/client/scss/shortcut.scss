@@ -34,5 +34,9 @@
 .sidebar{
   button{
     text-align: left !important;
+    background-position: 0px !important;
+  }
+  .btn:focus {
+    outline: none;
   }
 }

@@ -73,5 +73,9 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 				shortcutId: $stateParams.shortcutId
 			});
 		};
+
+		$scope.selectApplication = function(application){
+			$scope.selectedApplication = application;
+		};
 	}
 ]);

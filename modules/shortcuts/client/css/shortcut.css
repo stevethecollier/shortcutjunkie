@@ -27,4 +27,7 @@
     height: 20%; }
 
 .sidebar button {
-  text-align: left !important; }
+  text-align: left !important;
+  background-position: 0px !important; }
+.sidebar .btn:focus {
+  outline: none; }
