@@ -73,7 +73,10 @@
 		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function(Shortcuts) {
 			// Define a sample Shortcut object
 			var sampleShortcut = new Shortcuts({
-				name: 'New Shortcut'
+				keyCombination: 'test key combination',
+				application: 'test application',
+				description: 'test description',
+				operatingSystem: 'test operating system'
 			});
 
 			// Set the URL parameter
@@ -93,17 +96,27 @@
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Shortcuts) {
 			// Create a sample Shortcut object
 			var sampleShortcutPostData = new Shortcuts({
-				name: 'New Shortcut'
+				keyCombination: 'test key combination',
+				application: 'test application',
+				description: 'test description',
+				operatingSystem: 'test operating system'
 			});
 
 			// Create a sample Shortcut response
 			var sampleShortcutResponse = new Shortcuts({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Shortcut'
+				keyCombination: 'test key combination',
+				application: 'test application',
+				description: 'test description',
+				operatingSystem: 'test operating system'
 			});
 
 			// Fixture mock form input values
-			scope.name = 'New Shortcut';
+			scope.keyCombination = 'test key combination';
+			scope.application = 'test application';
+			scope.description = 'test description';
+			scope.operatingSystem = 'test operating system';
+
 
 			// Set POST response
 			$httpBackend.expectPOST('api/shortcuts', sampleShortcutPostData).respond(sampleShortcutResponse);
