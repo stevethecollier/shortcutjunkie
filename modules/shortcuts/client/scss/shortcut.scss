@@ -5,6 +5,7 @@
     height: 150px;
     width: 100%;
     text-align:center;
+    border-radius: 5px;
     .keyCombination {
         height: 100%;
         width: 50%;
@@ -28,4 +29,10 @@
       vertical-align: middle;
       height:20%;
     }
+}
+
+.sidebar{
+  button{
+    text-align: left !important;
+  }
 }

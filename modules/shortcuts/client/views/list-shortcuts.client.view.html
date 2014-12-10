@@ -1,8 +1,15 @@
-<section data-ng-controller="ShortcutsController" data-ng-init="find()">
+<section data-ng-controller="ShortcutsController" data-ng-init="find()" id="wrapper">
     <div class="page-header">
         <h1>Shortcuts</h1>
     </div>
-    <div class="list-group">
+
+    <!-- Sidebar -->
+        <div class="sidebar list-group btn-group-vertical col-xs-2" role="group">
+            <div class="list-group-item panel-heading">Applications</div>
+            <button data-ng-repeat="application in applications" type="button" class="list-group-item btn btn-default pull-left">{{application}}</button>
+        </div>
+    
+    <div class="list-group col-xs-10 container">
         <a data-ng-repeat="shortcut in shortcuts" data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item col-xs-12 col-md-4">
             <div class="shortcut">
                 <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>

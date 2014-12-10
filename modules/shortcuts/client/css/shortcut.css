@@ -4,7 +4,8 @@
   display: table;
   height: 150px;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  border-radius: 5px; }
   .shortcut .keyCombination {
     height: 100%;
     width: 50%;
@@ -24,3 +25,6 @@
     border-top: 1px solid #cccccc;
     vertical-align: middle;
     height: 20%; }
+
+.sidebar button {
+  text-align: left !important; }
