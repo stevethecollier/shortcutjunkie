@@ -25,7 +25,7 @@ exports.invokeRolesPolicies = function() {
 		roles: ['user'],
 		allows: [{
 			resources: '/api/shortcuts',
-			permissions: ['get', 'post']
+			permissions: ['get']
 		}, {
 			resources: '/api/shortcuts/:shortcutId',
 			permissions: ['get']

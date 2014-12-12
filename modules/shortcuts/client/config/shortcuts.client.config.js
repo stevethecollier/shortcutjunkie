@@ -22,7 +22,8 @@ angular.module('shortcuts').run(['Menus',
 		Menus.addSubMenuItem('topbar', 'shortcuts', {
 			title: 'Create Shortcut',
 			state: 'shortcuts.create',
-			isPublic: false
+			isPublic: false,
+			roles: ['editor']
 		});
 	}
 ]);

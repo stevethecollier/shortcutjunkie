@@ -14,7 +14,7 @@ module.exports = function(karmaConfig) {
 		frameworks: ['jasmine'],
 
 		// List of files / patterns to load in the browser
-		files: _.union(defaultAssets.client.lib.js, defaultAssets.client.lib.tests, defaultAssets.client.js, ['modules/shortcuts/tests/client/**/*.js']),//testAssets.tests.client),
+		files: _.union(defaultAssets.client.lib.js, defaultAssets.client.lib.tests, defaultAssets.client.js, testAssets.tests.client),
 
 		// Test results reporter to use
 		// Possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
