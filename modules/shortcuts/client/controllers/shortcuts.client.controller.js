@@ -78,5 +78,9 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		$scope.selectApplication = function(application){
 			$scope.selectedApplication = application;
 		};
+
+		$scope.isEditor = function(user){
+			return user.roles.indexOf('editor') != -1;
+		}
 	}
 ]);

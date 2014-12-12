@@ -6,9 +6,33 @@
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="keyCombination">Key Combination</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="shortcut.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="shortcut.keyCombination" id="keyCombination" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="application">Application</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="shortcut.application" id="application" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="shortcut.description" id="description" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="operatingSystem">Operating System</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="shortcut.operatingSystem" id="operatingSystem" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="category">Category</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="shortcut.category" id="category" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-group">
