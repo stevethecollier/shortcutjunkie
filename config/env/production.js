@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = {
-	//Testing heroku commit
 	db: process.env.MONGOLAB_URI,
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
