@@ -12,7 +12,8 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 				keyCombination: this.keyCombination,
 				application: this.application,
 				description: this.description,
-				operatingSystem: this.operatingSystem
+				operatingSystem: this.operatingSystem,
+				category: this.category
 			});
 
 			// Redirect after save

@@ -56,7 +56,8 @@
 				keyCombination: 'test key combination',
 				application: 'test application',
 				description: 'test description',
-				operatingSystem: 'test operating system'
+				operatingSystem: 'test operating system',
+				category: 'test category'
 			});
 
 			// Create a sample Shortcuts array that includes the new Shortcut
@@ -78,17 +79,20 @@
 				keyCombination: 'firstTest',
 				application: 'firstTest',
 				description: 'firstTest',
-				operatingSystem: 'firstTest'
+				operatingSystem: 'firstTest',
+				category: 'firstTest'
 			}), new Shortcuts({
 				keyCombination: 'secondTest',
 				application: 'secondTest',
 				description: 'secondTest',
-				operatingSystem: 'secondTest'
+				operatingSystem: 'secondTest',
+				category: 'secondTest'
 			}), new Shortcuts({
 				keyCombination: 'thirdTest',
 				application: 'firstTest',
 				description: 'thirdTest',
-				operatingSystem: 'thirdTest'
+				operatingSystem: 'thirdTest',
+				category: 'thirdTest'
 			})];
 
 			// Set GET response
@@ -106,17 +110,23 @@
 				keyCombination: 'firstTest',
 				application: 'firstTest',
 				description: 'firstTest',
-				operatingSystem: 'firstTest'
+				operatingSystem: 'firstTest',
+				category: 'firstTest'
+
 			}, {
 				keyCombination: 'secondTest',
 				application: 'secondTest',
 				description: 'secondTest',
-				operatingSystem: 'secondTest'
+				operatingSystem: 'secondTest',
+				category: 'secondTest'
+
 			}, {
 				keyCombination: 'thirdTest',
 				application: 'firstTest',
 				description: 'thirdTest',
-				operatingSystem: 'thirdTest'
+				operatingSystem: 'thirdTest',
+				category: 'thirdTest'
+
 			}];
 
 			it('should restrict by application', inject(function(_$filter_) {
@@ -134,7 +144,8 @@
 				keyCombination: 'test key combination',
 				application: 'test application',
 				description: 'test description',
-				operatingSystem: 'test operating system'
+				operatingSystem: 'test operating system',
+				category: 'test category'
 			});
 
 			// Set the URL parameter
@@ -157,7 +168,8 @@
 				keyCombination: 'test key combination',
 				application: 'test application',
 				description: 'test description',
-				operatingSystem: 'test operating system'
+				operatingSystem: 'test operating system',
+				category: 'test category'
 			});
 
 			// Create a sample Shortcut response
@@ -166,7 +178,8 @@
 				keyCombination: 'test key combination',
 				application: 'test application',
 				description: 'test description',
-				operatingSystem: 'test operating system'
+				operatingSystem: 'test operating system',
+				category: 'test category'
 			});
 
 			// Fixture mock form input values
@@ -174,6 +187,7 @@
 			scope.application = 'test application';
 			scope.description = 'test description';
 			scope.operatingSystem = 'test operating system';
+			scope.category = 'test category';
 
 
 			// Set POST response

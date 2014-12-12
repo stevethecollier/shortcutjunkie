@@ -34,6 +34,12 @@ var ShortcutSchema = new Schema({
 		required: 'Please fill Shortcut operating system',
 		trim: true
 	},
+	category: {
+		type: String,
+		default: '',
+		required: 'Please fill Shortcut category',
+		trim: true
+	},
 	created: {
 		type: Date,
 		default: Date.now

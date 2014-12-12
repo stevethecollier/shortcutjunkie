@@ -8,6 +8,7 @@
 		<div data-ng-bind="shortcut.description" class="description"></div>
 		<div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
 	</div>
+	<div> Filed under: <span data-ng-bind="shortcut.category" class="category"></span><div>
 	<div class="pull-right" data-ng-show="authentication.user._id == shortcut.user._id">
 		<a class="btn btn-primary" href="/#!/shortcuts/{{shortcut._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>

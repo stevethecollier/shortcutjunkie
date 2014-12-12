@@ -31,6 +31,12 @@ exports.invokeRolesPolicies = function() {
 			permissions: ['get']
 		}]
 	}, {
+		roles: ['editor'],
+		allows: [{
+			resources: '/api/shortcuts',
+			permissions: ['post']
+		}]
+	}, {
 		roles: ['guest'],
 		allows: [{
 			resources: '/api/shortcuts',
