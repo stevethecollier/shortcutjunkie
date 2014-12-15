@@ -80,7 +80,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		};
 
 		$scope.isEditor = function(user){
-			return user.roles.indexOf('editor') != -1;
-		}
+			return user.roles.indexOf('editor') !== -1;
+		};
 	}
 ]);
