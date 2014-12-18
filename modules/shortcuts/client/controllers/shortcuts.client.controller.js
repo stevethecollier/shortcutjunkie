@@ -75,12 +75,20 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			});
 		};
 
-		$scope.selectApplication = function(application){
+		$scope.selectApplication = function(application) {
 			$scope.selectedApplication = application;
 		};
 
-		$scope.isEditor = function(user){
-			return user.roles.indexOf('editor') !== -1;
+		$scope.isEditor = function(user) {
+			if (user.roles) {
+				return user.roles.indexOf('editor') !== -1;
+			} else {
+				return false;
+			}
 		};
+
+		$scope.view = function(shortcut) {
+			$location.path('/shortcuts/' + shortcut._id);
+		}
 	}
 ]);

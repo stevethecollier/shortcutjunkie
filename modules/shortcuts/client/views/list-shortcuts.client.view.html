@@ -20,22 +20,44 @@
     </div>
 
     <!-- Shortcuts -->
-    <div class="list-group col-xs-12 col-md-10 container">
-        <a data-ng-repeat="shortcut in shortcuts | applicationFilter:selectedApplication" data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item col-md-4">
-            <div class="shortcut">
-                <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
-                <div data-ng-bind="shortcut.application" class="application"></div>
-                <div data-ng-bind="shortcut.description" class="description"></div>
-                <div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
-            </div>
-            <small class="list-group-item-text">
-                Posted on
-                <span data-ng-bind="shortcut.created | date:'medium'"></span>
-                by
-                <span data-ng-bind="shortcut.user.displayName"></span>
-            </small>
-            <h4 class="list-group-item-heading" data-ng-bind="shortcut.name"></h4>
-        </a>
+    <div class="col-xs-12 col-md-10 container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Key Combination</th>
+                    <th>Application</th>
+                    <th>Description</th>
+                    <th>Operating System</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-click="view(shortcut)" data-ng-repeat="shortcut in shortcuts | applicationFilter:selectedApplication">
+                    <td>
+                        <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
+                    </td>
+                    <td>
+                        <div data-ng-bind="shortcut.application" class="application"></div>
+                    </td>
+                    <td>
+                        <div data-ng-bind="shortcut.description" class="description"></div>
+                    </td>
+                    <td>
+                        <div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
+                    </td>
+                    <td>
+                        <!-- <a data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item"> -->
+                            <small class="list-group-item-text">
+                                Posted on
+                                <span data-ng-bind="shortcut.created | date:'medium'"></span>
+                                by
+                                <span data-ng-bind="shortcut.user.displayName"></span>
+                            </small>
+                        <!-- </a> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!shortcuts.$resolved || shortcuts.length">
         No Shortcuts yet, why don't you <a href="/#!/shortcuts/create">create one</a>?
