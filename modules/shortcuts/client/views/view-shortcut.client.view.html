@@ -1,28 +1,49 @@
 <section data-ng-controller="ShortcutsController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1>View shortcut</h1>
-	<div>
-	<div class="shortcut">
-		<div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
-		<div data-ng-bind="shortcut.application" class="application"></div>
-		<div data-ng-bind="shortcut.description" class="description"></div>
-		<div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
+    <div class="page-header">
+        <h1>View shortcut</h1>
+    </div>
+    <div>
+        <div class="shortcut" row fluid>
+            <div>
+                <label class="control-label" for="keyCombination">Key Combination</label>
+                <span data-ng-bind="shortcut.keyCombination" class="dataValue"></span>
+            </div>
+            <div>
+                <label class="control-label" for="application">Application</label>
+                <span data-ng-bind="shortcut.application" class="dataValue"></span>
+            </div>
+            <div>
+                <label class="control-label" for="description">Description</label>
+                <span data-ng-bind="shortcut.description" class="dataValue"></span>
+            </div>
+            <div>
+                <label class="control-label" for="operatingSystem">Operating System</label>
+                <span data-ng-bind="shortcut.operatingSystem" class="dataValue"></span>
+            </div>
+            <div>
+                <label class="control-label" for="category">Category</label>
+                <span data-ng-bind="shortcut.category" class="category"></span>
+            </div>
+        </div>
+        <div> Filed under: <span data-ng-bind="shortcut.category" class="category"></span>
+            <div>
+                <div class="pull-right" data-ng-show="isEditor(authentication.user)">
+                    <a class="btn btn-primary" href="/#!/shortcuts/{{shortcut._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-primary" data-ng-click="remove();">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </div>
+                <small>
+					<em class="text-muted">
+						Posted on
+						<span data-ng-bind="shortcut.created | date:'mediumDate'"></span>
+						by
+						<span data-ng-bind="shortcut.user.displayName"></span>
+					</em>
+				</small>
+			</div>
+		</div>
 	</div>
-	<div> Filed under: <span data-ng-bind="shortcut.category" class="category"></span><div>
-	<div class="pull-right" data-ng-show="isEditor(authentication.user)">
-		<a class="btn btn-primary" href="/#!/shortcuts/{{shortcut._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
-	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="shortcut.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="shortcut.user.displayName"></span>
-		</em>
-	</small>
 </section>

@@ -89,6 +89,6 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 
 		$scope.view = function(shortcut) {
 			$location.path('/shortcuts/' + shortcut._id);
-		}
+		};
 	}
 ]);
