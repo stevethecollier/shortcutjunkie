@@ -53,11 +53,11 @@
 		it('$scope.find() should create an array with at least one Shortcut object fetched from XHR', inject(function(Shortcuts) {
 			// Create sample Shortcut using the Shortcuts service
 			var sampleShortcut = new Shortcuts({
-				keyCombination: 'test key combination',
-				application: 'test application',
-				description: 'test description',
-				operatingSystem: 'test operating system',
-				category: 'test category'
+				keyCombination: 'testKeyCombination',
+				application: 'testApplication',
+				description: 'testDescription',
+				operatingSystem: 'testOperatingSystem',
+				category: 'testCategory'
 			});
 
 			// Create a sample Shortcuts array that includes the new Shortcut
@@ -105,38 +105,63 @@
 			expect(scope.applications).toEqual(['firstTest', 'secondTest']);
 		}));
 
-		describe('the shortcuts filter', function() {
+		it('should restrict by application', inject(function(_$filter_) {
+			var $filter = _$filter_;
 			var sampleShortcuts = [{
 				keyCombination: 'firstTest',
 				application: 'firstTest',
 				description: 'firstTest',
 				operatingSystem: 'firstTest',
 				category: 'firstTest'
-
 			}, {
 				keyCombination: 'secondTest',
 				application: 'secondTest',
 				description: 'secondTest',
 				operatingSystem: 'secondTest',
 				category: 'secondTest'
-
 			}, {
 				keyCombination: 'thirdTest',
 				application: 'firstTest',
 				description: 'thirdTest',
 				operatingSystem: 'thirdTest',
 				category: 'thirdTest'
-
 			}];
 
-			it('should restrict by application', inject(function(_$filter_) {
-				var $filter = _$filter_;
-				var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
-				expect(result).toEqual([sampleShortcuts[1]]);
-				result = $filter('applicationFilter')(sampleShortcuts, '');
-				expect(result).toEqual(sampleShortcuts);
-			}));
-		});
+			var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
+			expect(result).toEqual([sampleShortcuts[1]]);
+			result = $filter('applicationFilter')(sampleShortcuts, '');
+			expect(result).toEqual(sampleShortcuts);
+
+		}));
+
+		it('should group by category', inject(function(_$filter_) {
+			var $filter = _$filter_;
+			var sampleShortcuts = [{
+				keyCombination: 'firstTest',
+				application: 'firstTest',
+				description: 'firstTest',
+				operatingSystem: 'firstTest',
+				category: 'firstTest'
+			}, {
+				keyCombination: 'secondTest',
+				application: 'secondTest',
+				description: 'secondTest',
+				operatingSystem: 'secondTest',
+				category: 'secondTest'
+			}, {
+				keyCombination: 'thirdTest',
+				application: 'thirdTest',
+				description: 'thirdTest',
+				operatingSystem: 'thirdTest',
+				category: 'firstTest'
+			}];
+
+			var result = $filter('groupBy')(sampleShortcuts, 'category');
+			expect(result).toEqual({
+				firstTest: [sampleShortcuts[0], sampleShortcuts[2]],
+				secondTest: [sampleShortcuts[1]]
+			});
+		}));
 
 		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function(Shortcuts) {
 			// Define a sample Shortcut object

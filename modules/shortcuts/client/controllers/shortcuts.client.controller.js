@@ -90,5 +90,9 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		$scope.view = function(shortcut) {
 			$location.path('/shortcuts/' + shortcut._id);
 		};
+
+		$scope.$watch("shortcuts | groupBy", function(categories) {
+			$scope.categories = categories;
+		}, true);
 	}
 ]);

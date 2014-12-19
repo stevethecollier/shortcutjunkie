@@ -19,45 +19,52 @@
         </ui-select>
     </div>
 
-    <!-- Shortcuts -->
     <div class="col-xs-12 col-md-10 container">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Key Combination</th>
-                    <th ng-hide="selectedApplication">Application</th>
-                    <th>Description</th>
-                    <th>Operating System</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-click="view(shortcut)" data-ng-repeat="shortcut in shortcuts | applicationFilter:selectedApplication">
-                    <td>
-                        <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
-                    </td>
-                    <td ng-hide="selectedApplication">
-                        <div data-ng-bind="shortcut.application" class="application"></div>
-                    </td>
-                    <td>
-                        <div data-ng-bind="shortcut.description" class="description"></div>
-                    </td>
-                    <td>
-                        <div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
-                    </td>
-                    <td>
-                        <!-- <a data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item"> -->
+        <!-- Shortcuts -->
+        <div data-ng-repeat="(category, groupedShortcuts) in categories">
+            <h3>{{category}}</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Key Combination</th>
+                        <th ng-hide="selectedApplication">Application</th>
+                        <th>Description</th>
+                        <th>Operating System</th>
+                        <th>Category</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-click="view(shortcut)" data-ng-repeat="shortcut in groupedShortcuts">
+                        <td>
+                            <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
+                        </td>
+                        <td ng-hide="selectedApplication">
+                            <div data-ng-bind="shortcut.application" class="application"></div>
+                        </td>
+                        <td>
+                            <div data-ng-bind="shortcut.description" class="description"></div>
+                        </td>
+                        <td>
+                            <div data-ng-bind="shortcut.operatingSystem" class="operatingSystem"></div>
+                        </td>
+                        <td>
+                            <div data-ng-bind="shortcut.category" class="category"></div>
+                        </td>
+                        <td>
+                            <!-- <a data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item"> -->
                             <small class="list-group-item-text">
-                                Posted on
-                                <span data-ng-bind="shortcut.created | date:'medium'"></span>
-                                by
-                                <span data-ng-bind="shortcut.user.displayName"></span>
-                            </small>
-                        <!-- </a> -->
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                    Posted on
+                                    <span data-ng-bind="shortcut.created | date:'medium'"></span>
+                                    by
+                                    <span data-ng-bind="shortcut.user.displayName"></span>
+                                </small>
+                            <!-- </a> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!shortcuts.$resolved || shortcuts.length">
         No Shortcuts yet, why don't you <a href="/#!/shortcuts/create">create one</a>?
