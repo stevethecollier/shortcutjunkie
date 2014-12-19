@@ -25,7 +25,7 @@
             <thead>
                 <tr>
                     <th>Key Combination</th>
-                    <th>Application</th>
+                    <th ng-hide="selectedApplication">Application</th>
                     <th>Description</th>
                     <th>Operating System</th>
                     <th></th>
@@ -36,7 +36,7 @@
                     <td>
                         <div data-ng-bind="shortcut.keyCombination" class="keyCombination"></div>
                     </td>
-                    <td>
+                    <td ng-hide="selectedApplication">
                         <div data-ng-bind="shortcut.application" class="application"></div>
                     </td>
                     <td>
