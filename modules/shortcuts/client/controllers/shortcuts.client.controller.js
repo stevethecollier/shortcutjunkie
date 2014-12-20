@@ -91,7 +91,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			$location.path('/shortcuts/' + shortcut._id);
 		};
 
-		$scope.$watch('shortcuts | groupBy', function(categories) {
+		$scope.$watch('shortcuts | applicationFilter:selectedApplication | groupBy', function(categories) {
 			$scope.categories = categories;
 		}, true);
 	}
