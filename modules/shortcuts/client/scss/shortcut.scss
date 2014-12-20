@@ -1,7 +1,22 @@
 .shortcut {
-    .dataValue{
-      padding-left: 10px;
+    .dataValue {
+        padding-left: 10px;
     }
+}
+.shortcutTable {
+    .keyCombination {
+        width: 20%
+    }
+    .application {
+        width: 10%
+    }
+    .description {
+        width: 30%
+    }
+    .operatingSystem {
+        width: 10%
+    }
+
 }
 .list-group {
     border: 0 !important;
