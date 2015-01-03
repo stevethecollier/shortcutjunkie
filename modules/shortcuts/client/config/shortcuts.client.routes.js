@@ -8,7 +8,7 @@ angular.module('shortcuts').config(['$stateProvider',
 		state('home.shortcuts', {
 			views: {
 				shortcuts: {
-					templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html'
+					templateUrl: 'modules/shortcuts/views/applications-shortcuts.client.view.html'
 				}
 			}
 		}).
@@ -18,7 +18,7 @@ angular.module('shortcuts').config(['$stateProvider',
 			template: '<ui-view/>'
 		}).
 		state('shortcuts.list', {
-			url: '',
+			url: '/:application',
 			templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html'
 		}).
 		state('shortcuts.create', {

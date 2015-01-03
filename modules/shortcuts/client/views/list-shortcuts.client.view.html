@@ -4,20 +4,20 @@
     </div>
 
     <!-- Sidebar, medium+ screen -->
-    <div class="sidebar list-group btn-group-vertical col-md-2 visible-md-block visible-lg-block" role="group">
+<!--     <div class="sidebar list-group btn-group-vertical col-md-2 visible-md-block visible-lg-block" role="group">
         <div class="list-group-item">Applications</div>
         <button data-ng-repeat="application in applications" type="button" class="list-group-item btn btn-default pull-left" ng-class="{active: application === selectedApplication}" ng-click="selectApplication(application)">{{application}}</button>
-    </div>
+    </div> -->
 
     <!-- Scroll picker, mobile screen -->
-    <div class="visible-xs-block visible-sm-block">
+<!--     <div class="visible-xs-block visible-sm-block">
         <ui-select ng-model="$parent.application" theme="bootstrap">
             <ui-select-match placeholder="Select an application">{{application}}</ui-select-match>
             <ui-select-choices repeat="application in applications">
                 <div ng-click="selectApplication(application)">{{application}}</div>
             </ui-select-choices>
         </ui-select>
-    </div>
+    </div> -->
 
     <div class="col-xs-12 col-md-10 container">
         <!-- Shortcuts -->

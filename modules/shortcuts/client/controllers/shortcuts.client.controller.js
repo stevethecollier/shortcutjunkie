@@ -75,9 +75,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			});
 		};
 
-		$scope.selectApplication = function(application) {
-			$scope.selectedApplication = application;
-		};
+		$scope.selectedApplication = $stateParams.application;
 
 		$scope.isEditor = function(user) {
 			if (user.roles) {
