@@ -65,6 +65,13 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 					}
 					return previousValue;
 				}, []);
+
+				$scope.operatingSystems = $scope.shortcuts.reduce(function(previousValue, currentValue) {
+					if (previousValue.indexOf(currentValue.operatingSystem) === -1) {
+						previousValue.push(currentValue.operatingSystem);
+					}
+					return previousValue;
+				}, []);
 			});
 		};
 

@@ -103,6 +103,7 @@
 			$httpBackend.flush();
 
 			expect(scope.applications).toEqual(['firstTest', 'secondTest']);
+			expect(scope.operatingSystems).toEqual(['firstTest', 'secondTest', 'thirdTest']);
 		}));
 
 		it('should restrict by application', inject(function(_$filter_) {
