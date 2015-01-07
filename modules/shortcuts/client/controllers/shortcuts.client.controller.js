@@ -84,6 +84,10 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 
 		$scope.selectedApplication = $stateParams.application;
 
+		// $scope.selectOperatingSystem = function(operatingSystem){
+		// 	$scope.selectedOS = operatingSystem;
+		// };
+
 		$scope.isEditor = function(user) {
 			if (user.roles) {
 				return user.roles.indexOf('editor') !== -1;
@@ -96,7 +100,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			$location.path('/shortcuts/' + shortcut._id);
 		};
 
-		$scope.$watch('shortcuts | applicationFilter:selectedApplication | groupBy', function(categories) {
+		$scope.$watch('shortcuts | applicationFilter:selectedApplication | operatingSystemFilter:selectedOS | groupBy', function(categories) {
 			$scope.categories = categories;
 		}, true);
 	}

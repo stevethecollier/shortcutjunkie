@@ -18,6 +18,15 @@
             </ui-select-choices>
         </ui-select>
     </div> -->
+    <!-- OS picker -->
+    <div>
+        <ui-select ng-model="$parent.selectedOS" theme="bootstrap">
+            <ui-select-match placeholder="Select an operatingSystem">{{selectedOS}}</ui-select-match>
+            <ui-select-choices repeat="operatingSystem in operatingSystems">
+                <div>{{operatingSystem}}</div>
+            </ui-select-choices>
+        </ui-select>
+    </div>
 
     <div class="col-xs-12 col-md-10 container">
         <!-- Shortcuts -->
