@@ -106,7 +106,7 @@
 			expect(scope.operatingSystems).toEqual(['firstTest', 'secondTest', 'thirdTest']);
 		}));
 
-		it('should restrict by application', inject(function(_$filter_) {
+		it('should restrict by application and OS', inject(function(_$filter_) {
 			var $filter = _$filter_;
 			var sampleShortcuts = [{
 				keyCombination: 'firstTest',
@@ -131,6 +131,11 @@
 			var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
 			expect(result).toEqual([sampleShortcuts[1]]);
 			result = $filter('applicationFilter')(sampleShortcuts, '');
+			expect(result).toEqual(sampleShortcuts);
+
+			result = $filter('operatingSystemFilter')(sampleShortcuts, 'secondTest');
+			expect(result).toEqual([sampleShortcuts[1]]);
+			result = $filter('operatingSystemFilter')(sampleShortcuts, '');
 			expect(result).toEqual(sampleShortcuts);
 
 		}));
