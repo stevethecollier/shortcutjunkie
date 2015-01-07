@@ -84,9 +84,20 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 
 		$scope.selectedApplication = $stateParams.application;
 
-		// $scope.selectOperatingSystem = function(operatingSystem){
-		// 	$scope.selectedOS = operatingSystem;
-		// };
+		$scope.selectedOS = '';
+		if (navigator.appVersion.indexOf('Win') !== -1) {
+			$scope.selectedOS = 'Windows';
+		} else if (
+			navigator.appVersion.indexOf('Mac') !== -1) {
+			$scope.selectedOS = 'OS X';
+		} else if (
+			navigator.appVersion.indexOf('X11') !== -1) {
+			$scope.selectedOS = 'UNIX';
+		} else if (
+			navigator.appVersion.indexOf('Linux') !== -1) {
+			$scope.selectedOS = 'Linux';
+		}
+
 
 		$scope.isEditor = function(user) {
 			if (user.roles) {

@@ -16,7 +16,6 @@
     .operatingSystem {
         width: 10%
     }
-
 }
 .list-group {
     border: 0 !important;
@@ -30,4 +29,7 @@
     .btn:focus {
         outline: none;
     }
+}
+.osSelect {
+    width: 300px;
 }

@@ -19,3 +19,6 @@
   background-position: 0 !important; }
 .sidebar .btn:focus {
   outline: none; }
+
+.osSelect {
+  width: 300px; }

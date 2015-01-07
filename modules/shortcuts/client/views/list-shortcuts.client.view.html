@@ -20,7 +20,7 @@
     </div> -->
     <!-- OS picker -->
     <div>
-        <ui-select ng-model="$parent.selectedOS" theme="bootstrap">
+        <ui-select class="osSelect pull-right" ng-model="$parent.selectedOS">
             <ui-select-match placeholder="Select an operatingSystem">{{selectedOS}}</ui-select-match>
             <ui-select-choices repeat="operatingSystem in operatingSystems">
                 <div>{{operatingSystem}}</div>
@@ -28,7 +28,7 @@
         </ui-select>
     </div>
 
-    <div class="col-xs-12 col-md-10 container">
+    <div class="col-xs-12 container">
         <!-- Shortcuts -->
         <div data-ng-repeat="(category, groupedShortcuts) in categories">
             <h3>{{category}}</h3>
