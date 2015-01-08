@@ -4,6 +4,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 	function($scope, Authentication, $state) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-        $state.transitionTo('home.shortcuts');
+        $state.transitionTo('home.applications');
 	}
 ]);
