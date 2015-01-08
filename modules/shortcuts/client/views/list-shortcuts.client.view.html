@@ -38,8 +38,6 @@
                         <th class="keyCombination">Key Combination</th>
                         <th class="application" ng-hide="selectedApplication">Application</th>
                         <th class="description">Description</th>
-                        <th class="operatingSystem">Operating System</th>
-                        <th class="createdBy"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,19 +50,6 @@
                         </td>
                         <td class="description">
                             <div data-ng-bind="shortcut.description"></div>
-                        </td>
-                        <td class="operatingSystem">
-                            <div data-ng-bind="shortcut.operatingSystem"></div>
-                        </td>
-                        <td class="createdBy">
-                            <!-- <a data-ng-href="/#!/shortcuts/{{shortcut._id}}" class="list-group-item"> -->
-                            <small class="list-group-item-text">
-                                    Posted on
-                                    <span data-ng-bind="shortcut.created | date:'medium'"></span>
-                                    by
-                                    <span data-ng-bind="shortcut.user.displayName"></span>
-                                </small>
-                            <!-- </a> -->
                         </td>
                     </tr>
                 </tbody>
