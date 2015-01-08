@@ -13,8 +13,8 @@ angular.module('shortcuts').run(['Menus',
 
 		// Add the dropdown list item
 		Menus.addSubMenuItem('topbar', 'shortcuts', {
-			title: 'List Shortcuts',
-			state: 'shortcuts.list',
+			title: 'Default Shortcuts',
+			state: 'shortcuts.applications',
 			isPublic: true
 		});
 

@@ -17,7 +17,11 @@ angular.module('shortcuts').config(['$stateProvider',
 			url: '/shortcuts',
 			template: '<ui-view/>'
 		}).
-		state('shortcuts.list', {
+		state('shortcuts.applications', {
+			url: '/application/:application',
+			templateUrl: 'modules/shortcuts/views/applications-shortcuts.client.view.html'
+		}).
+		state('shortcuts.application', {
 			url: '/application/:application',
 			templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html'
 		}).
