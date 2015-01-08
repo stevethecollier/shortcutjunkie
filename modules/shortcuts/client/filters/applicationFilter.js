@@ -1,7 +1,7 @@
 'use strict';
 angular.module('shortcuts').filter('applicationFilter', function() {
     return function(shortcuts, application) {
-        if(!application || application === ''){
+        if(!shortcuts || !application || application === ''){
             return shortcuts;
         }
         var filtered = [];

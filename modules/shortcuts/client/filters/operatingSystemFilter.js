@@ -1,7 +1,7 @@
 'use strict';
 angular.module('shortcuts').filter('operatingSystemFilter', function() {
     return function(shortcuts, operatingSystem) {
-        if(!operatingSystem || operatingSystem === ''){
+        if(!shortcuts || !operatingSystem || operatingSystem === ''){
             return shortcuts;
         }
         var filtered = [];
