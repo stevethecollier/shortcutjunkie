@@ -12,22 +12,22 @@ var _ = require('lodash'),
 	plugins = gulpLoadPlugins();
 
 // Set NODE_ENV to 'test'
-gulp.task('env:test', function () {
+gulp.task('env:test', function() {
 	process.env.NODE_ENV = 'test';
 });
 
 // Set NODE_ENV to 'development'
-gulp.task('env:dev', function () {
+gulp.task('env:dev', function() {
 	process.env.NODE_ENV = 'development';
 });
 
 // Set NODE_ENV to 'production'
-gulp.task('env:prod', function () {
+gulp.task('env:prod', function() {
 	process.env.NODE_ENV = 'production';
 });
 
 // Nodemon task
-gulp.task('nodemon', function () {
+gulp.task('nodemon', function() {
 	return plugins.nodemon({
 		script: 'server.js',
 		nodeArgs: ['--debug'],
@@ -52,11 +52,11 @@ gulp.task('watch', function() {
 });
 
 // CSS linting task
-gulp.task('csslint', function (done) {
+gulp.task('csslint', function(done) {
 	return gulp.src(defaultAssets.client.css)
 		.pipe(plugins.csslint('.csslintrc'))
 		.pipe(plugins.csslint.reporter())
-		.pipe(plugins.csslint.reporter(function (file) {
+		.pipe(plugins.csslint.reporter(function(file) {
 			if (!file.csslint.errorCount) {
 				done();
 			}
@@ -64,7 +64,7 @@ gulp.task('csslint', function (done) {
 });
 
 // JS linting task
-gulp.task('jshint', function () {
+gulp.task('jshint', function() {
 	return gulp.src(_.union(defaultAssets.server.allJS, defaultAssets.client.js, testAssets.tests.server, testAssets.tests.client, testAssets.tests.e2e))
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter('default'))
@@ -73,7 +73,7 @@ gulp.task('jshint', function () {
 
 
 // JS minifying task
-gulp.task('uglify', function () {
+gulp.task('uglify', function() {
 	return gulp.src(defaultAssets.client.js)
 		.pipe(plugins.ngAnnotate())
 		.pipe(plugins.uglify({
@@ -84,7 +84,7 @@ gulp.task('uglify', function () {
 });
 
 // CSS minifying task
-gulp.task('cssmin', function () {
+gulp.task('cssmin', function() {
 	return gulp.src(defaultAssets.client.css)
 		.pipe(plugins.cssmin())
 		.pipe(plugins.concat('application.min.css'))
@@ -92,27 +92,27 @@ gulp.task('cssmin', function () {
 });
 
 // Sass task
-gulp.task('sass', function () {
+gulp.task('sass', function() {
 	return gulp.src(defaultAssets.client.sass)
 		.pipe(plugins.sass())
-		.pipe(plugins.rename(function (path) {
+		.pipe(plugins.rename(function(path) {
 			path.dirname = path.dirname.replace('/scss', '/css');
 		}))
 		.pipe(gulp.dest('./modules/'));
 });
 
 // Less task
-gulp.task('less', function () {
+gulp.task('less', function() {
 	return gulp.src(defaultAssets.client.less)
 		.pipe(plugins.less())
-		.pipe(plugins.rename(function (path) {
+		.pipe(plugins.rename(function(path) {
 			path.dirname = path.dirname.replace('/less', '/css');
 		}))
 		.pipe(gulp.dest('./modules/'));
 });
 
 // Connect to MongoDB using the mongoose module
-gulp.task('mongoose', function (done) {
+gulp.task('mongoose', function(done) {
 	var mongoose = require('./config/lib/mongoose.js');
 
 	mongoose.connect(function(db) {
@@ -121,22 +121,24 @@ gulp.task('mongoose', function (done) {
 });
 
 // Mocha tests task
-gulp.task('mocha', function () {
+gulp.task('mocha', function() {
 	return gulp.src(testAssets.tests.server)
 		.pipe(plugins.mocha({
 			reporter: 'spec'
-		}));
+		})).once('end', function () {
+            process.exit();
+        });
 });
 
 // Karma test runner task
-gulp.task('karma', function (done) {
+gulp.task('karma', function(done) {
 	return gulp.src([])
 		.pipe(plugins.karma({
 			configFile: 'karma.conf.js',
 			action: 'run',
 			singleRun: true
 		}))
-		.on('error', function (err) {
+		.on('error', function(err) {
 			// Make sure failed tests cause gulp to exit non-zero
 			throw err;
 		});
@@ -146,12 +148,12 @@ gulp.task('karma', function (done) {
 gulp.task('webdriver-update', plugins.protractor.webdriver_update);
 
 // Protractor test runner task
-gulp.task('protractor', function () {
+gulp.task('protractor', function() {
 	gulp.src([])
 		.pipe(plugins.protractor.protractor({
 			configFile: "protractor.conf.js"
 		}))
-		.on('error', function (e) {
+		.on('error', function(e) {
 			throw e
 		})
 });
@@ -163,7 +165,7 @@ gulp.task('lint', function(done) {
 
 // Lint project files and minify them into two production files.
 gulp.task('build', function(done) {
-	runSequence('env:dev' ,'lint', ['uglify', 'cssmin'], done);
+	runSequence('env:dev', 'lint', ['uglify', 'cssmin'], done);
 });
 
 // Run the project tests
