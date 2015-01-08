@@ -27,9 +27,14 @@ describe('Shortcut Model Unit Tests:', function() {
 			password: 'password'
 		});
 
-		user.save(function() { 
+		user.save(function() {
 			shortcut = new Shortcut({
-				name: 'Shortcut Name',
+				keyCombination: 'keyCombination',
+				application: 'application',
+				description: 'description',
+				operatingSystem: 'operatingSystem',
+				category: 'category',
+				created: Date.now(),
 				user: user
 			});
 
@@ -45,8 +50,8 @@ describe('Shortcut Model Unit Tests:', function() {
 			});
 		});
 
-		it('should be able to show an error when try to save without name', function(done) { 
-			shortcut.name = '';
+		it('should be able to show an error when try to save without application', function(done) {
+			shortcut.application = '';
 
 			return shortcut.save(function(err) {
 				should.exist(err);
@@ -55,7 +60,7 @@ describe('Shortcut Model Unit Tests:', function() {
 		});
 	});
 
-	afterEach(function(done) { 
+	afterEach(function(done) {
 		Shortcut.remove().exec();
 		User.remove().exec();
 

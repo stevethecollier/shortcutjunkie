@@ -170,7 +170,7 @@ gulp.task('build', function(done) {
 
 // Run the project tests
 gulp.task('test', function(done) {
-	runSequence('env:test', 'mongoose', ['karma', 'mocha'], done);
+	runSequence('env:test', 'mongoose', ['mocha'], done);
 });
 
 // Run the project in development mode
