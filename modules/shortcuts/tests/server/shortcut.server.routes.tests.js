@@ -90,7 +90,7 @@ describe('Shortcut CRUD tests', function() {
 
 								// Set assertions
 								(shortcuts[0].user._id).should.equal(userId);
-								(shortcuts[0].name).should.match('Shortcut Name');
+								(shortcuts[0].application).should.match(shortcut.application);
 
 								// Call the assertion callback
 								done();
@@ -111,7 +111,15 @@ describe('Shortcut CRUD tests', function() {
 
 	it('should not be able to save Shortcut instance if no application is provided', function(done) {
 		// Invalidate application field
-		shortcut.application = '';
+		shortcut = {
+			keyCombination: 'keyCombination',
+			application: 'application',
+			description: 'description',
+			operatingSystem: 'operatingSystem',
+			category: 'category',
+			created: Date.now(),
+			user: user
+		}
 
 		agent.post('/api/auth/signin')
 			.send(credentials)
@@ -157,7 +165,7 @@ describe('Shortcut CRUD tests', function() {
 						if (shortcutSaveErr) done(shortcutSaveErr);
 
 						// Update Shortcut name
-						shortcut.name = 'WHY YOU GOTTA BE SO MEAN?';
+						shortcut.name = 'sublime';
 
 						// Update existing Shortcut
 						agent.put('/api/shortcuts/' + shortcutSaveRes.body._id)
@@ -169,7 +177,7 @@ describe('Shortcut CRUD tests', function() {
 
 								// Set assertions
 								(shortcutUpdateRes.body._id).should.equal(shortcutSaveRes.body._id);
-								(shortcutUpdateRes.body.name).should.match('WHY YOU GOTTA BE SO MEAN?');
+								(shortcutUpdateRes.body.name).should.match(shortcut.name);
 
 								// Call the assertion callback
 								done();
@@ -207,7 +215,7 @@ describe('Shortcut CRUD tests', function() {
 			request(app).get('/api/shortcuts/' + shortcutObj._id)
 				.end(function(req, res) {
 					// Set assertion
-					res.body.should.be.an.Object.with.property('name', shortcut.name);
+					res.body.should.be.an.Object.with.property('application', shortcut.application);
 
 					// Call the assertion callback
 					done();
