@@ -38,6 +38,7 @@ describe('Shortcut CRUD tests', function() {
 			lastName: 'Name',
 			displayName: 'Full Name',
 			email: 'test@test.com',
+			roles: ['editor', 'user'],
 			username: credentials.username,
 			password: credentials.password,
 			provider: 'local'
@@ -46,7 +47,13 @@ describe('Shortcut CRUD tests', function() {
 		// Save a user to the test db and create new Shortcut
 		user.save(function() {
 			shortcut = {
-				name: 'Shortcut Name'
+				keyCombination: 'keyCombination',
+				application: 'application',
+				description: 'description',
+				operatingSystem: 'operatingSystem',
+				category: 'category',
+				created: Date.now(),
+				user: user
 			};
 
 			done();
@@ -102,9 +109,9 @@ describe('Shortcut CRUD tests', function() {
 			});
 	});
 
-	it('should not be able to save Shortcut instance if no name is provided', function(done) {
-		// Invalidate name field
-		shortcut.name = '';
+	it('should not be able to save Shortcut instance if no application is provided', function(done) {
+		// Invalidate application field
+		shortcut.application = '';
 
 		agent.post('/api/auth/signin')
 			.send(credentials)
@@ -122,8 +129,8 @@ describe('Shortcut CRUD tests', function() {
 					.expect(400)
 					.end(function(shortcutSaveErr, shortcutSaveRes) {
 						// Set message assertion
-						(shortcutSaveRes.body.message).should.match('Please fill Shortcut name');
-						
+						(shortcutSaveRes.body.message).should.match('Please fill Shortcut application');
+
 						// Handle Shortcut save error
 						done(shortcutSaveErr);
 					});
@@ -256,14 +263,14 @@ describe('Shortcut CRUD tests', function() {
 		shortcutObj.save(function() {
 			// Try deleting Shortcut
 			request(app).delete('/api/shortcuts/' + shortcutObj._id)
-			.expect(403)
-			.end(function(shortcutDeleteErr, shortcutDeleteRes) {
-				// Set message assertion
-				(shortcutDeleteRes.body.message).should.match('User is not authorized');
+				.expect(403)
+				.end(function(shortcutDeleteErr, shortcutDeleteRes) {
+					// Set message assertion
+					(shortcutDeleteRes.body.message).should.match('User is not authorized');
 
-				// Handle Shortcut error error
-				done(shortcutDeleteErr);
-			});
+					// Handle Shortcut error error
+					done(shortcutDeleteErr);
+				});
 
 		});
 	});
