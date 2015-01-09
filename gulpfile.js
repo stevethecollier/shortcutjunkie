@@ -121,7 +121,7 @@ gulp.task('mongoose', function(done) {
 });
 
 // Mocha tests task
-gulp.task('mocha', function() {
+gulp.task('mocha', ['env:test', 'mongoose'], function() {
 	return gulp.src(testAssets.tests.server)
 		.pipe(plugins.mocha({
 			reporter: 'spec'
@@ -131,7 +131,7 @@ gulp.task('mocha', function() {
 });
 
 // Karma test runner task
-gulp.task('karma', function(done) {
+gulp.task('karma', ['env:test'], function(done) {
 	return gulp.src([])
 		.pipe(plugins.karma({
 			configFile: 'karma.conf.js',
@@ -170,7 +170,7 @@ gulp.task('build', function(done) {
 
 // Run the project tests
 gulp.task('test', function(done) {
-	runSequence('env:test', 'mongoose', ['mocha'], done);
+	runSequence('karma', 'mocha', done);
 });
 
 // Run the project in development mode

@@ -38,22 +38,20 @@ describe('Shortcut CRUD tests', function() {
 			lastName: 'Name',
 			displayName: 'Full Name',
 			email: 'test@test.com',
-			roles: ['editor', 'user'],
+			roles: ['user', 'editor'],
 			username: credentials.username,
 			password: credentials.password,
 			provider: 'local'
 		});
 
 		// Save a user to the test db and create new Shortcut
-		user.save(function() {
+		user.save(function(error, user) {
 			shortcut = {
 				keyCombination: 'keyCombination',
 				application: 'application',
 				description: 'description',
 				operatingSystem: 'operatingSystem',
 				category: 'category',
-				created: Date.now(),
-				user: user
 			};
 
 			done();
@@ -111,15 +109,7 @@ describe('Shortcut CRUD tests', function() {
 
 	it('should not be able to save Shortcut instance if no application is provided', function(done) {
 		// Invalidate application field
-		shortcut = {
-			keyCombination: 'keyCombination',
-			application: 'application',
-			description: 'description',
-			operatingSystem: 'operatingSystem',
-			category: 'category',
-			created: Date.now(),
-			user: user
-		}
+		shortcut.application = '';
 
 		agent.post('/api/auth/signin')
 			.send(credentials)
@@ -164,8 +154,8 @@ describe('Shortcut CRUD tests', function() {
 						// Handle Shortcut save error
 						if (shortcutSaveErr) done(shortcutSaveErr);
 
-						// Update Shortcut name
-						shortcut.name = 'sublime';
+						// Update Shortcut application
+						shortcut.application = 'sublime';
 
 						// Update existing Shortcut
 						agent.put('/api/shortcuts/' + shortcutSaveRes.body._id)
@@ -177,7 +167,7 @@ describe('Shortcut CRUD tests', function() {
 
 								// Set assertions
 								(shortcutUpdateRes.body._id).should.equal(shortcutSaveRes.body._id);
-								(shortcutUpdateRes.body.name).should.match(shortcut.name);
+								(shortcutUpdateRes.body.application).should.match(shortcut.application);
 
 								// Call the assertion callback
 								done();
