@@ -1,14 +1,12 @@
 .shortcut .dataValue {
   padding-left: 10px; }
 
+.shortcutTable .favoriteBtn {
+  width: 3%; }
 .shortcutTable .keyCombination {
-  width: 20%; }
-.shortcutTable .application {
-  width: 10%; }
+  width: 47%; }
 .shortcutTable .description {
-  width: 30%; }
-.shortcutTable .operatingSystem {
-  width: 10%; }
+  width: 50%; }
 
 .list-group {
   border: 0 !important;

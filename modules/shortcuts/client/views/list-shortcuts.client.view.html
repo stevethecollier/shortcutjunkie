@@ -4,13 +4,13 @@
     </div>
 
     <!-- Sidebar, medium+ screen -->
-<!--     <div class="sidebar list-group btn-group-vertical col-md-2 visible-md-block visible-lg-block" role="group">
+    <!--     <div class="sidebar list-group btn-group-vertical col-md-2 visible-md-block visible-lg-block" role="group">
         <div class="list-group-item">Applications</div>
         <button data-ng-repeat="application in applications" type="button" class="list-group-item btn btn-default pull-left" ng-class="{active: application === selectedApplication}" ng-click="selectApplication(application)">{{application}}</button>
     </div> -->
 
     <!-- Scroll picker, mobile screen -->
-<!--     <div class="visible-xs-block visible-sm-block">
+    <!--     <div class="visible-xs-block visible-sm-block">
         <ui-select ng-model="$parent.application" theme="bootstrap">
             <ui-select-match placeholder="Select an application">{{application}}</ui-select-match>
             <ui-select-choices repeat="application in applications">
@@ -28,27 +28,27 @@
         </ui-select>
     </div>
 
+    <!-- Shortcuts -->
     <div class="col-xs-12 container">
-        <!-- Shortcuts -->
         <div data-ng-repeat="(category, groupedShortcuts) in categories">
             <h3>{{category}}</h3>
             <table class="table table-hover shortcutTable">
                 <thead>
                     <tr>
+                        <th class="favoriteBtn"></th>
                         <th class="keyCombination">Key Combination</th>
-                        <th class="application" ng-hide="selectedApplication">Application</th>
                         <th class="description">Description</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-click="view(shortcut)" data-ng-repeat="shortcut in groupedShortcuts">
-                        <td class="keyCombination">
+                    <tr data-ng-repeat="shortcut in groupedShortcuts">
+                        <td class="favoriteBtn">
+                            <span class="glyphicon" ng-class="{'glyphicon-star-empty':!hover, 'glyphicon-star':hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" aria-hidden="true"></span>
+                        </td>
+                        <td ng-click="view(shortcut)" class="keyCombination">
                             <div data-ng-bind="shortcut.keyCombination"></div>
                         </td>
-                        <td class="application" ng-hide="selectedApplication">
-                            <div data-ng-bind="shortcut.application"></div>
-                        </td>
-                        <td class="description">
+                        <td ng-click="view(shortcut)" class="description">
                             <div data-ng-bind="shortcut.description"></div>
                         </td>
                     </tr>
