@@ -56,13 +56,25 @@ describe('User route tests', function() {
                 user: mongoose.Types.ObjectId(user._id)
             });
             shortcut.save(function(error, shortcut) {
+                agent.post('/ap')
                 done();
             });
         });
     });
 
     it('should run', function(done){
-        done();
+        agent.post('/api/auth/signin')
+            .send(credentials)
+            .expect(200)
+            .end(function(signinErr, signinRes) {
+                // Handle signin error
+                if (signinErr) done(signinErr);
+
+                // Get the userId
+                var userId = user.id;
+
+                done();
+            });
     })
     afterEach(function(done) {
         User.remove().exec();
