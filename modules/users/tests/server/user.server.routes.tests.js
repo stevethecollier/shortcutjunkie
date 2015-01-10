@@ -62,7 +62,7 @@ describe('User route tests', function() {
         });
     });
 
-    it('should run', function(done){
+    it('should run', function(done) {
         agent.post('/api/auth/signin')
             .send(credentials)
             .expect(200)
@@ -72,6 +72,12 @@ describe('User route tests', function() {
 
                 // Get the userId
                 var userId = user.id;
+
+                agent.post('/api/user/favorites/')
+                    .expect(200)
+                    .end(function(error, res){
+                        res.body.should.equal('yes');
+                    });
 
                 done();
             });
