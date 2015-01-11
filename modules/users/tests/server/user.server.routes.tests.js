@@ -56,7 +56,6 @@ describe('User route tests', function() {
                 user: mongoose.Types.ObjectId(user._id)
             });
             shortcut.save(function(error, shortcut) {
-                agent.post('/ap')
                 done();
             });
         });
@@ -73,15 +72,18 @@ describe('User route tests', function() {
                 // Get the userId
                 var userId = user.id;
 
-                agent.post('/api/user/favorites/')
+                agent.post('/api/users/favorites/')
                     .expect(200)
-                    .end(function(error, res){
-                        res.body.should.equal('yes');
+                    .end(function(error, res) {
+                        if (error) done(error);
+
+                        res.body.message.should.match('yes');
+                        done();
                     });
 
-                done();
             });
-    })
+    });
+
     afterEach(function(done) {
         User.remove().exec();
         Shortcut.remove().exec();

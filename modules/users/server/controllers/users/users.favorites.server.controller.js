@@ -10,6 +10,8 @@ var _ = require('lodash'),
 /**
  * User middleware
  */
-exports.addFavorite = function(req, res, next, id) {
-    res.body = 'yes';
-};
+exports.addFavorite = function(req, res, next) {
+    res.jsonp({
+        message: 'yes'
+    });
+}
