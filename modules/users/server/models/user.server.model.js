@@ -54,7 +54,7 @@ var UserSchema = new Schema({
 		required: 'Please fill in a username',
 		trim: true
 	},
-	favorites:{
+	favorites: {
 		type: Array,
 		default: []
 	},
@@ -94,9 +94,9 @@ var UserSchema = new Schema({
 	resetPasswordToken: {
 		type: String
 	},
-  	resetPasswordExpires: {
-  		type: Date
-  	}
+	resetPasswordExpires: {
+		type: Date
+	}
 });
 
 /**

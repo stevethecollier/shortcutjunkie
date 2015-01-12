@@ -18,7 +18,7 @@ var app, agent, credentials, user, shortcut;
 /**
  * Shortcut routes tests
  */
-describe('User route tests', function() {
+describe('User route tests:', function() {
     before(function(done) {
         // Get application
         app = express.init(mongoose);
@@ -63,7 +63,7 @@ describe('User route tests', function() {
         });
     });
 
-    it('should run', function(done) {
+    it('saves a favorite', function(done) {
         agent.post('/api/auth/signin')
             .send(credentials)
             .expect(200)
@@ -76,7 +76,10 @@ describe('User route tests', function() {
 
                 agent.put('/api/users/favorites/')
                     .expect(200)
-                    .send(shortcut)
+                    .send({
+                        action: 'add',
+                        shortcut: shortcut
+                    })
                     .end(function(error, res) {
                         if (error) done(error);
                         //verify the shortcut is in the response favorites

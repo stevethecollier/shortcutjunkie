@@ -12,10 +12,23 @@ var _ = require('lodash'),
 	logger = require('tracer').console(),
 	User = mongoose.model('User');
 
+
+
 /**
- * Define update function
+ * Add a favorite shortcut to the user
  */
-var updateUser = function(req, res) {
+exports.addFavorite = function(req, res, next) {
+	if (req.body.action === 'add') {
+		req.user.favorites.push(req.body.shortcut._id);
+	}
+	req.body = {};
+	next();
+}
+
+/**
+ * Update user details
+ */
+exports.update = function(req, res) {
 	// Init Variables
 	var user = req.user;
 
@@ -49,22 +62,6 @@ var updateUser = function(req, res) {
 			message: 'User is not signed in'
 		});
 	}
-}
-
-/**
- * Add a favorite shortcut to the user
- */
-exports.addFavorite = function(req, res, next) {
-	req.user.favorites.push(req.body._id);
-	req.body = {};
-	updateUser(req, res);
-}
-
-/**
- * Update user details
- */
-exports.update = function(req, res) {
-	updateUser(req, res);
 };
 
 /**
