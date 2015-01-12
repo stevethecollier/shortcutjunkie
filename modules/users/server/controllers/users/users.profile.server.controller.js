@@ -15,9 +15,11 @@ var _ = require('lodash'),
  * Add a favorite shortcut to the user
  */
 exports.addFavorite = function(req, res, next) {
+	console.log(req.method);
     res.jsonp({
         message: 'yes'
     });
+    // next('/api/users');
 }
 
 /**

@@ -73,7 +73,7 @@ describe('User route tests', function() {
                 // Get the userId
                 var userId = user.id;
 
-                agent.post('/api/users/favorites/')
+                agent.put('/api/users/favorites/' + user._id)
                     .expect(200)
                     .end(function(error, res) {
                         if (error) done(error);
