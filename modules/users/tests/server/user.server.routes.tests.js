@@ -60,10 +60,7 @@ describe('User route tests:', function() {
             shortcut.save(function(error, shortcut) {
                 User.update(user, {
                     favorites: [mongoose.Types.ObjectId(shortcut._id)]
-                }, {
-                    safe: true,
-                    upsert: true
-                }, function(error, num) {
+                }, {}, function(error, num) {
                     agent.post('/api/auth/signin')
                         .send(credentials)
                         .expect(200)
@@ -127,7 +124,7 @@ describe('User route tests:', function() {
                 });
         });
 
-        it('duplicates are not added', function(done){
+        it('duplicates are not added', function(done) {
             // Get the userId
             var userId = user.id;
 

@@ -18,17 +18,22 @@ var _ = require('lodash'),
  * Add a favorite shortcut to the user
  */
 exports.addFavorite = function(req, res, next) {
+	var favorites = req.user.favorites;
 	var action = req.body.action;
+	var selection = req.body.shortcut._id;
+
 	if (action === 'add') {
-		var isNotDuplicate = req.user.favorites.indexOf(req.body.shortcut._id) === -1;
+		var isNotDuplicate = favorites.indexOf(selection) === -1;
 		if (isNotDuplicate) {
-			req.user.favorites.push(req.body.shortcut._id);
+			favorites.push(selection);
 		}
 	} else if (action === 'remove') {
-		_.remove(req.user.favorites, function(favorite) {
-			return favorite.toString() === req.body.shortcut._id;
+		_.remove(favorites, function(favorite) {
+			return favorite.toString() === selection;
 		});
 	}
+
+	// let the update route handle the rest
 	req.body = {};
 	next();
 }
