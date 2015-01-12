@@ -82,19 +82,30 @@ describe('User route tests:', function() {
             // Get the userId
             var userId = user.id;
 
-            agent.put('/api/users/favorites/')
-                .expect(200)
-                .send({
-                    action: 'add',
-                    shortcut: shortcut
-                })
-                .end(function(error, res) {
-                    if (error) done(error);
-                    //verify the shortcut is in the response favorites
-                    expect(res.body.favorites).to.contain(shortcut._id.toString());
+            shortcut = new Shortcut({
+                keyCombination: 'test',
+                application: 'test',
+                description: 'test',
+                operatingSystem: 'test',
+                category: 'test',
+                created: Date.now(),
+                user: mongoose.Types.ObjectId(user._id)
+            });
 
-                    done();
-                });
+            shortcut.save(function(error, shortcut) {
+                agent.put('/api/users/favorites/')
+                    .expect(200)
+                    .send({
+                        action: 'add',
+                        shortcut: shortcut
+                    })
+                    .end(function(error, res) {
+                        if (error) done(error);
+                        //verify the shortcut is in the response favorites
+                        expect(res.body.favorites).to.contain(shortcut._id.toString());
+                        done();
+                    });
+            });
         });
 
         it('favorites are deleted', function(done) {
