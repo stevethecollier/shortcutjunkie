@@ -78,7 +78,7 @@ describe('User route tests', function() {
                     .end(function(error, res) {
                         if (error) done(error);
                         //verify the shortcut is in the response favorites
-                        expect(res.body.favorites).to.contain(shortcut._id);
+                        expect(res.body.message).to.equal('yes');
 
                         done();
                     });
