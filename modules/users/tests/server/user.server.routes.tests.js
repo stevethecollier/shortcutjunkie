@@ -4,6 +4,7 @@ var should = require('should'),
     request = require('supertest'),
     path = require('path'),
     mongoose = require('mongoose'),
+    expect = require('chai').expect,
     User = mongoose.model('User'),
     Shortcut = mongoose.model('Shortcut'),
     express = require(path.resolve('./config/lib/express'));
@@ -77,7 +78,8 @@ describe('User route tests', function() {
                     .end(function(error, res) {
                         if (error) done(error);
 
-                        res.body.message.should.match('yes');
+                        expect(res.body.message).to.equal('yes');
+                        
                         done();
                     });
 
