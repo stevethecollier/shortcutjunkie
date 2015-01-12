@@ -12,20 +12,10 @@ var _ = require('lodash'),
 	User = mongoose.model('User');
 
 /**
- * Add a favorite shortcut to the user
+ * Define update function
  */
-exports.addFavorite = function(req, res, next) {
-	console.log(req.method);
-    res.jsonp({
-        message: 'yes'
-    });
-    // next('/api/users');
-}
-
-/**
- * Update user details
- */
-exports.update = function (req, res) {
+var updateUser = function(req, res) {
+	console.log('updating like I want');
 	// Init Variables
 	var user = req.user;
 
@@ -38,13 +28,13 @@ exports.update = function (req, res) {
 		user.updated = Date.now();
 		user.displayName = user.firstName + ' ' + user.lastName;
 
-		user.save(function (err) {
+		user.save(function(err) {
 			if (err) {
 				return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
 				});
 			} else {
-				req.login(user, function (err) {
+				req.login(user, function(err) {
 					if (err) {
 						res.status(400).send(err);
 					} else {
@@ -58,17 +48,34 @@ exports.update = function (req, res) {
 			message: 'User is not signed in'
 		});
 	}
+}
+
+/**
+ * Add a favorite shortcut to the user
+ */
+exports.addFavorite = function(req, res, next) {
+	updateUser(req, res);
+	res.jsonp({
+		message: 'yes'
+	});
+}
+
+/**
+ * Update user details
+ */
+exports.update = function(req, res) {
+	updateUser(req, res);
 };
 
 /**
  * Update profile picture
  */
-exports.changeProfilePicture = function (req, res) {
+exports.changeProfilePicture = function(req, res) {
 	var user = req.user;
 	var message = null;
 
 	if (user) {
-		fs.writeFile('./modules/users/client/img/profile/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
+		fs.writeFile('./modules/users/client/img/profile/uploads/' + req.files.file.name, req.files.file.buffer, function(uploadError) {
 			if (uploadError) {
 				return res.status(400).send({
 					message: 'Error occurred while uploading profile picture'
@@ -76,13 +83,13 @@ exports.changeProfilePicture = function (req, res) {
 			} else {
 				user.profileImageURL = 'modules/users/img/profile/uploads/' + req.files.file.name;
 
-				user.save(function (saveError) {
+				user.save(function(saveError) {
 					if (saveError) {
 						return res.status(400).send({
 							message: errorHandler.getErrorMessage(saveError)
 						});
 					} else {
-						req.login(user, function (err) {
+						req.login(user, function(err) {
 							if (err) {
 								res.status(400).send(err);
 							} else {
@@ -103,6 +110,6 @@ exports.changeProfilePicture = function (req, res) {
 /**
  * Send User
  */
-exports.me = function (req, res) {
+exports.me = function(req, res) {
 	res.json(req.user || null);
 };
