@@ -126,6 +126,26 @@ describe('User route tests:', function() {
                     done();
                 });
         });
+
+        it('duplicates are not added', function(done){
+            // Get the userId
+            var userId = user.id;
+
+            shortcut.save(function(error, shortcut) {
+                agent.put('/api/users/favorites/')
+                    .expect(200)
+                    .send({
+                        action: 'add',
+                        shortcut: shortcut
+                    })
+                    .end(function(error, res) {
+                        if (error) done(error);
+                        //verify the shortcut is in the response favorites
+                        expect(res.body.favorites.length).to.equal(1);
+                        done();
+                    });
+            });
+        });
     });
 
     afterEach(function(done) {
