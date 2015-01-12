@@ -12,6 +12,15 @@ var _ = require('lodash'),
 	User = mongoose.model('User');
 
 /**
+ * Add a favorite shortcut to the user
+ */
+exports.addFavorite = function(req, res, next) {
+    res.jsonp({
+        message: 'yes'
+    });
+}
+
+/**
  * Update user details
  */
 exports.update = function (req, res) {
