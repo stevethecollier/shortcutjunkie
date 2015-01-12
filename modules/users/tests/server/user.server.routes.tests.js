@@ -58,12 +58,19 @@ describe('User route tests:', function() {
                 user: mongoose.Types.ObjectId(user._id)
             });
             shortcut.save(function(error, shortcut) {
-                done();
+                User.update(user, {
+                    favorites: [mongoose.Types.ObjectId(shortcut._id)]
+                }, {
+                    safe: true,
+                    upsert: true
+                }, function(error, num) {
+                    done();
+                })
             });
         });
     });
 
-    describe('Favorites tests:', function(){
+    describe('Favorites tests:', function() {
         it('favorites are added', function(done) {
             agent.post('/api/auth/signin')
                 .send(credentials)
