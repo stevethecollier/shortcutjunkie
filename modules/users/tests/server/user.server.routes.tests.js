@@ -5,6 +5,7 @@ var should = require('should'),
     path = require('path'),
     mongoose = require('mongoose'),
     expect = require('chai').expect,
+    logger = require('tracer').console(),
     User = mongoose.model('User'),
     Shortcut = mongoose.model('Shortcut'),
     express = require(path.resolve('./config/lib/express'));
@@ -73,12 +74,13 @@ describe('User route tests', function() {
                 // Get the userId
                 var userId = user.id;
 
-                agent.put('/api/users/favorites/' + user._id)
+                agent.put('/api/users/favorites/')
                     .expect(200)
+                    .send(shortcut)
                     .end(function(error, res) {
                         if (error) done(error);
                         //verify the shortcut is in the response favorites
-                        expect(res.body.message).to.equal('yes');
+                        expect(res.body.favorites).to.contain(shortcut._id.toString());
 
                         done();
                     });

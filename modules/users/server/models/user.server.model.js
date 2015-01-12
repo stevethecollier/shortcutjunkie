@@ -54,6 +54,10 @@ var UserSchema = new Schema({
 		required: 'Please fill in a username',
 		trim: true
 	},
+	favorites:{
+		type: Array,
+		default: []
+	},
 	password: {
 		type: String,
 		default: '',

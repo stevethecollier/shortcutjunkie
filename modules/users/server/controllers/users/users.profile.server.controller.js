@@ -9,13 +9,13 @@ var _ = require('lodash'),
 	errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
+	logger = require('tracer').console(),
 	User = mongoose.model('User');
 
 /**
  * Define update function
  */
 var updateUser = function(req, res) {
-	console.log('updating like I want');
 	// Init Variables
 	var user = req.user;
 
@@ -30,6 +30,7 @@ var updateUser = function(req, res) {
 
 		user.save(function(err) {
 			if (err) {
+				logger.log(err);
 				return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
 				});
@@ -54,10 +55,9 @@ var updateUser = function(req, res) {
  * Add a favorite shortcut to the user
  */
 exports.addFavorite = function(req, res, next) {
+	req.user.favorites.push(req.body._id);
+	req.body = {};
 	updateUser(req, res);
-	res.jsonp({
-		message: 'yes'
-	});
 }
 
 /**
