@@ -20,6 +20,10 @@ var _ = require('lodash'),
 exports.addFavorite = function(req, res, next) {
 	if (req.body.action === 'add') {
 		req.user.favorites.push(req.body.shortcut._id);
+	} else if (req.body.action === 'remove'){
+		_.remove(req.user.favorites, function(favorite){
+			return favorite.toString() === req.body.shortcut._id;
+		});
 	}
 	req.body = {};
 	next();

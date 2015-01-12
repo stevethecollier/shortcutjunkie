@@ -112,7 +112,7 @@ describe('User route tests:', function() {
                     agent.put('/api/users/favorites/')
                         .expect(200)
                         .send({
-                            action: 'delete',
+                            action: 'remove',
                             shortcut: shortcut
                         })
                         .end(function(error, res) {
