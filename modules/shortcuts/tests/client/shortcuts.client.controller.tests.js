@@ -1,14 +1,17 @@
 'use strict';
-
 (function() {
 	// Shortcuts Controller Spec
 	describe('Shortcuts Controller Tests', function() {
 		// Initialize global variables
 		var ShortcutsController,
+			Shortcuts,
 			scope,
 			$httpBackend,
 			$stateParams,
-			$location;
+			$location,
+			$filter,
+			sampleShortcut,
+			sampleShortcuts;
 
 		// The $resource service augments the response object with methods for updating and deleting the resource.
 		// If we were to use the standard toEqual matcher, our tests would fail because the test values would not match
@@ -35,7 +38,7 @@
 		// The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
 		// This allows us to inject a service but then attach it to a variable
 		// with the same name as the service.
-		beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_) {
+		beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_, _Shortcuts_, _$filter_) {
 			// Set a new global scope
 			scope = $rootScope.$new();
 
@@ -43,16 +46,15 @@
 			$stateParams = _$stateParams_;
 			$httpBackend = _$httpBackend_;
 			$location = _$location_;
+			Shortcuts = _Shortcuts_;
+			$filter = _$filter_;
 
 			// Initialize the Shortcuts controller.
 			ShortcutsController = $controller('ShortcutsController', {
 				$scope: scope
 			});
-		}));
 
-		it('$scope.find() should create an array with at least one Shortcut object fetched from XHR', inject(function(Shortcuts) {
-			// Create sample Shortcut using the Shortcuts service
-			var sampleShortcut = new Shortcuts({
+			sampleShortcut = new Shortcuts({
 				keyCombination: 'testKeyCombination',
 				application: 'testApplication',
 				description: 'testDescription',
@@ -60,22 +62,7 @@
 				category: 'testCategory'
 			});
 
-			// Create a sample Shortcuts array that includes the new Shortcut
-			var sampleShortcuts = [sampleShortcut];
-
-			// Set GET response
-			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
-
-			// Run controller functionality
-			scope.find();
-			$httpBackend.flush();
-
-			// Test scope value
-			expect(scope.shortcuts).toEqualData(sampleShortcuts);
-		}));
-
-		it('$scope.findApplications() should create an array with at at least one application name', inject(function(Shortcuts) {
-			var sampleShortcuts = [new Shortcuts({
+			sampleShortcuts = [new Shortcuts({
 				keyCombination: 'firstTest',
 				application: 'firstTest',
 				description: 'firstTest',
@@ -94,7 +81,21 @@
 				operatingSystem: 'thirdTest',
 				category: 'thirdTest'
 			})];
+		}));
 
+		it('$scope.find() should create an array with at least one Shortcut object fetched from XHR', inject(function() {
+			// Set GET response
+			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
+
+			// Run controller functionality
+			scope.find();
+			$httpBackend.flush();
+
+			// Test scope value
+			expect(scope.shortcuts).toEqualData(sampleShortcuts);
+		}));
+
+		it('$scope.findApplications() should create an array with at at least one application name', inject(function() {
 			// Set GET response
 			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
 
@@ -106,27 +107,7 @@
 			expect(scope.operatingSystems).toEqual(['firstTest', 'secondTest', 'thirdTest']);
 		}));
 
-		it('should restrict by application and OS', inject(function(_$filter_) {
-			var $filter = _$filter_;
-			var sampleShortcuts = [{
-				keyCombination: 'firstTest',
-				application: 'firstTest',
-				description: 'firstTest',
-				operatingSystem: 'firstTest',
-				category: 'firstTest'
-			}, {
-				keyCombination: 'secondTest',
-				application: 'secondTest',
-				description: 'secondTest',
-				operatingSystem: 'secondTest',
-				category: 'secondTest'
-			}, {
-				keyCombination: 'thirdTest',
-				application: 'firstTest',
-				description: 'thirdTest',
-				operatingSystem: 'thirdTest',
-				category: 'thirdTest'
-			}];
+		it('should restrict by application and OS', inject(function() {
 
 			var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
 			expect(result).toEqual([sampleShortcuts[1]]);
@@ -140,45 +121,17 @@
 
 		}));
 
-		it('should group by category', inject(function(_$filter_) {
-			var $filter = _$filter_;
-			var sampleShortcuts = [{
-				keyCombination: 'firstTest',
-				application: 'firstTest',
-				description: 'firstTest',
-				operatingSystem: 'firstTest',
-				category: 'firstTest'
-			}, {
-				keyCombination: 'secondTest',
-				application: 'secondTest',
-				description: 'secondTest',
-				operatingSystem: 'secondTest',
-				category: 'secondTest'
-			}, {
-				keyCombination: 'thirdTest',
-				application: 'thirdTest',
-				description: 'thirdTest',
-				operatingSystem: 'thirdTest',
-				category: 'firstTest'
-			}];
-
+		it('should group by category', inject(function() {
+			sampleShortcuts[2].category = 'firstTest';
 			var result = $filter('groupBy')(sampleShortcuts, 'category');
+
 			expect(result).toEqual({
 				firstTest: [sampleShortcuts[0], sampleShortcuts[2]],
 				secondTest: [sampleShortcuts[1]]
 			});
 		}));
 
-		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function(Shortcuts) {
-			// Define a sample Shortcut object
-			var sampleShortcut = new Shortcuts({
-				keyCombination: 'test key combination',
-				application: 'test application',
-				description: 'test description',
-				operatingSystem: 'test operating system',
-				category: 'test category'
-			});
-
+		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function() {
 			// Set the URL parameter
 			$stateParams.shortcutId = '525a8422f6d0f87f0e407a33';
 
@@ -193,32 +146,21 @@
 			expect(scope.shortcut).toEqualData(sampleShortcut);
 		}));
 
-		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Shortcuts) {
+
+		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function() {
 			// Create a sample Shortcut object
-			var sampleShortcutPostData = new Shortcuts({
-				keyCombination: 'test key combination',
-				application: 'test application',
-				description: 'test description',
-				operatingSystem: 'test operating system',
-				category: 'test category'
-			});
+			var sampleShortcutPostData = new Shortcuts(sampleShortcut);
 
 			// Create a sample Shortcut response
-			var sampleShortcutResponse = new Shortcuts({
-				_id: '525cf20451979dea2c000001',
-				keyCombination: 'test key combination',
-				application: 'test application',
-				description: 'test description',
-				operatingSystem: 'test operating system',
-				category: 'test category'
-			});
+			sampleShortcut._id = '525cf20451979dea2c000001';
+			var sampleShortcutResponse = new Shortcuts(sampleShortcut);
 
 			// Fixture mock form input values
-			scope.keyCombination = 'test key combination';
-			scope.application = 'test application';
-			scope.description = 'test description';
-			scope.operatingSystem = 'test operating system';
-			scope.category = 'test category';
+			scope.keyCombination = sampleShortcut.keyCombination;
+			scope.application = sampleShortcut.application;
+			scope.description = sampleShortcut.description;
+			scope.operatingSystem = sampleShortcut.operatingSystem;
+			scope.category = sampleShortcut.category;
 
 
 			// Set POST response
@@ -235,12 +177,10 @@
 			expect($location.path()).toBe('/shortcuts/' + sampleShortcutResponse._id);
 		}));
 
-		it('$scope.update() should update a valid Shortcut', inject(function(Shortcuts) {
+		it('$scope.update() should update a valid Shortcut', inject(function() {
 			// Define a sample Shortcut put data
-			var sampleShortcutPutData = new Shortcuts({
-				_id: '525cf20451979dea2c000001',
-				name: 'New Shortcut'
-			});
+			sampleShortcut._id = '525cf20451979dea2c000001';
+			var sampleShortcutPutData = new Shortcuts(sampleShortcut);
 
 			// Mock Shortcut in scope
 			scope.shortcut = sampleShortcutPutData;
@@ -256,11 +196,14 @@
 			expect($location.path()).toBe('/shortcuts/' + sampleShortcutPutData._id);
 		}));
 
-		it('$scope.remove() should send a DELETE request with a valid shortcutId and remove the Shortcut from the scope', inject(function(Shortcuts) {
+		it('shortcuts are added to favorites', inject(function(){
+
+		}));
+
+		it('$scope.remove() should send a DELETE request with a valid shortcutId and remove the Shortcut from the scope', inject(function() {
 			// Create new Shortcut object
-			var sampleShortcut = new Shortcuts({
-				_id: '525a8422f6d0f87f0e407a33'
-			});
+			sampleShortcut._id ='525a8422f6d0f87f0e407a33';
+			sampleShortcut = new Shortcuts(sampleShortcut);
 
 			// Create new Shortcuts array and include the Shortcut
 			scope.shortcuts = [sampleShortcut];
