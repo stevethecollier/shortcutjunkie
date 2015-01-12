@@ -54,10 +54,7 @@ var UserSchema = new Schema({
 		required: 'Please fill in a username',
 		trim: true
 	},
-	favorites: {
-		type: Array,
-		default: []
-	},
+	favorites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Shortcut'}],
 	password: {
 		type: String,
 		default: '',

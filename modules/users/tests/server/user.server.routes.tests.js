@@ -63,32 +63,60 @@ describe('User route tests:', function() {
         });
     });
 
-    it('saves a favorite', function(done) {
-        agent.post('/api/auth/signin')
-            .send(credentials)
-            .expect(200)
-            .end(function(signinErr, signinRes) {
-                // Handle signin error
-                if (signinErr) done(signinErr);
+    describe('Favorites tests:', function(){
+        it('favorites are added', function(done) {
+            agent.post('/api/auth/signin')
+                .send(credentials)
+                .expect(200)
+                .end(function(signinErr, signinRes) {
+                    // Handle signin error
+                    if (signinErr) done(signinErr);
 
-                // Get the userId
-                var userId = user.id;
+                    // Get the userId
+                    var userId = user.id;
 
-                agent.put('/api/users/favorites/')
-                    .expect(200)
-                    .send({
-                        action: 'add',
-                        shortcut: shortcut
-                    })
-                    .end(function(error, res) {
-                        if (error) done(error);
-                        //verify the shortcut is in the response favorites
-                        expect(res.body.favorites).to.contain(shortcut._id.toString());
+                    agent.put('/api/users/favorites/')
+                        .expect(200)
+                        .send({
+                            action: 'add',
+                            shortcut: shortcut
+                        })
+                        .end(function(error, res) {
+                            if (error) done(error);
+                            //verify the shortcut is in the response favorites
+                            expect(res.body.favorites).to.contain(shortcut._id.toString());
 
-                        done();
-                    });
+                            done();
+                        });
+                });
+        });
 
-            });
+        it('favorites are deleted', function(done) {
+            agent.post('/api/auth/signin')
+                .send(credentials)
+                .expect(200)
+                .end(function(signinErr, signinRes) {
+                    // Handle signin error
+                    if (signinErr) done(signinErr);
+
+                    // Get the userId
+                    var userId = user.id;
+
+                    agent.put('/api/users/favorites/')
+                        .expect(200)
+                        .send({
+                            action: 'delete',
+                            shortcut: shortcut
+                        })
+                        .end(function(error, res) {
+                            if (error) done(error);
+                            //verify the shortcut is in the response favorites
+                            expect(res.body.favorites).not.to.contain(shortcut._id.toString());
+
+                            done();
+                        });
+                });
+        });
     });
 
     afterEach(function(done) {
