@@ -64,64 +64,55 @@ describe('User route tests:', function() {
                     safe: true,
                     upsert: true
                 }, function(error, num) {
-                    done();
-                })
+                    agent.post('/api/auth/signin')
+                        .send(credentials)
+                        .expect(200)
+                        .end(function(signinErr, signinRes) {
+                            // Handle signin error
+                            if (signinErr) done(signinErr);
+                            done();
+                        });
+                });
             });
         });
     });
 
     describe('Favorites tests:', function() {
         it('favorites are added', function(done) {
-            agent.post('/api/auth/signin')
-                .send(credentials)
+            // Get the userId
+            var userId = user.id;
+
+            agent.put('/api/users/favorites/')
                 .expect(200)
-                .end(function(signinErr, signinRes) {
-                    // Handle signin error
-                    if (signinErr) done(signinErr);
+                .send({
+                    action: 'add',
+                    shortcut: shortcut
+                })
+                .end(function(error, res) {
+                    if (error) done(error);
+                    //verify the shortcut is in the response favorites
+                    expect(res.body.favorites).to.contain(shortcut._id.toString());
 
-                    // Get the userId
-                    var userId = user.id;
-
-                    agent.put('/api/users/favorites/')
-                        .expect(200)
-                        .send({
-                            action: 'add',
-                            shortcut: shortcut
-                        })
-                        .end(function(error, res) {
-                            if (error) done(error);
-                            //verify the shortcut is in the response favorites
-                            expect(res.body.favorites).to.contain(shortcut._id.toString());
-
-                            done();
-                        });
+                    done();
                 });
         });
 
         it('favorites are deleted', function(done) {
-            agent.post('/api/auth/signin')
-                .send(credentials)
+            // Get the userId
+            var userId = user.id;
+
+            agent.put('/api/users/favorites/')
                 .expect(200)
-                .end(function(signinErr, signinRes) {
-                    // Handle signin error
-                    if (signinErr) done(signinErr);
+                .send({
+                    action: 'remove',
+                    shortcut: shortcut
+                })
+                .end(function(error, res) {
+                    if (error) done(error);
+                    //verify the shortcut is in the response favorites
+                    expect(res.body.favorites).not.to.contain(shortcut._id.toString());
 
-                    // Get the userId
-                    var userId = user.id;
-
-                    agent.put('/api/users/favorites/')
-                        .expect(200)
-                        .send({
-                            action: 'remove',
-                            shortcut: shortcut
-                        })
-                        .end(function(error, res) {
-                            if (error) done(error);
-                            //verify the shortcut is in the response favorites
-                            expect(res.body.favorites).not.to.contain(shortcut._id.toString());
-
-                            done();
-                        });
+                    done();
                 });
         });
     });
