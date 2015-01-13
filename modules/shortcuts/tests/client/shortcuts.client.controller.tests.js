@@ -115,7 +115,7 @@
 
 		});
 
-		it('should group by category', function() {
+		it('groups shortcuts by category', function() {
 			sampleShortcuts[2].category = 'firstTest';
 			var result = $filter('groupBy')(sampleShortcuts, 'category');
 
@@ -190,13 +190,33 @@
 			expect($location.path()).toBe('/shortcuts/' + sampleShortcutPutData._id);
 		});
 
-		it('shortcuts are added to favorites', function(){
+		it('adds shortcuts to favorites', function() {
+			sampleShortcuts[0]._id = '525cf20451979dea2c000001';
+			sampleShortcuts[1]._id = '525cf20451979dea2c000002';
+			sampleShortcuts[2]._id = '525cf20451979dea2c000003';
+			scope.shortcuts = sampleShortcuts;
+
+			// mock user
+			scope.user = {
+				favorites: [sampleShortcuts[0]]
+			}
+
+			// Set POST response
+			$httpBackend.expectPOST('api/users/favorites', sampleShortcuts[1])
+				.respond([sampleShortcuts[0], sampleShortcuts[1]]);
+
+			scope.toggleFavorite(sampleShortcuts[1]);
+			$httpBackend.flush();
+
+			var favorites = JSON.parse(JSON.stringify(scope.user.favorites));
+			var shortcut = JSON.parse(JSON.stringify(sampleShortcuts[1]));
+			expect(favorites).toContain(shortcut);
 
 		});
 
 		it('$scope.remove() should send a DELETE request with a valid shortcutId and remove the Shortcut from the scope', function() {
 			// Create new Shortcut object
-			sampleShortcut._id ='525a8422f6d0f87f0e407a33';
+			sampleShortcut._id = '525a8422f6d0f87f0e407a33';
 			sampleShortcut = new Shortcuts(sampleShortcut);
 
 			// Create new Shortcuts array and include the Shortcut
