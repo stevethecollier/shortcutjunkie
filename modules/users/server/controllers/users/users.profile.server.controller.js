@@ -19,16 +19,21 @@ var _ = require('lodash'),
  */
 exports.addFavorite = function(req, res, next) {
 	var favorites = req.user.favorites;
-	var selection = req.body._id;
 
 	if (req.method === 'POST') {
+		var selection = req.body._id;
 		var isNotDuplicate = favorites.indexOf(selection) === -1;
 		if (isNotDuplicate) {
 			favorites.push(selection);
 		}
 	} else if (req.method === 'DELETE') {
+		var selection = mongoose.Types.ObjectId(req.shortcutId);
 		_.remove(favorites, function(favorite) {
-			return favorite.toString() === selection;
+			// if (favorite !== selection) {
+			// 	logger.log(selection);
+			// 	logger.log(favorite);
+			// }
+			return _.isEqual(favorite, selection);
 		});
 	}
 
@@ -127,6 +132,14 @@ exports.changeProfilePicture = function(req, res) {
 			message: 'User is not signed in'
 		});
 	}
+};
+
+/**
+ * Shortcut middleware
+ */
+exports.shortcutId = function(req, res, next, id) {
+	req.shortcutId = id;
+	next();
 };
 
 /**

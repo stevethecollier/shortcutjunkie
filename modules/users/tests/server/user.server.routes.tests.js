@@ -123,9 +123,8 @@ describe('User route tests:', function() {
             // Get the userId
             var userId = user.id;
 
-            agent.delete('/api/users/favorites/')
+            agent.delete('/api/users/favorites/' + shortcut._id)
                 .expect(200)
-                .send(shortcut)
                 .end(function(error, res) {
                     if (error) done(error);
                     //verify the shortcut is in the response favorites
