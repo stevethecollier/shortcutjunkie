@@ -110,8 +110,8 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			}
 		};
 
-		$scope.toggleFavorite = function(shortcut) {
-			if ($scope.user.favorites.indexOf(shortcut._id) === -1) {
+		$scope.toggleFavorite = function(shortcut) {			
+			if (!$scope.isFavorite(shortcut)) {
 				Favorites.save(shortcut, function(favorites) {
 					$scope.user.favorites = favorites;
 				});

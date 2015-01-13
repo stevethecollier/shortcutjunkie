@@ -197,7 +197,7 @@
 
 			// mock user
 			scope.user = {
-				favorites: [sampleShortcuts[0]]
+				favorites: [sampleShortcuts[0]._id]
 			};
 
 			// Set POST response
@@ -219,7 +219,7 @@
 
 			// mock user
 			scope.user = {
-				favorites: [sampleShortcuts[0]]
+				favorites: [sampleShortcuts[0]._id]
 			};
 
 			// Set POST response
