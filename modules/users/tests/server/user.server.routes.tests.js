@@ -96,7 +96,7 @@ describe('User route tests:', function() {
                     .end(function(error, res) {
                         if (error) done(error);
                         //verify the shortcut is in the response favorites
-                        expect(res.body.favorites).to.contain(shortcut._id.toString());
+                        expect(res.body).to.contain(shortcut._id.toString());
                         done();
                     });
             });
@@ -113,7 +113,7 @@ describe('User route tests:', function() {
                     .end(function(error, res) {
                         if (error) done(error);
                         //verify the shortcut is in the response favorites
-                        expect(res.body.favorites.length).to.equal(1);
+                        expect(res.body.length).to.equal(1);
                         done();
                     });
             });
@@ -129,7 +129,7 @@ describe('User route tests:', function() {
                 .end(function(error, res) {
                     if (error) done(error);
                     //verify the shortcut is in the response favorites
-                    expect(res.body.favorites).not.to.contain(shortcut._id.toString());
+                    expect(res.body).not.to.contain(shortcut._id.toString());
 
                     done();
                 });

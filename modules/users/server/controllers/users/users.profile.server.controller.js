@@ -32,9 +32,22 @@ exports.addFavorite = function(req, res, next) {
 		});
 	}
 
-	// let the update route handle the rest
-	req.body = {};
-	next();
+	// Init Variables
+	var user = req.user;
+
+	// For security measurement we remove the roles from the req.body object
+	delete req.body.roles;
+
+	if (user) {
+		User.update({
+			_id: user._id
+		}, {
+			favorites: favorites
+		}, {}, function(err, num) {
+			if (err) logger.log(err);
+			else res.json(favorites);
+		});
+	}
 }
 
 /**
