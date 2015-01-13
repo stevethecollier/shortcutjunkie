@@ -1,8 +1,10 @@
 'use strict';
 
 // Shortcuts controller
-angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites',
-	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites) {
+angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites', 'lodash',
+	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash) {
+		var _ = lodash;
+
 		$scope.authentication = Authentication;
 		$scope.user = Authentication.user;
 
@@ -109,9 +111,19 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		};
 
 		$scope.toggleFavorite = function(shortcut) {
-			Favorites.save(shortcut, function(favorites) {
-				$scope.user.favorites = favorites;
-			});
+			// _.some($scope.user.favorites, {
+			// 			_id: shortcut._id
+			// 		}
+			if ($scope.user.favorites.indexOf(shortcut) === -1) {
+				// delete shortcut._id;
+				Favorites.save(shortcut, function(favorites) {
+					$scope.user.favorites = favorites;
+				});
+			} else {
+				Favorites.remove({id:shortcut._id}, function(favorites) {
+					$scope.user.favorites = favorites;
+				});
+			}
 		}
 
 		$scope.view = function(shortcut) {

@@ -3,7 +3,7 @@
 //Favorites service used to communicate Favorites REST endpoints
 angular.module('shortcuts').factory('Favorites', ['$resource',
     function($resource) {
-        return $resource('api/users/favorites', {}, {
+        return $resource('api/users/favorites/', {}, {
             query: {
                 method: 'GET',
                 isArray: true
@@ -14,7 +14,12 @@ angular.module('shortcuts').factory('Favorites', ['$resource',
             },
             save: {
                 method: 'POST',
-                isArray: true
+                isArray: true,
+            },
+            remove: {
+                method: 'DELETE',
+                isArray: true,
+                url: 'api/users/favorites/:id',
             },
         });
     }

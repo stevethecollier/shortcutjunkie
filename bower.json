@@ -12,7 +12,8 @@
     "angular-ui-utils": "~0.1.1",
     "angular-ui-router": "~0.2.10",
     "angular-file-upload": "~1.1.5",
-    "angular-ui-select": "~0.9.5"
+    "angular-ui-select": "~0.9.5",
+    "ng-lodash": "~0.1.0"
   },
   "resolutions": {
     "angular": "~1.3"

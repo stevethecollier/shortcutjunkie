@@ -193,7 +193,6 @@
 		it('adds shortcuts to favorites', function() {
 			sampleShortcuts[0]._id = '525cf20451979dea2c000001';
 			sampleShortcuts[1]._id = '525cf20451979dea2c000002';
-			sampleShortcuts[2]._id = '525cf20451979dea2c000003';
 			scope.shortcuts = sampleShortcuts;
 
 			// mock user
@@ -211,6 +210,28 @@
 			var favorites = JSON.parse(JSON.stringify(scope.user.favorites));
 			var shortcut = JSON.parse(JSON.stringify(sampleShortcuts[1]));
 			expect(favorites).toContain(shortcut);
+
+		});
+
+		it('removes shortcuts from favorites', function() {
+			sampleShortcuts[0]._id = '525cf20451979dea2c000001';
+			scope.shortcuts = sampleShortcuts;
+
+			// mock user
+			scope.user = {
+				favorites: [sampleShortcuts[0]]
+			}
+
+			// Set POST response
+			$httpBackend.expectDELETE(/api\/users\/favorites\/([0-9a-fA-F]{24})$/)
+				.respond([]);
+
+			scope.toggleFavorite(sampleShortcuts[0]);
+			$httpBackend.flush();
+
+			var favorites = JSON.parse(JSON.stringify(scope.user.favorites));
+			var shortcut = JSON.parse(JSON.stringify(sampleShortcuts[0]));
+			expect(favorites).not.toContain(shortcut);
 
 		});
 
