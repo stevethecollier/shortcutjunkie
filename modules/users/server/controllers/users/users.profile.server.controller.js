@@ -19,15 +19,14 @@ var _ = require('lodash'),
  */
 exports.addFavorite = function(req, res, next) {
 	var favorites = req.user.favorites;
-	var action = req.body.action;
-	var selection = req.body.shortcut._id;
+	var selection = req.body._id;
 
-	if (action === 'add') {
+	if (req.method === 'POST') {
 		var isNotDuplicate = favorites.indexOf(selection) === -1;
 		if (isNotDuplicate) {
 			favorites.push(selection);
 		}
-	} else if (action === 'remove') {
+	} else if (req.method === 'DELETE') {
 		_.remove(favorites, function(favorite) {
 			return favorite.toString() === selection;
 		});

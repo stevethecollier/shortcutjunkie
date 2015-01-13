@@ -75,7 +75,7 @@ describe('User route tests:', function() {
     });
 
     describe('Favorites tests:', function() {
-        it('favorites are added', function(done) {
+        it('adds favorites', function(done) {
             // Get the userId
             var userId = user.id;
 
@@ -90,12 +90,9 @@ describe('User route tests:', function() {
             });
 
             shortcut.save(function(error, shortcut) {
-                agent.put('/api/users/favorites/')
+                agent.post('/api/users/favorites/')
                     .expect(200)
-                    .send({
-                        action: 'add',
-                        shortcut: shortcut
-                    })
+                    .send(shortcut)
                     .end(function(error, res) {
                         if (error) done(error);
                         //verify the shortcut is in the response favorites
@@ -105,36 +102,14 @@ describe('User route tests:', function() {
             });
         });
 
-        it('favorites are deleted', function(done) {
-            // Get the userId
-            var userId = user.id;
-
-            agent.put('/api/users/favorites/')
-                .expect(200)
-                .send({
-                    action: 'remove',
-                    shortcut: shortcut
-                })
-                .end(function(error, res) {
-                    if (error) done(error);
-                    //verify the shortcut is in the response favorites
-                    expect(res.body.favorites).not.to.contain(shortcut._id.toString());
-
-                    done();
-                });
-        });
-
-        it('duplicates are not added', function(done) {
+        it('does not add duplicates', function(done) {
             // Get the userId
             var userId = user.id;
 
             shortcut.save(function(error, shortcut) {
-                agent.put('/api/users/favorites/')
+                agent.post('/api/users/favorites/')
                     .expect(200)
-                    .send({
-                        action: 'add',
-                        shortcut: shortcut
-                    })
+                    .send(shortcut)
                     .end(function(error, res) {
                         if (error) done(error);
                         //verify the shortcut is in the response favorites
@@ -142,6 +117,22 @@ describe('User route tests:', function() {
                         done();
                     });
             });
+        });
+
+        it('deletes favorites', function(done) {
+            // Get the userId
+            var userId = user.id;
+
+            agent.delete('/api/users/favorites/')
+                .expect(200)
+                .send(shortcut)
+                .end(function(error, res) {
+                    if (error) done(error);
+                    //verify the shortcut is in the response favorites
+                    expect(res.body.favorites).not.to.contain(shortcut._id.toString());
+
+                    done();
+                });
         });
     });
 

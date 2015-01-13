@@ -15,7 +15,8 @@ module.exports = function(app) {
 	app.route('/api/users/accounts').delete(users.removeOAuthProvider);
 	app.route('/api/users/password').post(users.changePassword);
 	app.route('/api/users/picture').post(users.changeProfilePicture);
-	app.route('/api/users/favorites/').put(users.addFavorite, users.update);
+	app.route('/api/users/favorites/').delete(users.addFavorite, users.update);
+	app.route('/api/users/favorites/').post(users.addFavorite, users.update);
 
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);
