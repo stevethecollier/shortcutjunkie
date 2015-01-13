@@ -120,7 +120,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 					$scope.user.favorites = favorites;
 				});
 			}
-		}
+		};
 
 		$scope.view = function(shortcut) {
 			$location.path('/shortcuts/' + shortcut._id);

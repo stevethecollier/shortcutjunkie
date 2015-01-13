@@ -198,7 +198,7 @@
 			// mock user
 			scope.user = {
 				favorites: [sampleShortcuts[0]]
-			}
+			};
 
 			// Set POST response
 			$httpBackend.expectPOST('api/users/favorites', sampleShortcuts[1])
@@ -220,7 +220,7 @@
 			// mock user
 			scope.user = {
 				favorites: [sampleShortcuts[0]]
-			}
+			};
 
 			// Set POST response
 			$httpBackend.expectDELETE(/api\/users\/favorites\/([0-9a-fA-F]{24})$/)

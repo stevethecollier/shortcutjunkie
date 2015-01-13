@@ -20,19 +20,17 @@ var _ = require('lodash'),
 exports.addFavorite = function(req, res, next) {
 	var favorites = req.user.favorites;
 
+	var selection;
+
 	if (req.method === 'POST') {
-		var selection = req.body._id;
+		selection = req.body._id;
 		var isNotDuplicate = favorites.indexOf(selection) === -1;
 		if (isNotDuplicate) {
 			favorites.push(selection);
 		}
 	} else if (req.method === 'DELETE') {
-		var selection = mongoose.Types.ObjectId(req.shortcutId);
+		selection = mongoose.Types.ObjectId(req.shortcutId);
 		_.remove(favorites, function(favorite) {
-			// if (favorite !== selection) {
-			// 	logger.log(selection);
-			// 	logger.log(favorite);
-			// }
 			return _.isEqual(favorite, selection);
 		});
 	}
@@ -53,7 +51,7 @@ exports.addFavorite = function(req, res, next) {
 			else res.json(favorites);
 		});
 	}
-}
+};
 
 /**
  * Update user details
