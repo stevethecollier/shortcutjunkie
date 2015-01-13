@@ -54,14 +54,6 @@
 				$scope: scope
 			});
 
-			sampleShortcut = new Shortcuts({
-				keyCombination: 'testKeyCombination',
-				application: 'testApplication',
-				description: 'testDescription',
-				operatingSystem: 'testOperatingSystem',
-				category: 'testCategory'
-			});
-
 			sampleShortcuts = [new Shortcuts({
 				keyCombination: 'firstTest',
 				application: 'firstTest',
@@ -81,9 +73,11 @@
 				operatingSystem: 'thirdTest',
 				category: 'thirdTest'
 			})];
+
+			sampleShortcut = sampleShortcuts[0];
 		}));
 
-		it('$scope.find() should create an array with at least one Shortcut object fetched from XHR', inject(function() {
+		it('$scope.find() should create an array with at least one Shortcut object fetched from XHR', function() {
 			// Set GET response
 			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
 
@@ -93,9 +87,9 @@
 
 			// Test scope value
 			expect(scope.shortcuts).toEqualData(sampleShortcuts);
-		}));
+		});
 
-		it('$scope.findApplications() should create an array with at at least one application name', inject(function() {
+		it('$scope.findApplications() should create an array with at at least one application name', function() {
 			// Set GET response
 			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
 
@@ -105,9 +99,9 @@
 
 			expect(scope.applications).toEqual(['firstTest', 'secondTest']);
 			expect(scope.operatingSystems).toEqual(['firstTest', 'secondTest', 'thirdTest']);
-		}));
+		});
 
-		it('should restrict by application and OS', inject(function() {
+		it('should restrict by application and OS', function() {
 
 			var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
 			expect(result).toEqual([sampleShortcuts[1]]);
@@ -119,9 +113,9 @@
 			result = $filter('operatingSystemFilter')(sampleShortcuts, '');
 			expect(result).toEqual(sampleShortcuts);
 
-		}));
+		});
 
-		it('should group by category', inject(function() {
+		it('should group by category', function() {
 			sampleShortcuts[2].category = 'firstTest';
 			var result = $filter('groupBy')(sampleShortcuts, 'category');
 
@@ -129,9 +123,9 @@
 				firstTest: [sampleShortcuts[0], sampleShortcuts[2]],
 				secondTest: [sampleShortcuts[1]]
 			});
-		}));
+		});
 
-		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', inject(function() {
+		it('$scope.findOne() should create an array with one Shortcut object fetched from XHR using a shortcutId URL parameter', function() {
 			// Set the URL parameter
 			$stateParams.shortcutId = '525a8422f6d0f87f0e407a33';
 
@@ -144,10 +138,10 @@
 
 			// Test scope value
 			expect(scope.shortcut).toEqualData(sampleShortcut);
-		}));
+		});
 
 
-		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function() {
+		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', function() {
 			// Create a sample Shortcut object
 			var sampleShortcutPostData = new Shortcuts(sampleShortcut);
 
@@ -175,9 +169,9 @@
 
 			// Test URL redirection after the Shortcut was created
 			expect($location.path()).toBe('/shortcuts/' + sampleShortcutResponse._id);
-		}));
+		});
 
-		it('$scope.update() should update a valid Shortcut', inject(function() {
+		it('$scope.update() should update a valid Shortcut', function() {
 			// Define a sample Shortcut put data
 			sampleShortcut._id = '525cf20451979dea2c000001';
 			var sampleShortcutPutData = new Shortcuts(sampleShortcut);
@@ -194,13 +188,13 @@
 
 			// Test URL location to new object
 			expect($location.path()).toBe('/shortcuts/' + sampleShortcutPutData._id);
-		}));
+		});
 
-		it('shortcuts are added to favorites', inject(function(){
+		it('shortcuts are added to favorites', function(){
 
-		}));
+		});
 
-		it('$scope.remove() should send a DELETE request with a valid shortcutId and remove the Shortcut from the scope', inject(function() {
+		it('$scope.remove() should send a DELETE request with a valid shortcutId and remove the Shortcut from the scope', function() {
 			// Create new Shortcut object
 			sampleShortcut._id ='525a8422f6d0f87f0e407a33';
 			sampleShortcut = new Shortcuts(sampleShortcut);
@@ -217,6 +211,6 @@
 
 			// Test array after successful delete
 			expect(scope.shortcuts.length).toBe(0);
-		}));
+		});
 	});
 }());
