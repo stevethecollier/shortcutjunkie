@@ -15,7 +15,7 @@
   "scripts": {
     "start": "grunt",
     "test": "grunt test",
-    "postinstall": "bower cache clean && bower install --config.interactive=false"
+    "postinstall": "bower cache clean && bower install"
   },
   "dependencies": {
     "acl": "~0.4.4",
