@@ -113,7 +113,7 @@
 			expect(result).toEqual([sampleShortcuts[1]]);
 			result = $filter('operatingSystemFilter')(sampleShortcuts, '');
 			expect(result).toEqual(sampleShortcuts);
-		})
+		});
 
 		it('can group by category', function() {
 			sampleShortcuts[2].category = 'firstTest';
