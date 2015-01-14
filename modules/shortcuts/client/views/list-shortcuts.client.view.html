@@ -2,14 +2,9 @@
     <div ng-if="displayFavorites" class="page-header">
         <h1>Favorites</h1>
     </div>
-    
-    <div class="page-header">
-        <h1>{{selectedApplication}} Shortcuts</h1>
-    </div>
-
 
     <!-- OS picker -->
-    <div>
+    <div ng-if="!displayFavorites">
         <ui-select class="osSelect pull-right" ng-model="$parent.selectedOS">
             <ui-select-match placeholder="Select an operatingSystem">{{selectedOS}}</ui-select-match>
             <ui-select-choices repeat="operatingSystem in operatingSystems">
@@ -18,35 +13,37 @@
         </ui-select>
     </div>
 
-    <!-- Shortcuts -->
-    <div class="col-xs-12 container">
-        <div data-ng-repeat="(category, groupedShortcuts) in categories">
-            <h3>{{category}}</h3>
-            <table class="table table-hover shortcutTable">
-                <thead>
-                    <tr>
-                        <th class="favoriteBtn"></th>
-                        <th class="keyCombination">Key Combination</th>
-                        <th class="description">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr data-ng-repeat="shortcut in groupedShortcuts">
-                        <td class="favoriteBtn">
-                            <span class="glyphicon" ng-class="{'glyphicon-star-empty':!hover && !isFavorite(shortcut), 'glyphicon-star':hover || isFavorite(shortcut)}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" aria-hidden="true" ng-click="toggleFavorite(shortcut)" tooltip="You need to be logged in to save shortcuts to your favorites!" tooltip-placement="right" tooltip-trigger="{{{true: 'mouseenter', false: 'never'}[!user]}}" ></span>
-                        </td>
-                        <td ng-click="view(shortcut)" class="keyCombination">
-                            <div data-ng-bind="shortcut.keyCombination"></div>
-                        </td>
-                        <td ng-click="view(shortcut)" class="description">
-                            <div data-ng-bind="shortcut.description"></div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div data-ng-repeat="(app, categories) in appGroups">
+        <div class="page-header">
+            <h1>{{app}} Shortcuts</h1>
         </div>
-    </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!shortcuts.$resolved || shortcuts.length">
-        No Shortcuts yet, why don't you <a href="/#!/shortcuts/create">create one</a>?
+        <!-- Shortcuts -->
+        <div class="col-xs-12 container">
+            <div data-ng-repeat="(category, groupedShortcuts) in categories">
+                <h3>{{category}}</h3>
+                <table class="table table-hover shortcutTable">
+                    <thead>
+                        <tr>
+                            <th class="favoriteBtn"></th>
+                            <th class="keyCombination">Key Combination</th>
+                            <th class="description">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="shortcut in groupedShortcuts">
+                            <td class="favoriteBtn">
+                                <span class="glyphicon" ng-class="{'glyphicon-star-empty':!hover && !isFavorite(shortcut), 'glyphicon-star':hover || isFavorite(shortcut)}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" aria-hidden="true" ng-click="toggleFavorite(shortcut)" tooltip="You need to be logged in to save shortcuts to your favorites!" tooltip-placement="right" tooltip-trigger="{{{true: 'mouseenter', false: 'never'}[!user]}}" ></span>
+                            </td>
+                            <td ng-click="view(shortcut)" class="keyCombination">
+                                <div data-ng-bind="shortcut.keyCombination"></div>
+                            </td>
+                            <td ng-click="view(shortcut)" class="description">
+                                <div data-ng-bind="shortcut.description"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </section>
