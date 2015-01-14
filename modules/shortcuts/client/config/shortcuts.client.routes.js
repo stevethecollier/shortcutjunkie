@@ -27,7 +27,17 @@ angular.module('shortcuts').config(['$stateProvider',
 		}).
 		state('shortcuts.favorites', {
 			url: '/favorites',
-			templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html'
+			templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html',
+			resolve: {
+				chosen: function() {
+					return {
+						value: 'simple!'
+					};
+				},
+			},
+			controller: function($scope, chosen) {
+				$scope.chosen = chosen;
+			}
 		}).
 		state('shortcuts.create', {
 			url: '/create',

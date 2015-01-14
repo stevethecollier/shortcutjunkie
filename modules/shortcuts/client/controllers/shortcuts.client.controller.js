@@ -2,12 +2,15 @@
 
 // Shortcuts controller
 angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites', 'lodash',
-	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash) {
+	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash, chosen) {
 		var _ = lodash;
 
 		$scope.authentication = Authentication;
 		$scope.user = Authentication.user;
 
+		if (chosen) {
+			$scope.favorites = chosen.value;
+		}
 		// Create new Shortcut
 		$scope.create = function() {
 			// Create new Shortcut object
@@ -111,7 +114,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		};
 
 		$scope.toggleFavorite = function(shortcut) {
-			if(!$scope.user){
+			if (!$scope.user) {
 				return;
 			}
 			if (!$scope.isFavorite(shortcut)) {
@@ -119,14 +122,16 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 					$scope.user.favorites = favorites;
 				});
 			} else {
-				Favorites.remove({id:shortcut._id}, function(favorites) {
+				Favorites.remove({
+					id: shortcut._id
+				}, function(favorites) {
 					$scope.user.favorites = favorites;
 				});
 			}
 		};
 
-		$scope.isFavorite = function(shortcut){
-			if(!$scope.user) return false;
+		$scope.isFavorite = function(shortcut) {
+			if (!$scope.user) return false;
 			return $scope.user.favorites.indexOf(shortcut._id) !== -1;
 		};
 
