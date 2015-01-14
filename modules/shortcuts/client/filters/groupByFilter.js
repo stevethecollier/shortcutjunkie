@@ -1,19 +1,18 @@
 'use strict';
 angular.module('shortcuts').filter('groupBy', function($parse) {
-    return function(shortcuts) {
+    return function(shortcuts, field) {
         var filtered = {};
         // loop through each item in the list
         angular.forEach(shortcuts, function(shortcut) {
-            var category = shortcut.category;
-            if(category === ''){
-                category = 'unsorted';
+            var value = shortcut[field];
+            if(value === ''){
+                value = 'unsorted';
             }
-            if(filtered[category] === undefined){
-                filtered[category] = [];
+            if(filtered[value] === undefined){
+                filtered[value] = [];
             }
-            filtered[category].push(shortcut);
+            filtered[value].push(shortcut);
         });
-        // console.log(filtered);
         return filtered;
     };
 });

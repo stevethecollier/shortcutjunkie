@@ -101,25 +101,25 @@
 			expect(scope.operatingSystems).toEqual(['firstTest', 'secondTest', 'thirdTest']);
 		});
 
-		it('should restrict by application and OS', function() {
-
+		it('can filter by application', function() {
 			var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
 			expect(result).toEqual([sampleShortcuts[1]]);
 			result = $filter('applicationFilter')(sampleShortcuts, '');
 			expect(result).toEqual(sampleShortcuts);
+		});
 
-			result = $filter('operatingSystemFilter')(sampleShortcuts, 'secondTest');
+		it('can filter by operatingSystem', function() {
+			var result = $filter('operatingSystemFilter')(sampleShortcuts, 'secondTest');
 			expect(result).toEqual([sampleShortcuts[1]]);
 			result = $filter('operatingSystemFilter')(sampleShortcuts, '');
 			expect(result).toEqual(sampleShortcuts);
-
-		});
+		})
 
 		it('groups shortcuts by category', function() {
 			sampleShortcuts[2].category = 'firstTest';
 			var result = $filter('groupBy')(sampleShortcuts, 'category');
 
-			expect(result).toEqual({
+			expect(result).toEqualData({
 				firstTest: [sampleShortcuts[0], sampleShortcuts[2]],
 				secondTest: [sampleShortcuts[1]]
 			});

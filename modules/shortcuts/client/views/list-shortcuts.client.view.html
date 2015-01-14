@@ -1,11 +1,12 @@
 <section data-ng-controller="ShortcutsController" data-ng-init="find()" id="wrapper">
+    <div ng-if="displayFavorites" class="page-header">
+        <h1>Favorites</h1>
+    </div>
+    
     <div class="page-header">
         <h1>{{selectedApplication}} Shortcuts</h1>
     </div>
 
-    <div ng-if="displayFavorites" class="page-header">
-        <h1>Favorites</h1>
-    </div>
 
     <!-- OS picker -->
     <div>
