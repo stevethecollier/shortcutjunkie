@@ -136,7 +136,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			$location.path('/shortcuts/' + shortcut._id);
 		};
 
-		$scope.$watch('shortcuts | applicationFilter:selectedApplication | operatingSystemFilter:selectedOS | groupBy', function(categories) {
+		$scope.$watch('shortcuts | applicationFilter:selectedApplication | operatingSystemFilter:selectedOS | groupBy:"category"', function(categories) {
 			$scope.categories = categories;
 		}, true);
 	}
