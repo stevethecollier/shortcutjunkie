@@ -25,6 +25,10 @@ angular.module('shortcuts').config(['$stateProvider',
 			url: '/application/:application',
 			templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html'
 		}).
+		state('shortcuts.favorites', {
+			url: '/favorites',
+			templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html'
+		}).
 		state('shortcuts.create', {
 			url: '/create',
 			templateUrl: 'modules/shortcuts/views/create-shortcut.client.view.html'

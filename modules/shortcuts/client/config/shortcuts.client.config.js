@@ -25,5 +25,12 @@ angular.module('shortcuts').run(['Menus',
 			isPublic: false,
 			roles: ['editor']
 		});
+
+		// Add the dropdown favorites
+		Menus.addSubMenuItem('topbar', 'shortcuts', {
+			title: 'View your favorite shortcuts',
+			state: 'shortcuts.favorites',
+			isPublic: false,
+		});
 	}
 ]);
