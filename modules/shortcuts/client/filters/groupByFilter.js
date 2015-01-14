@@ -1,5 +1,5 @@
 'use strict';
-angular.module('shortcuts').filter('groupBy', function($parse) {
+angular.module('shortcuts').filter('groupBy', function() {
     return function(shortcuts, field) {
         var filtered = {};
         // loop through each item in the list
