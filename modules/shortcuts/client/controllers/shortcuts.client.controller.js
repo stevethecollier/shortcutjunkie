@@ -136,7 +136,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			$location.path('/shortcuts/' + shortcut._id);
 		};
 
-		$scope.$watch('shortcuts| groupBy:"application"', function(appGroups) {
+		$scope.$watch('shortcuts | applicationFilter:selectedApplication | groupBy:"application"', function(appGroups) {
 			$scope.appGroups = {};
 			angular.forEach(appGroups, function(shortcuts, app) {
 				if ($scope.displayFavorites) {

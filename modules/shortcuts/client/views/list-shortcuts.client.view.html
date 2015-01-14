@@ -14,13 +14,14 @@
     </div>
 
     <div data-ng-repeat="(app, categories) in appGroups">
-        <div class="page-header">
-            <h1>{{app}} Shortcuts</h1>
+        <div ng-class="page-header:!displayFavorites">
+            <h1 ng-if="!displayFavorites">{{app}} Shortcuts</h1>
+            <h3 ng-if="displayFavorites">{{app}} Shortcuts</h2>
         </div>
         <!-- Shortcuts -->
         <div class="col-xs-12 container">
             <div data-ng-repeat="(category, groupedShortcuts) in categories">
-                <h3>{{category}}</h3>
+                <h4>{{category}}</h3>
                 <table class="table table-hover shortcutTable">
                     <thead>
                         <tr>
