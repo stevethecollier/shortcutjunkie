@@ -2,15 +2,12 @@
 
 // Shortcuts controller
 angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites', 'lodash',
-	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash, chosen) {
+	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash) {
 		var _ = lodash;
 
 		$scope.authentication = Authentication;
 		$scope.user = Authentication.user;
 
-		if (chosen) {
-			$scope.favorites = chosen.value;
-		}
 		// Create new Shortcut
 		$scope.create = function() {
 			// Create new Shortcut object

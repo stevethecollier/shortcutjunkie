@@ -29,14 +29,14 @@ angular.module('shortcuts').config(['$stateProvider',
 			url: '/favorites',
 			templateUrl: 'modules/shortcuts/views/list-shortcuts.client.view.html',
 			resolve: {
-				chosen: function() {
+				favorites: function() {
 					return {
-						value: 'simple!'
+						value: ['simple!']
 					};
 				},
 			},
-			controller: function($scope, chosen) {
-				$scope.chosen = chosen;
+			controller: function($scope, favorites) {
+				$scope.favorites = favorites.value;
 			}
 		}).
 		state('shortcuts.create', {
