@@ -115,13 +115,26 @@
 			expect(result).toEqual(sampleShortcuts);
 		})
 
-		it('groups shortcuts by category', function() {
+		it('can group by category', function() {
 			sampleShortcuts[2].category = 'firstTest';
 			var result = $filter('groupBy')(sampleShortcuts, 'category');
 
 			expect(result).toEqualData({
 				firstTest: [sampleShortcuts[0], sampleShortcuts[2]],
 				secondTest: [sampleShortcuts[1]]
+			});
+		});
+
+		it('groups by application and category at start', function() {
+			scope.shortcuts = sampleShortcuts;
+			scope.$apply();
+
+			var categoryGroups1 = $filter('groupBy')([sampleShortcuts[0], sampleShortcuts[2]], 'category');
+			var categoryGroups2 = $filter('groupBy')([sampleShortcuts[1]], 'category');
+
+			expect(scope.appGroups).toEqualData({
+				firstTest: categoryGroups1,
+				secondTest: categoryGroups2
 			});
 		});
 

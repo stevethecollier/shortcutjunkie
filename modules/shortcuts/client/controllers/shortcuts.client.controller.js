@@ -1,8 +1,8 @@
 'use strict';
 
 // Shortcuts controller
-angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites', 'lodash',
-	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash) {
+angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites', 'lodash', '$filter',
+	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash, $filter) {
 		var _ = lodash;
 
 		$scope.authentication = Authentication;
@@ -135,6 +135,13 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		$scope.view = function(shortcut) {
 			$location.path('/shortcuts/' + shortcut._id);
 		};
+
+		$scope.$watch('shortcuts| groupBy:"application"', function(appGroups){
+			$scope.appGroups = {};
+			angular.forEach(appGroups, function(shortcuts, app){
+				$scope.appGroups[app] = $filter('groupBy')(shortcuts, 'category');
+			});	
+		}, true);
 
 		$scope.$watch('shortcuts | applicationFilter:selectedApplication | operatingSystemFilter:selectedOS | groupBy:"category"', function(categories) {
 			$scope.categories = categories;
