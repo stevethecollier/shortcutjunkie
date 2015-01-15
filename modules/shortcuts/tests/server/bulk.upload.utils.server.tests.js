@@ -25,13 +25,11 @@ var expected = [{
 /**
  * Unit tests
  */
-describe('Shortcut Model Unit Tests:', function() {
-    describe('Bulk upload', function() {
-        it('reads file', function(done) {
-            utils.readFiles(function(shortcuts) {
-                expect(shortcuts).to.deep.equal(expected);
-                done();
-            });
+describe('Bulk upload:', function() {
+    it('reads shortcuts', function(done) {
+        utils.readShortcuts(function(shortcuts) {
+            expect(shortcuts).to.deep.equal(expected);
+            done();
         });
     });
 });

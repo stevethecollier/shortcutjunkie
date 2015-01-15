@@ -3,7 +3,7 @@ var fs = require('fs'),
     async = require('async'),
     _ = require('lodash');
 
-exports.readFiles = function(callback) {
+exports.readShortcuts = function(callback) {
     var shortcutsDir = 'modules/shortcuts/server/bulk.upload/shortcuts/';
     var files = fs.readdirSync(shortcutsDir);
 
