@@ -128,9 +128,13 @@ gulp.task('mongoose', function(done) {
 
 // Mocha tests task
 gulp.task('mocha', ['env:test', 'mongoose'], function() {
-	if (args.file) console.log(args.file);
-	else console.log(testAssets.tests.server);
-	return gulp.src(testAssets.tests.server)
+	var testFiles;
+	if (args.file) testFiles = args.file;
+	else testFiles = testAssets.tests.server;
+
+	console.log(testAssets.tests.server);
+
+	return gulp.src(testFiles)
 		.pipe(plugins.mocha({
 			reporter: 'spec'
 		})).once('end', function() {
