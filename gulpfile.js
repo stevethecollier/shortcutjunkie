@@ -14,7 +14,7 @@ var _ = require('lodash'),
 var minimist = require('minimist');
 
 var args = minimist(process.argv.slice(2), {
-	string: 'file'
+	string: 'testFiles'
 });
 
 // Set NODE_ENV to 'test'
@@ -129,7 +129,7 @@ gulp.task('mongoose', function(done) {
 // Mocha tests task
 gulp.task('mocha', ['env:test', 'mongoose'], function() {
 	var testFiles;
-	if (args.file) testFiles = args.file;
+	if (args.testFiles) testFiles = args.testFiles;
 	else testFiles = testAssets.tests.server;
 
 	return gulp.src(testFiles)
