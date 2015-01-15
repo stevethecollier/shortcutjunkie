@@ -14,7 +14,7 @@
     </div>
 
     <div data-ng-repeat="(app, categories) in appGroups">
-        <div ng-class="page-header:!displayFavorites">
+        <div ng-class="{'page-header':!displayFavorites}">
             <h1 ng-if="!displayFavorites">{{app}} Shortcuts</h1>
             <h3 ng-if="displayFavorites">{{app}} Shortcuts</h2>
         </div>
