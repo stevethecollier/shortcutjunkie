@@ -11,6 +11,12 @@ var _ = require('lodash'),
 	runSequence = require('run-sequence'),
 	plugins = gulpLoadPlugins();
 
+var minimist = require('minimist');
+
+var args = minimist(process.argv.slice(2), {
+	string: 'testFiles'
+});
+
 // Set NODE_ENV to 'test'
 gulp.task('env:test', function() {
 	process.env.NODE_ENV = 'test';
@@ -122,12 +128,16 @@ gulp.task('mongoose', function(done) {
 
 // Mocha tests task
 gulp.task('mocha', ['env:test', 'mongoose'], function() {
-	return gulp.src(testAssets.tests.server)
+	var testFiles;
+	if (args.testFiles) testFiles = args.testFiles;
+	else testFiles = testAssets.tests.server;
+
+	return gulp.src(testFiles)
 		.pipe(plugins.mocha({
 			reporter: 'spec'
-		})).once('end', function () {
-            process.exit();
-        });
+		})).once('end', function() {
+			process.exit();
+		});
 });
 
 // Karma test runner task
