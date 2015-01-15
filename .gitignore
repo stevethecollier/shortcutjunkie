@@ -3,6 +3,7 @@
 .sass-cache/
 npm-debug.log
 node_modules/
+public/lib
 mongotransition.txt
 .bower-*/
 .idea/
