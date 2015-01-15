@@ -1,16 +1,24 @@
 'use strict';
-var fs = require('fs');
+var fs = require('fs'),
+    async = require('async'),
+    _ = require('lodash');
 
-exports.readFiles = function(done) {
+exports.readFiles = function(callback) {
     var shortcutsDir = 'modules/shortcuts/server/bulk.upload/shortcuts/';
     var files = fs.readdirSync(shortcutsDir);
-    console.log(files);
-    fs.readFile('modules/shortcuts/server/bulk.upload/shortcuts/photoshopPC.json', 'utf8', function(error, data) {
-        if (!error && data){
-            var shortcuts = JSON.parse(data);
-            // console.log(shortcuts);
-            done();
-        };
-    });
 
+    async.map(files,
+        function(file, done) {
+            fs.readFile(shortcutsDir + file, 'utf8', function(error, data) {
+                if (error) return done(error);
+
+                var shortcuts = JSON.parse(data);
+                return done(null, shortcuts);
+            });
+        },
+        function(err, shortcuts) {
+            if (err) return console.log(err);
+            callback(_.flatten(shortcuts));
+        }
+    );
 }
