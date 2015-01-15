@@ -1,11 +1,14 @@
 'use strict';
 var fs = require('fs');
 
-exports.readFile = function(done) {
-    fs.readFile('modules/shortcuts/server/bulk.upload/photoshopPC.json', 'utf8', function(error, data) {
+exports.readFiles = function(done) {
+    var shortcutsDir = 'modules/shortcuts/server/bulk.upload/shortcuts/';
+    var files = fs.readdirSync(shortcutsDir);
+    console.log(files);
+    fs.readFile('modules/shortcuts/server/bulk.upload/shortcuts/photoshopPC.json', 'utf8', function(error, data) {
         if (!error && data){
             var shortcuts = JSON.parse(data);
-            console.log(shortcuts);
+            // console.log(shortcuts);
             done();
         };
     });
