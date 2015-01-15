@@ -14,8 +14,9 @@ var expect = require('chai').expect,
 describe('Shortcut Model Unit Tests:', function() {
     describe('Bulk upload', function() {
         it('reads file', function(done) {
-            utils.readFile();
-            done()
+            utils.readFile(function() {
+                done();
+            });
         });
     });
 });

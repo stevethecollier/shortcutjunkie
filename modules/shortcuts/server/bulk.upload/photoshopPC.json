@@ -1,0 +1,793 @@
+[
+    {
+        "keyCombination": "Alt - Marquee",
+        "description": "Draw Marquee from Center",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Shift",
+        "description": "Add to a Selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Alt",
+        "description": "Subtract from a Selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Shift - Alt",
+        "description": "Intersection with a Selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Alt - Drag Selection",
+        "description": "Make Copy of Selection w/Move tool",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Ctrl - Alt - Drag Selection",
+        "description": "Make Copy of Selection when not in Move tool",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Arrow Keys",
+        "description": "Move Selection (in 1-pixel Increments)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Shift - Arrow Keys",
+        "description": "Move Selection (in 10-pixel Increments)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Ctrl - click on Layer Thumbnail (in Layers panel)",
+        "description": "Select all Opaque Pixels on Layer",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Ctrl - Shift - D",
+        "description": "Restore Last Selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Shift - F6",
+        "description": "Feather Selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Hold Space while drawing marquee",
+        "description": "Move Marquee while drawing selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Selecting"
+    },
+    {
+        "keyCombination": "Double - click on Hand tool or Ctrl - 0",
+        "description": "Fit on Screen",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Double - Click on Zoom Tool or Ctrl - Alt - 0",
+        "description": "100% View Level (Actual Pixels)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Ctrl - Space - Click or Ctrl - Plus(+)",
+        "description": "Zoom in",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Alt - Space - Click or Ctrl - Minus(–)",
+        "description": "Zoom out",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Tab",
+        "description": "Hide all tools and panels",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Shift - Tab",
+        "description": "Hide all panels except Toolbox and Options bar",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "F",
+        "description": "Rotate through full screen modes",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Ctrl - Shift - Page Up/Down",
+        "description": "Scroll image left or right in window",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Ctrl - drag in Navigator panel",
+        "description": "Jump/Zoom to part of Image",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "\\",
+        "description": "Toggles layer mask on/off as rubylith",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Viewing"
+    },
+    {
+        "keyCombination": "Ctrl - Shift - N",
+        "description": "Create new layer",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Click layers",
+        "description": "Select non-contiguous layers",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Click one layer, then Shift - Click another layer",
+        "description": "Select contiguous layers",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Delete key (while in the Move tool)",
+        "description": "Delete Layer",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Alt - Click layer mask icon",
+        "description": "View contents of layer mask",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Shift - Click layer mask icon",
+        "description": "Temporarily turn off layer mask",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Alt - Drag",
+        "description": "Clone layer as you move it",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Right - Click on the object w/Move tool",
+        "description": "Find/Select layer containing object",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Number pad keys (w/Move tool selected)",
+        "description": "Change layer opacity",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Shift - Plus(+) or Minus(–)",
+        "description": "Cycle down or up through blend modes",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "(w/Move tool) Shift - Alt - letter (ie: N=Normal, M=Multiply. etc.)",
+        "description": "Change to a specific blend mode",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Alt - [ or Alt - ]",
+        "description": "Switch to layer below/above current layer",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - [ or Ctrl - ]",
+        "description": "Move layer below/above current layer",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Layer Shortcuts"
+    },
+    {
+        "keyCombination": "Double - Click on T thumbnail in Layers panel",
+        "description": "Select all text on layer",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Type Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Shift - >/<",
+        "description": "Increase/Decrease size of selected text by 2 pts",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Type Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Shift - Alt - >/<",
+        "description": "Increase/Decrease size of selected text by 10 pts",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Type Shortcuts"
+    },
+    {
+        "keyCombination": "Alt - Right/Left Arrow",
+        "description": "Increase/Decrease kerning/tracking",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Type Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Shift - L/C/R",
+        "description": "Align text left/center/right",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Type Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Backspace",
+        "description": "Fill selection with background color",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Alt - Backspace",
+        "description": "Fill selection with foreground color",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - Alt - Backspace",
+        "description": "Fill selection with foreground color using Lock Transparent Pixels",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Ctrl - Alt - Backspace",
+        "description": "Fill selection with source state in History panel",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - Backspace",
+        "description": "Display Fill dialog box",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Alt - Click w/Eyedropper tool",
+        "description": "Sample as background color",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "While in any painting/editing tool - hold Ctrl",
+        "description": "To get Move tool",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Alt",
+        "description": "To get Eyedropper with Paint tools",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Number keys",
+        "description": "Change paint opacity (with Airbrush OFF)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - Number keys",
+        "description": "Change paint opacity (with Airbrush ON)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Number keys",
+        "description": "Change Airbrush flow (with Airbrush ON)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - Number keys",
+        "description": "Change Airbrush flow (with Airbrush OFF)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Any painting/editing tool - turn Caps Lock on",
+        "description": "Cross-Hair Cursor",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "[ or ]",
+        "description": "Decrease/Increase Brush Size",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - [ or Shift - ]",
+        "description": "Decrease/Increase Hardness of Brush",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "< or >",
+        "description": "Switch between preset Brushes",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Right - Click in Image window",
+        "description": "Open Brushes pop-up panel",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Alt - Eraser",
+        "description": "Erase to History panel's source state",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - Plus(+) or Minus(–)",
+        "description": "Cycle down or up through blend modes",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - Alt - letter (ie: N=Normal, M=Multiply, etc.)",
+        "description": "Change to a specific blend mode",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Shift - Click in image window",
+        "description": "Create fixed color target from within a dialog box",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Alt - Click on target with Color Sampler tool",
+        "description": "Delete fixed color target",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Ctrl - Click on New Channel button in Channels panel",
+        "description": "Create new spot-color channel from current selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Painting"
+    },
+    {
+        "keyCombination": "Ctrl",
+        "description": "To get Direct Selection tool while using Pen",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Pen Tool Shortcuts"
+    },
+    {
+        "keyCombination": "Alt",
+        "description": "Switch between Add-Anchor and Delete-Anchor Point tools",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Pen Tool Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Alt",
+        "description": "Switch from Path Selection tool to Convert Point tool when pointer is over anchor point",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Pen Tool Shortcuts"
+    },
+    {
+        "keyCombination": "Alt - click",
+        "description": "To Select a whole path w/Direct Selection tool",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Pen Tool Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - click on path name (in Paths panel)",
+        "description": "Convert path to a selection",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Pen Tool Shortcuts"
+    },
+    {
+        "keyCombination": "F5",
+        "description": "Show/Hide Brushes panel",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Panel Shortcuts"
+    },
+    {
+        "keyCombination": "F6",
+        "description": "Show/Hide Color panel",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Panel Shortcuts"
+    },
+    {
+        "keyCombination": "F7",
+        "description": "Show/Hide Layers panel",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Panel Shortcuts"
+    },
+    {
+        "keyCombination": "F8",
+        "description": "Show/Hide Info panel",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Panel Shortcuts"
+    },
+    {
+        "keyCombination": "Alt - F9",
+        "description": "Show/Hide Actions panel",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Panel Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Alt - O",
+        "description": "Open Adobe Bridge",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Panel Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Tab",
+        "description": "Switch between open documents",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Alt - Z/Ctrl - Shift - Z",
+        "description": "Undo or Redo operations beyond last one",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - F",
+        "description": "Apply Last Filter",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Alt - F",
+        "description": "Opens Last Filter Dialog Box",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Spacebar",
+        "description": "Hand Tool",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Hold Alt, Cancel turns into Reset Button, Click it",
+        "description": "Reset Dialog Box",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Up/Down Arrow",
+        "description": "Increase/Decrease value (in any option field) by 1 unit",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Shift - Up/Down Arrow",
+        "description": "Increase/Decrease value (in any option field) by 10 units",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Ctrl - Shift - T",
+        "description": "Replay last Transformation",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "After ruler is drawn, Alt - Drag end of line with Ruler Tool",
+        "description": "Measure Angle between Lines (Protractor Function)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Hold Space while drawing",
+        "description": "Move Crop Marquee while creating",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Hold Shift while dragging",
+        "description": "Snap Guide to Ruler ticks",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Enter",
+        "description": "Highlight Fields in Options bar (n/a for all tools)",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Hold Control while dragging",
+        "description": "Don't Snap object edge while moving",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Other Shortcuts"
+    },
+    {
+        "keyCombination": "Move",
+        "description": "V",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Marquee tools",
+        "description": "M",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Lasso tools",
+        "description": "L",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Quick Selection, Magic Wand",
+        "description": "W",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Crop and Slice Tools",
+        "description": "C",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Eyedropper, Color Sampler, Ruler, Note, Count",
+        "description": "I",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Spot Healing Brush, Healing Brush, Patch, Red Eye",
+        "description": "J",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Brush, Pencil, Color Replacement, Mixer Brush",
+        "description": "B",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Clone Stamp, Pattern Stamp",
+        "description": "S",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "History Brush, Art History Brush",
+        "description": "Y",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Eraser tools",
+        "description": "E",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Gradient, Paint Bucket",
+        "description": "G",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Dodge, Burn, Sponge",
+        "description": "O",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Pen tools",
+        "description": "P",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Type tools",
+        "description": "T",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Path Selection, Direct Selection",
+        "description": "A",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Rectangle, Rounded Rectangle, Ellipse, Polygon, Line, Custom Shape",
+        "description": "U",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "3D Tools",
+        "description": "K",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "3D Camera Tools",
+        "description": "N",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Hand",
+        "description": "H",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Rotate View",
+        "description": "R",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Zoom",
+        "description": "Z",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Default colors",
+        "description": "D",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Switch Foreground and Background colors",
+        "description": "X",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    },
+    {
+        "keyCombination": "Quick Mask Mode",
+        "description": "Q",
+        "application": "Photoshop",
+        "operatingSystem": "Windows",
+        "category": "Tools"
+    }
+]
