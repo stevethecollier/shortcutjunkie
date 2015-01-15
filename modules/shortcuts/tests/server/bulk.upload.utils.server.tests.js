@@ -32,4 +32,11 @@ describe('Bulk upload:', function() {
             done();
         });
     });
+
+    it('saves shortcuts', function(done) {
+        utils.uploadShortcuts(expected, function(shortcuts){
+            expect(shortcuts).to.deep.equal(expected);
+            done();
+        });
+    })
 });

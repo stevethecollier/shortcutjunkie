@@ -22,3 +22,7 @@ exports.readShortcuts = function(callback) {
         }
     );
 }
+
+exports.uploadShortcuts= function(shortcuts, callback){
+    callback(shortcuts);
+}
