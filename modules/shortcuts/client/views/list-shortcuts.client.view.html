@@ -13,7 +13,7 @@
         <div class="col-xs-12 container">
             <!-- OS picker -->
             <div ng-if="!displayFavorites">
-                <ui-select class="osSelect pull-right" ng-model="$parent.selectedOS">
+                <ui-select class="osSelect pull-right" ng-model="$parent.$parent.selectedOS">
                     <ui-select-match placeholder="Select an operatingSystem">{{selectedOS}}</ui-select-match>
                     <ui-select-choices repeat="operatingSystem in operatingSystems">
                         <div>{{operatingSystem}}</div>
@@ -31,7 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-ng-repeat="shortcut in groupedShortcuts">
+                        <tr data-ng-repeat="shortcut in groupedShortcuts | operatingSystemFilter:selectedOS">
                             <td class="favoriteBtn">
                                 <span class="glyphicon" ng-class="{'glyphicon-star-empty':!hover && !isFavorite(shortcut), 'glyphicon-star':hover || isFavorite(shortcut)}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" aria-hidden="true" ng-click="toggleFavorite(shortcut)" tooltip="You need to be logged in to save shortcuts to your favorites!" tooltip-placement="right" tooltip-trigger="{{{true: 'mouseenter', false: 'never'}[!user]}}" ></span>
                             </td>
