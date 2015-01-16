@@ -3,15 +3,6 @@
         <h1>Favorites</h1>
     </div>
 
-    <!-- OS picker -->
-    <div ng-if="!displayFavorites">
-        <ui-select class="osSelect pull-right" ng-model="$parent.selectedOS">
-            <ui-select-match placeholder="Select an operatingSystem">{{selectedOS}}</ui-select-match>
-            <ui-select-choices repeat="operatingSystem in operatingSystems">
-                <div>{{operatingSystem}}</div>
-            </ui-select-choices>
-        </ui-select>
-    </div>
 
     <div data-ng-repeat="(app, categories) in appGroups">
         <div ng-class="{'page-header':!displayFavorites}">
@@ -20,6 +11,15 @@
         </div>
         <!-- Shortcuts -->
         <div class="col-xs-12 container">
+            <!-- OS picker -->
+            <div ng-if="!displayFavorites">
+                <ui-select class="osSelect pull-right" ng-model="$parent.selectedOS">
+                    <ui-select-match placeholder="Select an operatingSystem">{{selectedOS}}</ui-select-match>
+                    <ui-select-choices repeat="operatingSystem in operatingSystems">
+                        <div>{{operatingSystem}}</div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
             <div data-ng-repeat="(category, groupedShortcuts) in categories">
                 <h4>{{category}}</h3>
                 <table class="table table-hover shortcutTable">
