@@ -1,0 +1,121 @@
+[
+    {
+        "keyCombination": "Ctrl + Slash",
+        "description": "Comment/uncomment current line or selected block with line comments.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + Shift + Slash",
+        "description": "Comment/uncomment code with block comments.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + Q",
+        "description": "Show a pop-up window with JSDoc comments for the symbol at the caret.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + Shift + Alt + H",
+        "description": "Show the, pop-up window to configure highlighting in the current file.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + P",
+        "description": "Show parameters of the method call at the caret.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Alt + Q",
+        "description": "Show the, when it is not visible.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + F1",
+        "description": "Show an error or warning description at the caret.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Shift + F1",
+        "description": "Open browser with the documentation for the selected item.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + O",
+        "description": "Override base class methods in the current class.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + Alt + T",
+        "description": "Surround selected code fragment with, ,, , tags or other constructs.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + Space",
+        "description": "Code completion for any class, method or variable.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + Shift + Space",
+        "description": "Code Completion filtering the lookup list basing on expected type.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Alt + Slash",
+        "description": "Goes through the names of classes, methods, keywords and variables in the current visibility scope.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + J",
+        "description": "Show a pop-up list of starting with a specified prefix.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Ctrl + Alt + J",
+        "description": "Surround the selection with one of the templates.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Tab",
+        "description": "In templates: move the caret to the next template variable.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    },
+    {
+        "keyCombination": "Shift + Tab",
+        "description": "In templates: move the caret to the previous template variable.",
+        "application": "Webstorm",
+        "operatingSystem": "OS X",
+        "category": "Advanced Editing"
+    }
+]
