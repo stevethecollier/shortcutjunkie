@@ -1,9 +1,9 @@
+'use strict';
+
 var async = require('async'),
-    utils = require('../../server/bulk.upload/utils.js')
-    shortcutsDir = require('/config/assets/default.js').server.shortcutsDir;
+    utils = require('../../server/bulk.upload/utils.js');
 
-
-exports.uploadShortcuts = function(done) {
+exports.uploadShortcuts = function(shortcutsDir, done) {
     async.waterfall([
 
         function(callback) {
@@ -20,7 +20,7 @@ exports.uploadShortcuts = function(done) {
         },
         function(saved, callback) {
             console.log('saved the following shortcuts:');
-            console.log(save);
+            console.log(saved);
             utils.deleteFiles(shortcutsDir, function(error) {
                 if (error){
                     console.log('error when trying to delete shortcuts : ' + error);
@@ -33,4 +33,4 @@ exports.uploadShortcuts = function(done) {
         if (error) return console.error(error);
         else console.log('bulk upload completed');
     });
-}
+};

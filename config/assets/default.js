@@ -46,6 +46,6 @@ module.exports = {
 		config: 'modules/*/server/config/*.js',
 		policies: 'modules/*/server/policies/*.js',
 		views: 'modules/*/server/views/*.html',
-		shortcutsDir: 'modules/shortcuts/server/bulk.upload.shortcuts/'
+		shortcutsDir: 'modules/shortcuts/server/bulk.upload/shortcuts/'
 	}
 };

@@ -30,6 +30,7 @@ exports.uploadShortcuts = function(shortcuts, callback) {
     User.find({
         username: 'editoruser'
     }).exec(function(error, user) {
+        user = user[0];
         async.map(shortcuts,
             function(shortcut, done) {
                 shortcut = _.extend(shortcut, {

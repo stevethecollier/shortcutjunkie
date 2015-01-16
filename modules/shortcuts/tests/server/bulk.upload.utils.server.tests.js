@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-var expect = require('chai').expect,
+var expect = require('chai').expect, // jshint ignore:line
     assert = require('chai').assert,
     logger = require('tracer').console(),
     mongoose = require('mongoose'),
@@ -18,17 +18,17 @@ var expect = require('chai').expect,
 var user,
     credentials,
     expected = [{
-        "keyCombination": "Option-Marquee",
-        "description": "Draw Marquee from Center",
-        "application": "Photoshop",
-        "operatingSystem": "OS X",
-        "category": "Selecting"
+        'keyCombination': 'Option-Marquee',
+        'description': 'Draw Marquee from Center',
+        'application': 'Photoshop',
+        'operatingSystem': 'OS X',
+        'category': 'Selecting'
     }, {
-        "keyCombination": "Alt - Marquee",
-        "description": "Draw Marquee from Center",
-        "application": "Photoshop",
-        "operatingSystem": "Windows",
-        "category": "Selecting"
+        'keyCombination': 'Alt - Marquee',
+        'description': 'Draw Marquee from Center',
+        'application': 'Photoshop',
+        'operatingSystem': 'Windows',
+        'category': 'Selecting'
     }],
     shortcutsDir = 'modules/shortcuts/tests/resources/shortcuts/',
     deleteFilesDir = 'modules/shortcuts/tests/resources/files.to.delete/';
@@ -59,7 +59,7 @@ describe('Bulk upload utils:', function() {
         user.save(function(error, _user) {
             user = _user;
             done();
-        })
+        });
     });
 
 
@@ -93,7 +93,7 @@ describe('Bulk upload utils:', function() {
                 fs.createWriteStream(deleteFilesDir + '/photoshopOSX.json')
                 .on('finish', function() {
                     utils.deleteFiles(deleteFilesDir, function(error) {
-                        expect(error).to.not.exist;
+                        expect(error).to.not.exist();
                         done();
                     });
                 }));

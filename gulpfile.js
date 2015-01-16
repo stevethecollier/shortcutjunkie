@@ -197,3 +197,8 @@ gulp.task('debug', function(done) {
 gulp.task('prod', function(done) {
 	runSequence('build', 'lint', ['nodemon', 'watch'], done);
 });
+
+gulp.task('bulk.upload', ['env:prod', 'mongoose'], function(done){
+	var uploader = require('./modules/shortcuts/server/bulk.upload/uploader.js');
+	uploader.uploadShortcuts(defaultAssets.server.shortcutsDir, done);
+})
