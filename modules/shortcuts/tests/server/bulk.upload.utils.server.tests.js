@@ -64,7 +64,7 @@ describe('Bulk upload utils:', function() {
 
 
     it('reads shortcuts', function(done) {
-        utils.readShortcuts(shortcutsDir, function(shortcuts) {
+        utils.readShortcuts(shortcutsDir, function(error, shortcuts) {
             expect(shortcuts).to.deep.equal(expected);
             done();
         });
