@@ -21,7 +21,7 @@ exports.readShortcuts = function(shortcutsDir, callback) {
         },
         function(err, shortcuts) {
             if (err) return console.log(err);
-            callback(_.flatten(shortcuts));
+            callback(null, _.flatten(shortcuts));
         }
     );
 };
