@@ -7,11 +7,9 @@ var fs = require('fs'),
     _ = require('lodash'),
     logger = require('tracer').console();
 
-var shortcutsDir = 'modules/shortcuts/server/bulk.upload/shortcuts/';
-var files = fs.readdirSync(shortcutsDir);
 
-exports.readShortcuts = function(callback) {
-
+exports.readShortcuts = function(shortcutsDir, callback) {
+    var files = fs.readdirSync(shortcutsDir);
     async.map(files,
         function(file, done) {
             fs.readFile(shortcutsDir + file, 'utf8', function(error, data) {
@@ -51,7 +49,8 @@ exports.uploadShortcuts = function(shortcuts, callback) {
     });
 };
 
-exports.deleteFiles = function(callback) {
+exports.deleteFiles = function(shortcutsDir, callback) {
+    var files = fs.readdirSync(shortcutsDir);
     async.map(files,
         function(file, done) {
             fs.unlink(shortcutsDir + file, function(error) {

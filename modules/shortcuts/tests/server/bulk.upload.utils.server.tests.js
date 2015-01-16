@@ -29,7 +29,10 @@ var user,
         "application": "Photoshop",
         "operatingSystem": "Windows",
         "category": "Selecting"
-    }]
+    }],
+    shortcutsDir = 'modules/shortcuts/tests/resources/shortcuts/',
+    deleteFilesDir = 'modules/shortcuts/tests/resources/files.to.delete/';
+
 
 /**
  * Unit tests
@@ -61,7 +64,7 @@ describe('Bulk upload utils:', function() {
 
 
     it('reads shortcuts', function(done) {
-        utils.readShortcuts(function(shortcuts) {
+        utils.readShortcuts(shortcutsDir, function(shortcuts) {
             expect(shortcuts).to.deep.equal(expected);
             done();
         });
@@ -83,12 +86,18 @@ describe('Bulk upload utils:', function() {
         });
     });
 
-    it('deletes the files', function(done){
-        utils.deleteFiles(function(error){
-            expect(error).to.not.exist;
-            done()
-        })
-    })
+    it('deletes the files', function(done) {
+        var fs = require('fs');
+        fs.createReadStream(shortcutsDir + '/photoshopOSX.json')
+            .pipe(
+                fs.createWriteStream(deleteFilesDir + '/photoshopOSX.json')
+                .on('finish', function() {
+                    utils.deleteFiles(deleteFilesDir, function(error) {
+                        expect(error).to.not.exist;
+                        done();
+                    });
+                }));
+    });
 
     after(function(done) {
         User.remove().exec();
