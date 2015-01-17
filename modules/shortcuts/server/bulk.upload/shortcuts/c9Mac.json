@@ -1,0 +1,849 @@
+[
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Abortclicommand",
+        "keyCombination": "Ctrl + C"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "AddCursorAbove",
+        "keyCombination": "Ctrl + Option + Up"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "AddCursorAboveSkipCurrent",
+        "keyCombination": "Ctrl + Option + Shift + Up"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "AddCursorBelow",
+        "keyCombination": "Ctrl + Option + Down"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "AddCursorBelowSkipCurrent",
+        "keyCombination": "Ctrl + Option + Shift + Down"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Backspace",
+        "keyCombination": "Ctrl + Backspace"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Beautify",
+        "keyCombination": "Cmd + Shift + B"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Clearcut",
+        "keyCombination": "Esc"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Closeallbutme",
+        "keyCombination": "Option + Ctrl + W"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Closealltabs",
+        "keyCombination": "Option + Shift + W"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Closetab",
+        "keyCombination": "Option + W"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Complete",
+        "keyCombination": "Ctrl + Space"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Copy",
+        "keyCombination": "Cmd + C"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Copylinesdown",
+        "keyCombination": "Cmd + Option + Down"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Copylinesup",
+        "keyCombination": "Cmd + Option + Up"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Cut",
+        "keyCombination": "Cmd + X"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Del",
+        "keyCombination": "Delete"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "DuplicateSelection",
+        "keyCombination": "Cmd + Shift + D"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Escapeconsole",
+        "keyCombination": "Esc"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "EvalInteractive",
+        "keyCombination": "Cmd + Return"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Find",
+        "keyCombination": "Cmd + F"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Findnext",
+        "keyCombination": "Cmd + G"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Findprevious",
+        "keyCombination": "Cmd + Shift + G"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Fold",
+        "keyCombination": "Cmd + Option + L"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Foldall",
+        "keyCombination": "Cmd + Option + 0"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Golinedown",
+        "keyCombination": "Down"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Golineup",
+        "keyCombination": "Up"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotoend",
+        "keyCombination": "Cmd + End"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotofile",
+        "keyCombination": "Cmd + E"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotoleft",
+        "keyCombination": "Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotoline",
+        "keyCombination": "Cmd + L"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotolineend",
+        "keyCombination": "Cmd + Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotolinestart",
+        "keyCombination": "Cmd + Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotopagedown",
+        "keyCombination": "PageDown"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotoright",
+        "keyCombination": "Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotostart",
+        "keyCombination": "Cmd + Home"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gototableft",
+        "keyCombination": "Cmd + ["
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gototabright",
+        "keyCombination": "Cmd + "
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotowordleft",
+        "keyCombination": "Option + Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Gotowordright",
+        "keyCombination": "Option + Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Indent",
+        "keyCombination": "Tab"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Jumptomatching",
+        "keyCombination": "Ctrl + Shift + P"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Largerfont",
+        "keyCombination": "Ctrl + Shift + ."
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Movelinesdown",
+        "keyCombination": "Option + Down"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Movelinesup",
+        "keyCombination": "Option + Up"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Movetableft",
+        "keyCombination": "Cmd + Option + ["
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Movetabright",
+        "keyCombination": "Cmd + Option + "
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Newfile",
+        "keyCombination": "Option + Shift + N"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Newfiletemplate",
+        "keyCombination": "Option + Ctrl + N"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Newfolder",
+        "keyCombination": "Option + Ctrl + Shift + N"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Nexttab",
+        "keyCombination": "Option + Tab"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Openfilepanel",
+        "keyCombination": "Shift + Cmd + U"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Opensettingspanel",
+        "keyCombination": "Cmd + ,"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Opentreepanel",
+        "keyCombination": "Cmd + U"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Outdent",
+        "keyCombination": "Shift + Tab"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Outline",
+        "keyCombination": "Cmd + Shift + E"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Paste",
+        "keyCombination": "Cmd + V"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Previoustab",
+        "keyCombination": "Option + Shift + Tab"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Quicksave",
+        "keyCombination": "Cmd + S"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Quickwatch",
+        "keyCombination": "Option + Q"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Redo",
+        "keyCombination": "Cmd + Shift + Z"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Removeline",
+        "keyCombination": "Cmd + D"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Removetolineend",
+        "keyCombination": "Ctrl + K"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Removetolinestart",
+        "keyCombination": "Cmd + Backspace"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Removewordleft",
+        "keyCombination": "Option + Backspace"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Removewordright",
+        "keyCombination": "Option + Delete"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "RenameVar",
+        "keyCombination": "Option + Cmd + R"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Replace",
+        "keyCombination": "Option + Cmd + F"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Replaymacro",
+        "keyCombination": "Cmd + Ctrl + R"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Resume",
+        "keyCombination": "F8"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Revealtab",
+        "keyCombination": "Shift + Cmd + L"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Reverttosaved",
+        "keyCombination": "Ctrl + Shift + Q"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Revisionpanel",
+        "keyCombination": "Cmd + B"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Run",
+        "keyCombination": "F5"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Saveas",
+        "keyCombination": "Cmd + Shift + S"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Savetabsession",
+        "keyCombination": "Shift + Ctrl + S"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Searchinfiles",
+        "keyCombination": "Shift + Cmd + F"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "SelectMoreAfter",
+        "keyCombination": "Ctrl + Option + Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "SelectMoreBefore",
+        "keyCombination": "Ctrl + Option + Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "SelectNextAfter",
+        "keyCombination": "Ctrl + Option + Shift + Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "SelectNextBefore",
+        "keyCombination": "Ctrl + Option + Shift + Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selectall",
+        "keyCombination": "Cmd + A"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selectdown",
+        "keyCombination": "Shift + Down"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selectleft",
+        "keyCombination": "Shift + Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selectright",
+        "keyCombination": "Shift + Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selecttoend",
+        "keyCombination": "Cmd + Shift + Down"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selecttolineend",
+        "keyCombination": "Cmd + Shift + Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selecttolinestart",
+        "keyCombination": "Cmd + Shift + Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selecttostart",
+        "keyCombination": "Cmd + Shift + Up"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selectup",
+        "keyCombination": "Shift + Up"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selectwordleft",
+        "keyCombination": "Option + Shift + Left"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Selectwordright",
+        "keyCombination": "Option + Shift + Right"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Smallerfont",
+        "keyCombination": "Ctrl + Shift + ,"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "SplitIntoLines",
+        "keyCombination": "Ctrl + Shift + L"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Stepinto",
+        "keyCombination": "F11"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Stepout",
+        "keyCombination": "Shift + F11"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Stepover",
+        "keyCombination": "F10"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Stop",
+        "keyCombination": "Shift + F5"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Switchconsole",
+        "keyCombination": "Shift + Esc"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab0",
+        "keyCombination": "Cmd + 0"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab1",
+        "keyCombination": "Cmd + 1"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab2",
+        "keyCombination": "Cmd + 2"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab3",
+        "keyCombination": "Cmd + 3"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab4",
+        "keyCombination": "Cmd + 4"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab5",
+        "keyCombination": "Cmd + 5"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab6",
+        "keyCombination": "Cmd + 6"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab7",
+        "keyCombination": "Cmd + 7"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab8",
+        "keyCombination": "Cmd + 8"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tab9",
+        "keyCombination": "Cmd + 9"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "ToggleTabs",
+        "keyCombination": "Ctrl + M"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Togglecomment",
+        "keyCombination": "Cmd + /"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Toggleconsole",
+        "keyCombination": "Ctrl + Esc"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Togglerecording",
+        "keyCombination": "Cmd + Shift + R"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Tolowercase",
+        "keyCombination": "Ctrl + Shift + U"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Touppercase",
+        "keyCombination": "Ctrl + U"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Transposeletters",
+        "keyCombination": "Ctrl + T"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Undo",
+        "keyCombination": "Cmd + Z"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Unfold",
+        "keyCombination": "Cmd + Option + Shift + L"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Unfoldall",
+        "keyCombination": "Cmd + Option + Shift + 0"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Zen",
+        "keyCombination": "Option + Z"
+    },
+    {
+        "application": "Cloud 9 IDE",
+        "operatingSystem": "OS X",
+        "category": "Unsorted",
+        "description": "Zenslow",
+        "keyCombination": "Shift + Option + Z"
+    }
+]
