@@ -81,7 +81,9 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 
 		// Find a list of Shortcuts
 		$scope.find = function() {
-			$scope.shortcuts = Shortcuts.query();
+			$scope.shortcuts = Shortcuts.query({
+				application: $scope.selectedApplication
+			});
 			$scope.shortcuts.$promise
 				.then(function() {
 					$scope.applications = $scope.shortcuts.reduce(function(previousValue, currentValue) {

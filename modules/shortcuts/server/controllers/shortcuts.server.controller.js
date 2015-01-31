@@ -74,7 +74,7 @@ exports.delete = function(req, res) {
  * List of Shortcuts
  */
 exports.list = function(req, res) {
-	Shortcut.find().sort('-created').populate('user', 'displayName').exec(function(err, shortcuts) {
+	Shortcut.find(req.query).sort('-created').populate('user', 'displayName').exec(function(err, shortcuts) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
