@@ -74,12 +74,25 @@ exports.delete = function(req, res) {
  * List of Shortcuts
  */
 exports.list = function(req, res) {
+	var displayFavorites;
+	if (req.query.favorites) {
+		displayFavorites = true;
+		delete req.query.favorites;
+	}
+
 	Shortcut.find(req.query).sort('-created').populate('user', 'displayName').exec(function(err, shortcuts) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			if (displayFavorites) {
+				shortcuts = _.filter(shortcuts, function(shortcut) {
+					return _.some(req.user.favorites, function(favorite){
+						return favorite.toString() === shortcut._id.toString();
+					});
+				});
+			}
 			res.jsonp(shortcuts);
 		}
 	});
