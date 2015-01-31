@@ -75,6 +75,10 @@
 			})];
 
 			sampleShortcut = sampleShortcuts[0];
+
+			//clear state params
+			$stateParams.application = undefined;
+			scope.selectedApplication = undefined;
 		}));
 
 		it('$scope.find() should create an array with at least one Shortcut object fetched from XHR', function() {
@@ -99,6 +103,40 @@
 
 			expect(scope.applications).toEqual(['firstTest', 'secondTest']);
 			expect(scope.operatingSystems).toEqual(['firstTest', 'secondTest', 'thirdTest']);
+		});
+
+		it('only lists operatingSystems available for the selected app', function() {
+			$stateParams.application = 'firstTest';
+			scope.selectedApplication = 'firstTest';
+			// Set GET response
+			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
+
+			// Run controller functionality
+			scope.find();
+			$httpBackend.flush();
+
+			expect(scope.operatingSystems).toEqual(['firstTest', 'thirdTest']);
+		});
+
+		it('sets initial operatingSystem selection', function() {
+			// Set GET response
+			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
+
+			// Run controller functionality
+			scope.find();
+			$httpBackend.flush();
+
+			expect(scope.selectedOS).toEqual('firstTest');
+
+			sampleShortcuts[1].operatingSystem = 'OS X';
+			// Set GET response
+			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
+
+			// Run controller functionality
+			scope.find();
+			$httpBackend.flush();
+
+			expect(scope.selectedOS).toEqual('OS X');
 		});
 
 		it('can filter by application', function() {

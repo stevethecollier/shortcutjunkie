@@ -58,24 +58,51 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			});
 		};
 
+		var pickInitialOS = function(operatingSystems) {
+			var initialOS = '';
+			if (navigator.appVersion.indexOf('Win') !== -1) {
+				initialOS = 'Windows';
+			} else if (
+				navigator.appVersion.indexOf('Mac') !== -1) {
+				initialOS = 'OS X';
+			} else if (
+				navigator.appVersion.indexOf('X11') !== -1) {
+				initialOS = 'UNIX';
+			} else if (
+				navigator.appVersion.indexOf('Linux') !== -1) {
+				initialOS = 'Linux';
+			}
+			if (operatingSystems.indexOf(initialOS) !== -1) {
+				return initialOS;
+			} else {
+				return operatingSystems[0];
+			}
+		};
+
 		// Find a list of Shortcuts
 		$scope.find = function() {
 			$scope.shortcuts = Shortcuts.query();
-			$scope.shortcuts.$promise.then(function() {
-				$scope.applications = $scope.shortcuts.reduce(function(previousValue, currentValue) {
-					if (previousValue.indexOf(currentValue.application) === -1) {
-						previousValue.push(currentValue.application);
-					}
-					return previousValue;
-				}, []);
+			$scope.shortcuts.$promise
+				.then(function() {
+					$scope.applications = $scope.shortcuts.reduce(function(previousValue, currentValue) {
+						if (previousValue.indexOf(currentValue.application) === -1) {
+							previousValue.push(currentValue.application);
+						}
+						return previousValue;
+					}, []);
 
-				$scope.operatingSystems = $scope.shortcuts.reduce(function(previousValue, currentValue) {
-					if (previousValue.indexOf(currentValue.operatingSystem) === -1) {
-						previousValue.push(currentValue.operatingSystem);
-					}
-					return previousValue;
-				}, []);
-			});
+					$scope.operatingSystems = $filter('applicationFilter')($scope.shortcuts, $scope.selectedApplication)
+						.reduce(function(previousValue, currentValue) {
+							if (previousValue.indexOf(currentValue.operatingSystem) === -1) {
+								previousValue.push(currentValue.operatingSystem);
+							}
+							return previousValue;
+						}, []);
+
+				})
+				.then(function() {
+					$scope.selectedOS = pickInitialOS($scope.operatingSystems);
+				});
 		};
 
 		// Find existing Shortcut
@@ -86,21 +113,6 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		};
 
 		$scope.selectedApplication = $stateParams.application;
-
-		$scope.selectedOS = '';
-		if (navigator.appVersion.indexOf('Win') !== -1) {
-			$scope.selectedOS = 'Windows';
-		} else if (
-			navigator.appVersion.indexOf('Mac') !== -1) {
-			$scope.selectedOS = 'OS X';
-		} else if (
-			navigator.appVersion.indexOf('X11') !== -1) {
-			$scope.selectedOS = 'UNIX';
-		} else if (
-			navigator.appVersion.indexOf('Linux') !== -1) {
-			$scope.selectedOS = 'Linux';
-		}
-
 
 		$scope.isEditor = function(user) {
 			if (user.roles) {
@@ -145,7 +157,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 					});
 				}
 				var categoryGroup = $filter('groupBy')(shortcuts, 'category');
-				if(!_.isEmpty(categoryGroup)){
+				if (!_.isEmpty(categoryGroup)) {
 					$scope.appGroups[app] = categoryGroup;
 				}
 			});
