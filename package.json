@@ -13,8 +13,8 @@
     "npm": "2.1.x"
   },
   "scripts": {
-    "start": "grunt",
-    "test": "grunt test",
+    "start": "gulp",
+    "test": "gulp test",
     "postinstall": "bower install"
   },
   "dependencies": {
