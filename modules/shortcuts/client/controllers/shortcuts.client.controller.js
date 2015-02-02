@@ -94,13 +94,12 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 						return previousValue;
 					}, []);
 
-					$scope.operatingSystems = $filter('applicationFilter')($scope.shortcuts, $scope.selectedApplication)
-						.reduce(function(previousValue, currentValue) {
-							if (previousValue.indexOf(currentValue.operatingSystem) === -1) {
-								previousValue.push(currentValue.operatingSystem);
-							}
-							return previousValue;
-						}, []);
+					$scope.operatingSystems = $scope.shortcuts.reduce(function(previousValue, currentValue) {
+						if (previousValue.indexOf(currentValue.operatingSystem) === -1) {
+							previousValue.push(currentValue.operatingSystem);
+						}
+						return previousValue;
+					}, []);
 
 				})
 				.then(function() {
@@ -151,19 +150,15 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			$location.path('/shortcuts/' + shortcut._id);
 		};
 
-		$scope.$watch('shortcuts | applicationFilter:selectedApplication | operatingSystemFilter:selectedOS | groupBy:"application"', function(appGroups) {
-			$scope.appGroups = {};
-			angular.forEach(appGroups, function(shortcuts, app) {
-				if ($scope.displayFavorites) {
-					shortcuts = _.remove(shortcuts, function(shortcut) {
-						return _.contains($scope.user.favorites, shortcut._id);
-					});
-				}
-				var categoryGroup = $filter('groupBy')(shortcuts, 'category');
-				if (!_.isEmpty(categoryGroup)) {
-					$scope.appGroups[app] = categoryGroup;
-				}
-			});
-		}, true);
+		$scope.$watch('shortcuts | operatingSystemFilter:selectedOS | groupBy:"application"',
+			function(appGroups) {
+				$scope.groupedShortcuts = {};
+				angular.forEach(appGroups, function(shortcuts, app) {
+					var categoryGroups = $filter('groupBy')(shortcuts, 'category');
+					if (!_.isEmpty(categoryGroups)) {
+						$scope.groupedShortcuts[app] = categoryGroups;
+					}
+				});
+			}, true);
 	}
 ]);

@@ -15,13 +15,13 @@
     </div>
 
     <!-- Shortcuts -->
-    <div data-ng-repeat="(app, categories) in appGroups">
+    <div data-ng-repeat="(app, categories) in groupedShortcuts">
         <div ng-class="{'page-header':!displayFavorites}">
             <h1 ng-if="!displayFavorites">{{app}} Shortcuts</h1>
             <h3 ng-if="displayFavorites">{{app}} Shortcuts</h2>
         </div>
         <div class="col-xs-12 container">
-            <div data-ng-repeat="(category, groupedShortcuts) in categories">
+            <div data-ng-repeat="(category, shortcuts) in categories">
                 <h4>{{category}}</h3>
                 <table class="table table-hover shortcutTable">
                     <thead>
@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-ng-repeat="shortcut in groupedShortcuts">
+                        <tr data-ng-repeat="shortcut in shortcuts">
                             <td class="favoriteBtn">
                                 <span class="glyphicon" ng-class="{'glyphicon-star-empty':!hover && !isFavorite(shortcut), 'glyphicon-star':hover || isFavorite(shortcut)}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" aria-hidden="true" ng-click="toggleFavorite(shortcut)" tooltip="You need to be logged in to save shortcuts to your favorites!" tooltip-placement="right" tooltip-trigger="{{{true: 'mouseenter', false: 'never'}[!user]}}" ></span>
                             </td>
