@@ -83,7 +83,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 					}, []);
 
 				})
-				.then(function pickInitialOS(operatingSystems) {
+				.then(function pickInitialOS() {
 					var osCodes = {
 						Win: 'Windows',
 						Mac: 'OS X',
@@ -98,10 +98,10 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 						}
 					});
 
-					if (operatingSystems.indexOf(initialOS) !== -1) {
-						return initialOS;
+					if ($scope.operatingSystems.indexOf(initialOS) !== -1) {
+						$scope.selectedOS = initialOS;
 					} else {
-						return operatingSystems[0];
+						$scope.selectedOS = $scope.operatingSystems[0];
 					}
 				});
 		};
