@@ -98,7 +98,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 						}
 					});
 
-					if ($scope.operatingSystems.indexOf(initialOS) !== -1) {
+					if (_.contains($scope.operatingSystems, initialOS)) {
 						$scope.selectedOS = initialOS;
 					} else {
 						$scope.selectedOS = $scope.operatingSystems[0];
