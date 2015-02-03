@@ -109,7 +109,7 @@
 			$stateParams.application = 'firstTest';
 			scope.selectedApplication = 'firstTest';
 			// Set GET response
-			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
+			$httpBackend.expectGET('api/shortcuts?application=firstTest').respond([sampleShortcuts[0], sampleShortcuts[2]]);
 
 			// Run controller functionality
 			scope.find();
@@ -139,12 +139,6 @@
 			expect(scope.selectedOS).toEqual('OS X');
 		});
 
-		it('can filter by application', function() {
-			var result = $filter('applicationFilter')(sampleShortcuts, 'secondTest');
-			expect(result).toEqual([sampleShortcuts[1]]);
-			result = $filter('applicationFilter')(sampleShortcuts, '');
-			expect(result).toEqual(sampleShortcuts);
-		});
 
 		it('can filter by operatingSystem', function() {
 			var result = $filter('operatingSystemFilter')(sampleShortcuts, 'secondTest');
@@ -155,6 +149,7 @@
 
 		it('can group by category', function() {
 			sampleShortcuts[2].category = 'firstTest';
+
 			var result = $filter('groupBy')(sampleShortcuts, 'category');
 
 			expect(result).toEqualData({
@@ -170,7 +165,7 @@
 			var categoryGroups1 = $filter('groupBy')([sampleShortcuts[0], sampleShortcuts[2]], 'category');
 			var categoryGroups2 = $filter('groupBy')([sampleShortcuts[1]], 'category');
 
-			expect(scope.appGroups).toEqualData({
+			expect(scope.groupedShortcuts).toEqualData({
 				firstTest: categoryGroups1,
 				secondTest: categoryGroups2
 			});
