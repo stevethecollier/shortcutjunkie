@@ -58,27 +58,7 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			});
 		};
 
-		var pickInitialOS = function(operatingSystems) {
-			var osCodes = {
-				Win: 'Windows',
-				Mac: 'OS X',
-				X11: 'UNIX',
-				Linux: 'Linux'
-			};
 
-			var initialOS;
-			_.forEach(osCodes, function(os, code) {
-				if (_.contains(navigator.appVersion, code)) {
-					initialOS = os;
-				}
-			});
-
-			if (operatingSystems.indexOf(initialOS) !== -1) {
-				return initialOS;
-			} else {
-				return operatingSystems[0];
-			}
-		};
 
 		// Find a list of Shortcuts
 		$scope.find = function() {
@@ -103,8 +83,26 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 					}, []);
 
 				})
-				.then(function() {
-					$scope.selectedOS = pickInitialOS($scope.operatingSystems);
+				.then(function pickInitialOS(operatingSystems) {
+					var osCodes = {
+						Win: 'Windows',
+						Mac: 'OS X',
+						X11: 'UNIX',
+						Linux: 'Linux'
+					};
+
+					var initialOS;
+					_.forEach(osCodes, function(os, code) {
+						if (_.contains(navigator.appVersion, code)) {
+							initialOS = os;
+						}
+					});
+
+					if (operatingSystems.indexOf(initialOS) !== -1) {
+						return initialOS;
+					} else {
+						return operatingSystems[0];
+					}
 				});
 		};
 
