@@ -59,19 +59,20 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 		};
 
 		var pickInitialOS = function(operatingSystems) {
-			var initialOS = '';
-			if (navigator.appVersion.indexOf('Win') !== -1) {
-				initialOS = 'Windows';
-			} else if (
-				navigator.appVersion.indexOf('Mac') !== -1) {
-				initialOS = 'OS X';
-			} else if (
-				navigator.appVersion.indexOf('X11') !== -1) {
-				initialOS = 'UNIX';
-			} else if (
-				navigator.appVersion.indexOf('Linux') !== -1) {
-				initialOS = 'Linux';
-			}
+			var osCodes = {
+				Win: 'Windows',
+				Mac: 'OS X',
+				X11: 'UNIX',
+				Linux: 'Linux'
+			};
+
+			var initialOS;
+			_.forEach(osCodes, function(os, code) {
+				if (_.contains(navigator.appVersion, code)) {
+					initialOS = os;
+				}
+			});
+
 			if (operatingSystems.indexOf(initialOS) !== -1) {
 				return initialOS;
 			} else {
