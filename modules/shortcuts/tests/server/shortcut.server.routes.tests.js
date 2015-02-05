@@ -214,7 +214,7 @@ describe('Shortcut CRUD tests', function() {
 						done();
 					});
 			});
-		})
+		});
 	});
 
 	it('should be able to get a single Shortcut if not signed in', function(done) {
