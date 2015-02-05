@@ -2,16 +2,19 @@
 angular.module('shortcuts').filter('groupBy', function() {
     return function(shortcuts, field) {
         var filtered = {};
-        // loop through each item in the list
+        // loop through each shortcut in the list
         angular.forEach(shortcuts, function(shortcut) {
-            var value = shortcut[field];
-            if(value === ''){
-                value = 'unsorted';
+            var key = shortcut[field];
+            // no key becomes unsorted
+            if(key === ''){
+                key = 'unsorted';
             }
-            if(filtered[value] === undefined){
-                filtered[value] = [];
+            // add keys if they don't exist
+            if(filtered[key] === undefined){
+                filtered[key] = [];
             }
-            filtered[value].push(shortcut);
+            // add shortcut to key
+            filtered[key].push(shortcut);
         });
         return filtered;
     };
