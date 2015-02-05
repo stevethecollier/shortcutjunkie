@@ -80,6 +80,12 @@ exports.list = function(req, res) {
 		delete req.query.favorites;
 	}
 
+	var select;
+	if (req.query.select) {
+		select = req.query.select;
+		delete req.query.select;
+	}
+
 	Shortcut.find(req.query).sort('-created').populate('user', 'displayName').exec(function(err, shortcuts) {
 		if (err) {
 			return res.status(400).send({
@@ -88,10 +94,19 @@ exports.list = function(req, res) {
 		} else {
 			if (displayFavorites) {
 				shortcuts = _.filter(shortcuts, function(shortcut) {
-					return _.some(req.user.favorites, function(favorite){
+					return _.some(req.user.favorites, function(favorite) {
 						return favorite.toString() === shortcut._id.toString();
 					});
 				});
+			}
+			if (select) {
+				shortcuts = _.reduce(shortcuts, function(result, shortcut) {
+					var field = shortcut[select];
+					if(!_.contains(result, field)){
+						result.push(field);
+					}
+					return result;
+				}, []);
 			}
 			res.jsonp(shortcuts);
 		}
