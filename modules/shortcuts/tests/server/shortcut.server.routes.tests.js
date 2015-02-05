@@ -191,10 +191,31 @@ describe('Shortcut CRUD tests', function() {
 					// Call the assertion callback
 					done();
 				});
-
 		});
 	});
 
+	it('retrieves a list of all applications', function(done) {
+		// Create new Shortcut model instance
+		var shortcut1 = new Shortcut(shortcut);
+		shortcut1.save(function() {
+
+			// Create another shortcut 
+			shortcut.application = 'anotherApplication';
+			var shortcut2 = new Shortcut(shortcut);
+			shortcut2.save(function() {
+
+				// Request Shortcuts
+				request(app).get('/api/shortcuts?select=application')
+					.end(function(req, res) {
+						// Set assertion
+						res.body.should.be.an.Array.with.lengthOf(2);
+
+						// Call the assertion callback
+						done();
+					});
+			});
+		})
+	});
 
 	it('should be able to get a single Shortcut if not signed in', function(done) {
 		// Create new Shortcut model instance

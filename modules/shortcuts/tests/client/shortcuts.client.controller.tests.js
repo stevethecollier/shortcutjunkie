@@ -93,16 +93,15 @@
 			expect(scope.shortcuts).toEqualData(sampleShortcuts);
 		});
 
-		it('$scope.findApplications() should create an array with at at least one application name', function() {
+		it('displays all possible applications', function() {
 			// Set GET response
-			$httpBackend.expectGET('api/shortcuts').respond(sampleShortcuts);
+			$httpBackend.expectGET('api/shortcuts?select=application').respond(['firstTest', 'secondTest']);
 
 			// Run controller functionality
-			scope.find();
+			scope.findApplications();
 			$httpBackend.flush();
 
 			expect(scope.applications).toEqual(['firstTest', 'secondTest']);
-			expect(scope.operatingSystems).toEqual(['firstTest', 'secondTest', 'thirdTest']);
 		});
 
 		it('only lists operatingSystems available for the selected app', function() {

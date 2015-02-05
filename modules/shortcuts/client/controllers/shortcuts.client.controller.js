@@ -1,8 +1,8 @@
 'use strict';
 
 // Shortcuts controller
-angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites', 'lodash', '$filter',
-	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash, $filter) {
+angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shortcuts', 'Favorites', 'lodash', '$filter', '$http',
+	function($scope, $stateParams, $location, Authentication, Shortcuts, Favorites, lodash, $filter, $http) {
 		var _ = lodash;
 
 		$scope.authentication = Authentication;
@@ -58,7 +58,13 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			});
 		};
 
-
+		// Find all possible applications
+		$scope.findApplications = function() {
+			$http.get('api/shortcuts?select=application')
+				.success(function(data, status, headers, config) {
+					$scope.applications = data;
+				});
+		};
 
 		// Find a list of Shortcuts
 		$scope.find = function() {
@@ -68,12 +74,12 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			});
 			$scope.shortcuts.$promise
 				.then(function() {
-					$scope.applications = $scope.shortcuts.reduce(function(previousValue, currentValue) {
-						if (previousValue.indexOf(currentValue.application) === -1) {
-							previousValue.push(currentValue.application);
-						}
-						return previousValue;
-					}, []);
+					// $scope.applications = $scope.shortcuts.reduce(function(previousValue, currentValue) {
+					// 	if (previousValue.indexOf(currentValue.application) === -1) {
+					// 		previousValue.push(currentValue.application);
+					// 	}
+					// 	return previousValue;
+					// }, []);
 
 					$scope.operatingSystems = $scope.shortcuts.reduce(function(previousValue, currentValue) {
 						if (previousValue.indexOf(currentValue.operatingSystem) === -1) {
