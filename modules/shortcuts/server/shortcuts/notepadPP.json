@@ -1,0 +1,625 @@
+[
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Open File",
+        "keyCombination": "Ctrl - O"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "New File",
+        "keyCombination": "Ctrl - N"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Save File",
+        "keyCombination": "Ctrl - S"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Save As",
+        "keyCombination": "Ctrl - Alt - S"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Save All",
+        "keyCombination": "Ctrl - Shift - S"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Print",
+        "keyCombination": "Ctrl - P"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Exit",
+        "keyCombination": "Alt - F4"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Next Document (also shows list of open files). Can be disabled – see Settings/Preferences/Global.",
+        "keyCombination": "Ctrl - Tab"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Previous Document (also shows list of open files). Can be disabled – see above.",
+        "keyCombination": "Ctrl - Shift - Tab"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "File menu",
+        "description": "Close Current Document",
+        "keyCombination": "Ctrl - W"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "or Ctrl + mouse wheel button (if any) Zoom in (+ or up) and Zoom out (- or down)",
+        "keyCombination": "Ctrl - (Keypad-/Keypad+)"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Restore the original size from zoom",
+        "keyCombination": "Ctrl - Keypad/"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Toggle Full Screen Mode",
+        "keyCombination": "F11"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Toggle Post-It Mode",
+        "keyCombination": "F12"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Collapse the Current Level",
+        "keyCombination": "Ctrl - Alt - F"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Uncollapse the Current Level",
+        "keyCombination": "Ctrl - Alt - Shift - F"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Fold All",
+        "keyCombination": "Alt - 0"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Collapse the Level (1~8)",
+        "keyCombination": "Alt - (1~8)"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Unfold All",
+        "keyCombination": "Alt - Shift - 0"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "View menu",
+        "description": "Uncollapse the Level (1~8)",
+        "keyCombination": "Alt - Shift - (1~8)"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Launch Run Dialog",
+        "keyCombination": "F5"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Get PHP help",
+        "keyCombination": "Alt - F1"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Google search",
+        "keyCombination": "Alt - F2"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Wikipedia search",
+        "keyCombination": "Alt - F3"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Open file (name at cursor)",
+        "keyCombination": "Alt - F5"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Open file in another instance (name at cursor)",
+        "keyCombination": "Alt - F6"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Open in Chrome",
+        "keyCombination": "Ctrl - Alt - Shift - R"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Open in Firefox",
+        "keyCombination": "Ctrl - Alt - Shift - X"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Open in IE",
+        "keyCombination": "Ctrl - Alt - Shift - I"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Open in Safari",
+        "keyCombination": "Ctrl - Alt - Shift - F"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Run menu",
+        "description": "Send via Outlook",
+        "keyCombination": "Ctrl - Alt - Shift - O"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Launch Find Dialog",
+        "keyCombination": "Ctrl - F"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Launch Find / Replace Dialog",
+        "keyCombination": "Ctrl - H"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Find Next",
+        "keyCombination": "F3"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Find Previous",
+        "keyCombination": "Shift - F3"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Find in Files",
+        "keyCombination": "Ctrl - Shift - F"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Switch to Search results window (was Activate sub view before v5.2)",
+        "keyCombination": "F7"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Find (volatile) Next",
+        "keyCombination": "Ctrl - Alt - F3"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Find (volatile) Previous",
+        "keyCombination": "Ctrl - Alt - Shift - F3"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Select and Find Next (was Find (Volatile) Next prior to v5.6.5)",
+        "keyCombination": "Ctrl - F3"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Select and Find Previous (was Find (Volatile) Previous prior to v5.6.5)",
+        "keyCombination": "Ctrl - Shift - F3"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Go to next found",
+        "keyCombination": "F4"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Go to previous found",
+        "keyCombination": "Shift - F4"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Incremental Search",
+        "keyCombination": "Ctrl - Shift - I"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Jump Down (to next text marked using n-th stye. n is 1 to 5, or 0 for default Found style.",
+        "keyCombination": "Ctrl - n"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Jump Up (to next text marked using n-th stye. n is 1 to 5, or 0 for default Found style.",
+        "keyCombination": "Ctrl - Shift - n"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Toggle Bookmark",
+        "keyCombination": "Ctrl - F2"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Go To Next Bookmark",
+        "keyCombination": "F2"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Search menu",
+        "description": "Go To Previous Bookmark",
+        "keyCombination": "Shift - F2"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Copy",
+        "keyCombination": "Ctrl - C"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Copy",
+        "keyCombination": "Ctrl - Insert"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Copy current line to clipboard",
+        "keyCombination": "Ctrl - Shift - T"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Cut",
+        "keyCombination": "Ctrl - X"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Cut",
+        "keyCombination": "Shift - Delete"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Paste",
+        "keyCombination": "Ctrl - V"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Paste",
+        "keyCombination": "Shift - Insert"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Undo",
+        "keyCombination": "Ctrl - Z"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Undo",
+        "keyCombination": "Alt - Backspace"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Redo",
+        "keyCombination": "Ctrl - Y"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Select All",
+        "keyCombination": "Ctrl - A"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Column Mode Select",
+        "keyCombination": "Alt - Shift - Arrow keys, or Alt + Left mouse click"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Start new selected area. Only multiple stream areas ca be selected this way.",
+        "keyCombination": "Ctrl + Left mouse click"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Column Editor",
+        "keyCombination": "ALT - C"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Duplicate Current Line",
+        "keyCombination": "Ctrl - D"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Switch the current line position with the previous line position",
+        "keyCombination": "Ctrl - T"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Move Current Line, or current selection if a single stream, Up",
+        "keyCombination": "Ctrl - Shift - Up"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Move Current Line, or current selection if a single stream, Down",
+        "keyCombination": "Ctrl - Shift - Down"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Delete Current Line",
+        "keyCombination": "Ctrl - L"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Split Lines",
+        "keyCombination": "Ctrl - I"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Join Lines",
+        "keyCombination": "Ctrl - J"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Launch GoToLine Dialog",
+        "keyCombination": "Ctrl - G"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Block comment/uncomment",
+        "keyCombination": "Ctrl - Q"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Stream comment",
+        "keyCombination": "Ctrl - Shift - Q"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Insert Tabulation or Space (Indent)",
+        "keyCombination": "Tab (selection of one or more full lines)"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Remove Tabulation or Space (outdent)",
+        "keyCombination": "Shift - Tab (selection of one or more full lines)"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Delete to start of word",
+        "keyCombination": "Ctrl - BackSpace"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Delete to end of word",
+        "keyCombination": "Ctrl - Delete"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Delete to start of line",
+        "keyCombination": "Ctrl - Shift - BackSpace"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Delete to end of line",
+        "keyCombination": "Ctrl - Shift - Delete"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Convert to lower case",
+        "keyCombination": "Ctrl - U"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Convert to UPPER CASE",
+        "keyCombination": "Ctrl - Shift - U"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Go to matching brace",
+        "keyCombination": "Ctrl - B"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Launch CallTip ListBox",
+        "keyCombination": "Ctrl - Space"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Launch Function Completion ListBox",
+        "keyCombination": "Ctrl - Shift - Space"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Launch Word Completion ListBox",
+        "keyCombination": "Ctrl - Enter"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Text Direction RTL",
+        "keyCombination": "Ctrl - Alt - R"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Text Direction LTR",
+        "keyCombination": "Ctrl - Alt - L"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Split line downwards, or create new line",
+        "keyCombination": "Enter"
+    },
+    {
+        "application": "Notepad++",
+        "operatingSystem": "Windows",
+        "category": "Edit menu",
+        "description": "Split line downwards, or create new line",
+        "keyCombination": "Shift - Enter"
+    }
+]
