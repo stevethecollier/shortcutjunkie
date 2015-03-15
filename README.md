@@ -1,6 +1,6 @@
 #ShortcutJunkie
 
-ShortcutJunkie is a MEAN app built off of the mean.js boilerplate. The stack is made up of the following pieces.
+ShortcutJunkie is a MEAN app built off of the MEAN.JS boilerplate. The stack is made up of the following pieces.
 * Node.js
 * Express.js
 * MongoDB
@@ -19,9 +19,9 @@ ShortcutJunkie is a MEAN app built off of the mean.js boilerplate. The stack is 
 * `public` – Public files for the application
     * `dist` – All the files that are actually delivered to the client side. These are compiled by the build system.
     * `lib` – Front-end dependencies are installed here by bower. They are read from here in in the development and test environments, but they are concatenated and minified into `dist` for production.
-* `uploads` – This was created by mean.js, and I'm not sure why. We'll probably get rid of it.
+* `uploads` – This was created by MEAN.JS, and I'm not sure why. We'll probably get rid of it.
 
-For more information about how the code is structured, you can refer to the [mean.js](http://meanjs.org/docs.html#folder-structure) docs. Unfortunately they are a little outdated since ShortcutJunkie is built off a newer version of the project, but they can give you a good idea of where you should look for certain functionality.
+For more information about how the code is structured, you can refer to the [MEAN.JS](http://meanjs.org/docs.html#folder-structure) docs. Unfortunately they are a little outdated since ShortcutJunkie is built off a newer version of the project, but they can give you a good idea of where you should look for certain functionality.
 
 #Contributing
 Contributions to ShortcutJunkie are welcome. To setup your local development environment, you'll need to do the following.
