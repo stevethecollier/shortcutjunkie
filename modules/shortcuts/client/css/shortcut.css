@@ -2,7 +2,12 @@
   padding-left: 10px; }
 
 .shortcutTable .favoriteBtn {
-  width: 3%; }
+  width: 3%;
+  text-align: center; }
+.shortcutTable .favoriteBtn .favoriteCount {
+  font-size: smaller;
+  margin-top: -5px;
+  color: #9d9d9d; }
 .shortcutTable .keyCombination {
   width: 47%; }
 .shortcutTable .description {
