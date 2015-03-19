@@ -136,12 +136,14 @@ angular.module('shortcuts').controller('ShortcutsController', ['$scope', '$state
 			if (!$scope.isFavorite(shortcut)) {
 				Favorites.save(shortcut, function(favorites) {
 					$scope.user.favorites = favorites;
+					shortcut.favorites_count += 1;
 				});
 			} else {
 				Favorites.remove({
 					id: shortcut._id
 				}, function(favorites) {
 					$scope.user.favorites = favorites;
+					shortcut.favorites_count -= 1;
 				});
 			}
 		};
