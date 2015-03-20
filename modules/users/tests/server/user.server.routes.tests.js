@@ -55,7 +55,8 @@ describe('User route tests:', function() {
                 operatingSystem: 'operatingSystem',
                 category: 'category',
                 created: Date.now(),
-                user: mongoose.Types.ObjectId(user._id)
+                user: mongoose.Types.ObjectId(user._id),
+                favoritesCount: 1
             });
             shortcut.save(function(error, shortcut) {
                 User.update(user, {
@@ -132,6 +133,55 @@ describe('User route tests:', function() {
 
                     done();
                 });
+        });
+
+        it('increments shortcut favorite count', function(done) {
+            var userId = user.id;
+
+            shortcut = new Shortcut({
+                keyCombination: 'test',
+                application: 'test',
+                description: 'test',
+                operatingSystem: 'test',
+                category: 'test',
+                created: Date.now(),
+                user: mongoose.Types.ObjectId(user._id)
+            });
+
+            shortcut.save(function(error, shortcut) {
+                agent.post('/api/users/favorites/')
+                    .expect(200)
+                    .send(shortcut)
+                    .end(function(error, res) {
+                        if (error) done(error);
+                        //Get the updated shortcut
+                        Shortcut.findById(shortcut._id, function(error, shortcut) {
+                            if(error) done(error);
+                            expect(shortcut.favoritesCount).to.equal(1);
+                            done();
+                        });
+                    }
+                );
+            });
+        });
+
+        it('decrements shortcut favorite count', function(done) {
+            var userId = user.id;
+            var favoritesCount = shortcut.favoritesCount;
+
+            agent.delete('/api/users/favorites/' + shortcut._id)
+                .expect(200)
+                .send(shortcut)
+                .end(function(error, res) {
+                    if (error) done(error);
+                    //Get the updated shortcut
+                    Shortcut.findById(shortcut._id, function(error, shortcut) {
+                        if(error) done(error);
+                        expect(shortcut.favoritesCount).to.equal(favoritesCount-1);
+                        done();
+                    });
+                }
+            );
         });
     });
 

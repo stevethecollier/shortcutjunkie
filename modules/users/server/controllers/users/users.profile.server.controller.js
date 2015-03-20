@@ -10,7 +10,8 @@ var _ = require('lodash'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	logger = require('tracer').console(),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	Shortcut = mongoose.model('Shortcut');
 
 
 
@@ -21,18 +22,21 @@ exports.addFavorite = function(req, res, next) {
 	var favorites = req.user.favorites;
 
 	var selection;
+	var count_change = 0;
 
 	if (req.method === 'POST') {
 		selection = req.body._id;
 		var isNotDuplicate = favorites.indexOf(selection) === -1;
 		if (isNotDuplicate) {
 			favorites.push(selection);
+			count_change++;
 		}
 	} else if (req.method === 'DELETE') {
 		selection = mongoose.Types.ObjectId(req.shortcutId);
 		_.remove(favorites, function(favorite) {
 			return _.isEqual(favorite, selection);
 		});
+		count_change--;
 	}
 
 	// Init Variables
@@ -48,7 +52,18 @@ exports.addFavorite = function(req, res, next) {
 			favorites: favorites
 		}, {}, function(err, num) {
 			if (err) logger.log(err);
-			else res.json(favorites);
+			else {
+				// Update the favorites count on the Shortcut
+				Shortcut.findByIdAndUpdate(
+					selection,
+					{ $inc: { favoritesCount: count_change } },
+					{},
+					function(err, shortcut) {
+						if (err) logger.log(err);
+						else { res.json(favorites); }
+					}
+				);
+			}
 		});
 	}
 };

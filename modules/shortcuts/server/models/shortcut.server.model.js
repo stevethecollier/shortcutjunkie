@@ -47,7 +47,12 @@ var ShortcutSchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	}
+	},
+	favoritesCount: {
+		type: Number,
+		default: 0,
+		min: [0, 'Cannot decrease below zero.']
+	},
 });
 
 mongoose.model('Shortcut', ShortcutSchema);
