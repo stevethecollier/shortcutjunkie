@@ -35,7 +35,7 @@
                         <tr data-ng-repeat="shortcut in shortcuts">
                             <td class="favoriteBtn">
                                 <span class="glyphicon" ng-class="{'glyphicon-star-empty':!hover && !isFavorite(shortcut), 'glyphicon-star':hover || isFavorite(shortcut)}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" aria-hidden="true" ng-click="toggleFavorite(shortcut)" tooltip="You need to be logged in to save shortcuts to your favorites!" tooltip-placement="right" tooltip-trigger="{{{true: 'mouseenter', false: 'never'}[!user]}}" ></span>
-                                <div class="favoriteCount" data-ng-bind="shortcut.favorites_count"></div>
+                                <div class="favoriteCount" data-ng-bind="shortcut.favoritesCount"></div>
                             </td>
                             <td ng-click="view(shortcut)" class="keyCombination">
                                 <div data-ng-bind="shortcut.keyCombination"></div>

@@ -56,7 +56,7 @@ exports.addFavorite = function(req, res, next) {
 				// Update the favorites count on the Shortcut
 				Shortcut.findByIdAndUpdate(
 					selection,
-					{ $inc: { favorites_count: count_change } },
+					{ $inc: { favoritesCount: count_change } },
 					{},
 					function(err, shortcut) {
 						if (err) logger.log(err);

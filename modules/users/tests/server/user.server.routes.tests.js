@@ -56,7 +56,7 @@ describe('User route tests:', function() {
                 category: 'category',
                 created: Date.now(),
                 user: mongoose.Types.ObjectId(user._id),
-                favorites_count: 1
+                favoritesCount: 1
             });
             shortcut.save(function(error, shortcut) {
                 User.update(user, {
@@ -157,7 +157,7 @@ describe('User route tests:', function() {
                         //Get the updated shortcut
                         Shortcut.findById(shortcut._id, function(error, shortcut) {
                             if(error) done(error);
-                            expect(shortcut.favorites_count).to.equal(1);
+                            expect(shortcut.favoritesCount).to.equal(1);
                             done();
                         });
                     }
@@ -167,7 +167,7 @@ describe('User route tests:', function() {
 
         it('decrements shortcut favorite count', function(done) {
             var userId = user.id;
-            var favorites_count = shortcut.favorites_count;
+            var favoritesCount = shortcut.favoritesCount;
 
             agent.delete('/api/users/favorites/' + shortcut._id)
                 .expect(200)
@@ -177,7 +177,7 @@ describe('User route tests:', function() {
                     //Get the updated shortcut
                     Shortcut.findById(shortcut._id, function(error, shortcut) {
                         if(error) done(error);
-                        expect(shortcut.favorites_count).to.equal(favorites_count-1);
+                        expect(shortcut.favoritesCount).to.equal(favoritesCount-1);
                         done();
                     });
                 }

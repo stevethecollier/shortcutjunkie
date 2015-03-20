@@ -48,7 +48,7 @@ var ShortcutSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
-	favorites_count: {
+	favoritesCount: {
 		type: Number,
 		default: 0,
 		min: [0, 'Cannot decrease below zero.']
