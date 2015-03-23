@@ -5,14 +5,21 @@
 }
 .shortcutTable {
     .favoriteBtn {
-        width: 3%
+        width: 5%;
+        .favoriteCount {
+            font-style: italic;
+            font-size: smaller;
+            text-align: center;
+            margin-top: -5px;
+            color: #9d9d9d;
+        }
     }
-    .keyCombination {
-        width: 47%
-    }
-    .description {
-        width: 50%
-    }
+}
+.keyCombination {
+    width: 45%;
+}
+.description {
+    width: 50%;
 }
 .list-group {
     border: 0 !important;
