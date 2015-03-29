@@ -198,29 +198,32 @@ gulp.task('prod', function(done) {
     runSequence('build', 'lint', ['nodemon', 'watch'], done);
 });
 
-gulp.task('bulk.upload', ['env:prod', 'mongoose'], function(done){
+gulp.task('bulk-upload', ['env:prod', 'mongoose'], function(done){
     var uploader = require('./modules/shortcuts/server/bulk.upload/uploader.js');
     uploader.uploadShortcuts(defaultAssets.server.shortcutsDir, done);
 });
 
 // Run the project in production mode
-gulp.task('favorites-migration', ['mongoose'], function(done) {
+gulp.task('migrate-favorites', ['mongoose'], function(done) {
     var mongoose = require('mongoose');
     var Shortcut = mongoose.model('Shortcut');
     var User = mongoose.model('User');
 
-    User.find({favorites: {$not: {$size: 0}}})
-        .populate('favorites')
-        .exec(function(err, users) {
-            users.forEach(function(user){
-                user.favorites.forEach(function(shortcut){
-                    console.log('Incrementing favorite count for shortcut: ' + shortcut._id);
-                    shortcut['favoritesCount'] += 1;
-                    shortcut.save();
-                });
-            });
+    User.find({
+        favorites: {
+            $not: {
+                $size: 0
+            }
+        }
+    }).populate("favorites").exec(function(err, users) {
+        users.forEach(function(user) {
+            user.favorites.forEach(function(shortcut) {
+                console.log("Incrementing favorite count for shortcut: " + shortcut._id);
+                shortcut["favoritesCount"] += 1;
+                shortcut.save()
+            })
         })
-        .then(function(){
-            process.exit();
-        });
+    }).then(function() {
+        process.exit()
+    });
 });
