@@ -2,15 +2,18 @@
   padding-left: 10px; }
 
 .shortcutTable .favoriteBtn {
-  width: 3%;
-  text-align: center; }
-.shortcutTable .favoriteBtn .favoriteCount {
-  font-size: smaller;
-  margin-top: -5px;
-  color: #9d9d9d; }
-.shortcutTable .keyCombination {
-  width: 47%; }
-.shortcutTable .description {
+  width: 5%; }
+  .shortcutTable .favoriteBtn .favoriteCount {
+    font-style: italic;
+    font-size: smaller;
+    text-align: center;
+    margin-top: -5px;
+    color: #9d9d9d; }
+
+.keyCombination {
+  width: 45%; }
+
+.description {
   width: 50%; }
 
 .list-group {
