@@ -39,5 +39,11 @@ module.exports = {
 				pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
 			}
 		}
+	},
+	elasticsearch : {
+		host: 'localhost:9200',
+		log: 'trace',
+		index: 'shortcutjunkie',
+		type: 'shortcuts'
 	}
 };

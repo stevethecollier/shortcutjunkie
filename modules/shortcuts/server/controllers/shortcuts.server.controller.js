@@ -7,7 +7,8 @@ var _ = require('lodash'),
 	path = require('path'),
 	mongoose = require('mongoose'),
 	Shortcut = mongoose.model('Shortcut'),
-	errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
+	errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
+	es = require('../../../../config/lib/elasticsearch');
 
 /**
  * Create a Shortcut
@@ -22,7 +23,19 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(shortcut);
+			console.log(es);
+			es.client.create({
+				index: es.index,
+				type: es.type,
+				id: shortcut._id,
+				body: shortcut
+			}, function(error, response){
+
+				console.log(error);
+				console.log(response);
+
+				res.jsonp(shortcut);
+			});
 		}
 	});
 };
